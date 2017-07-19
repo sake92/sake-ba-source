@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  padding-top: 75px;
+  font-size: 17px;
+  color: #fdf;
+  /*position: relative;*/
+}
+
+body, h1, h2, h3 {
+  /*font-family: 'Poppins', sans-serif;*/
+}
+
+.container-fluid {
+  padding-top: 70px;
+}
+
+.sekcija {
+  height: 300px;
+  text-align: center;
+}
+
+.sekcija:nth-of-type(even) {
+  background: #222222;
+}
+
+.sekcija div {
+  margin: 11px;
+}
+
+footer {  
+  padding: 28px;
+}

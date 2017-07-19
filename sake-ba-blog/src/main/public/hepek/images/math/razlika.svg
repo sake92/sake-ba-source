@@ -1,0 +1,15 @@
+<svg width="640" height="480" version="1.1" viewBox="0 0 169.33333 127" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -170)">
+  <g stroke="#000" stroke-miterlimit="6.8">
+   <rect y="170" width="169.33" height="127" fill="#f2f2f2" stroke-width=".265"/>
+   <rect x="14.552" y="185.87" width="140.23" height="95.25" fill="#fff" stroke-width=".55692"/>
+   <path d="m71.629 212.33a26.319 26.458 0 0 0 -26.319 26.458 26.319 26.458 0 0 0 26.319 26.458 26.319 26.458 0 0 0 13.223 -3.6194 26.319 26.458 0 0 1 -13.084 -22.839 26.319 26.458 0 0 1 13.096 -22.839 26.319 26.458 0 0 0 -13.235 -3.6189z" fill="#f00" stroke-width=".79375"/>
+  </g>
+  <g fill="#000000" font-family="sans-serif" letter-spacing="0px" stroke-width=".26458" word-spacing="0px">
+   <text x="69.083122" y="208.89377" font-size="12.7px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="69.083122" y="208.89377" font-family="sans-serif" font-size="12.7px" font-style="italic" stroke-width=".26458">A <tspan font-family="sans-serif" font-style="normal">\</tspan> B</tspan></text>
+   <text x="59.2052" y="231.86995" font-size="10.583px" style="line-height:1.25" xml:space="preserve"><tspan x="59.2052" y="231.86995" stroke-width=".26458">1</tspan></text>
+   <text x="59.502853" y="253.57996" font-size="10.583px" style="line-height:1.25" xml:space="preserve"><tspan x="59.502853" y="253.57996" stroke-width=".26458">4</tspan></text>
+   <text x="140.2646" y="184.36781" font-size="12.7px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="140.2646" y="184.36781" font-family="sans-serif" font-size="12.7px" font-style="italic" stroke-width=".26458">U</tspan></text>
+  </g>
+ </g>
+</svg>

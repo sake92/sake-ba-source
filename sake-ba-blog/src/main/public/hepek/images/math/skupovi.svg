@@ -1,0 +1,22 @@
+<svg width="640" height="480" version="1.1" viewBox="0 0 169.33333 127" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -170)">
+  <g stroke="#000">
+   <rect y="170" width="169.33" height="127" fill="#f2f2f2" stroke-miterlimit="6.8" stroke-width=".265"/>
+   <rect x="14.552" y="185.87" width="140.23" height="95.25" fill="#fff" stroke-miterlimit="6.8" stroke-width=".55692"/>
+   <ellipse cx="44.979" cy="238.65" rx="26.319" ry="26.458" fill="#80eeff" stroke-width=".26458"/>
+   <ellipse cx="124.35" cy="238.65" rx="26.319" ry="26.458" fill="#80eeff" stroke-width=".26458"/>
+  </g>
+  <g fill="#000000" font-family="sans-serif" letter-spacing="0px" stroke-width=".26458" word-spacing="0px">
+   <text x="54.590984" y="211.01041" font-size="12.7px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="54.590984" y="211.01041" font-family="sans-serif" font-size="12.7px" font-style="italic" stroke-width=".26458">A</tspan></text>
+   <text x="133.64818" y="211.01041" font-size="12.7px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="133.64818" y="211.01041" font-family="sans-serif" font-size="12.7px" font-style="italic" stroke-width=".26458">B</tspan></text>
+   <g font-size="10.583px">
+    <text x="34.185585" y="229.13672" style="line-height:1.25" xml:space="preserve"><tspan x="34.185585" y="229.13672" stroke-width=".26458">1</tspan></text>
+    <text x="55.5625" y="238.79166" style="line-height:1.25" xml:space="preserve"><tspan x="55.5625" y="238.79166" stroke-width=".26458">2</tspan></text>
+    <text x="33.011494" y="253.57996" style="line-height:1.25" xml:space="preserve"><tspan x="33.011494" y="253.57996" stroke-width=".26458">4</tspan></text>
+    <text x="108.68941" y="236.26868" style="line-height:1.25" xml:space="preserve"><tspan x="108.68941" y="236.26868" stroke-width=".26458">2</tspan></text>
+    <text x="134.09651" y="247.65756" style="line-height:1.25" xml:space="preserve"><tspan x="134.09651" y="247.65756" stroke-width=".26458">3</tspan></text>
+   </g>
+   <text x="140.2646" y="184.36781" font-size="12.7px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="140.2646" y="184.36781" font-family="sans-serif" font-size="12.7px" font-style="italic" stroke-width=".26458">U</tspan></text>
+  </g>
+ </g>
+</svg>

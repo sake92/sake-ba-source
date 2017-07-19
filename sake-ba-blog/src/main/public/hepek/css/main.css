@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  padding-top: 75px;
+  font-size: 17px;
+  color: #fdf;
+}
+
+body, h1, h2, h3 {
+  /*font-family: 'Poppins', sans-serif;*/
+}
+
+object[type="image/svg+xml"] {
+  max-height: 300px;
+  width: 100%;
+}

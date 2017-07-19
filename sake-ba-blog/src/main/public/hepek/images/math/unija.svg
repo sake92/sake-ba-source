@@ -1,0 +1,19 @@
+<svg width="6.4e2" height="4.8e2" version="1.1" viewBox="0 0 169.33333 127" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -1.7e2)">
+  <g stroke="#000">
+   <rect y="1.7e2" width="1.7e2" height="1.3e2" fill="#f2f2f2" stroke-miterlimit="6.8" stroke-width=".26"/>
+   <rect x="15" y="1.9e2" width="1.4e2" height="95" fill="#fff" stroke-miterlimit="6.8" stroke-width=".56"/>
+   <path transform="matrix(.26 0 0 .26 0 1.7e2)" d="m2.4e2 1.6e2a99 1e2 0 0 0 -99 1e2 99 1e2 0 0 0 99 1e2 99 1e2 0 0 0 80 -41 99 1e2 0 0 0 80 41 99 1e2 0 0 0 99 -1e2 99 1e2 0 0 0 -99 -1e2 99 1e2 0 0 0 -80 41 99 1e2 0 0 0 -80 -41z" fill="#f00" stroke-width="3"/>
+  </g>
+  <g fill="#000000" font-family="sans-serif" letter-spacing="0px" stroke-width=".26" word-spacing="0px">
+   <text x="66.723572" y="211.65843" font-size="13px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="66.723572" y="211.65843" font-family="sans-serif" font-size="13px" font-style="italic" stroke-width=".26">A <tspan font-family="sans-serif" font-style="normal">∪</tspan> B </tspan></text>
+   <g font-size="11px">
+    <text x="58.574455" y="224.51125" style="line-height:1.25" xml:space="preserve"><tspan x="58.574455" y="224.51125" stroke-width=".26">1</tspan></text>
+    <text x="81.633369" y="241.94539" style="line-height:1.25" xml:space="preserve"><tspan x="81.633369" y="241.94539" stroke-width=".26">2</tspan></text>
+    <text x="57.190117" y="252.52872" style="line-height:1.25" xml:space="preserve"><tspan x="57.190117" y="252.52872" stroke-width=".26">4</tspan></text>
+    <text x="115.59461" y="246.60632" style="line-height:1.25" xml:space="preserve"><tspan x="115.59461" y="246.60632" stroke-width=".26">3</tspan></text>
+   </g>
+   <text x="140.2646" y="184.36781" font-size="13px" font-style="italic" style="line-height:1.25" xml:space="preserve"><tspan x="140.2646" y="184.36781" font-family="sans-serif" font-size="13px" font-style="italic" stroke-width=".26">U</tspan></text>
+  </g>
+ </g>
+</svg>
