@@ -54,8 +54,8 @@ object HTMLUtils {
               a(data.toggle := "collapse", href := "#collapseSadrzaj")("Sadržaj")
             )
           ),
-          div(id := "collapseSadrzaj", cls := "panel-collapse collapse pages-tree")(
-            div(cls := "panel-body")(renderTOC(secs, depth))
+          div(id := "collapseSadrzaj", cls := "panel-collapse collapse")(
+            div(cls := "panel-body pages-tree")(renderTOC(secs, depth))
           )
         )
       ),

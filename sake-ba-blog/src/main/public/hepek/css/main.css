@@ -15,6 +15,6 @@ object[type="image/svg+xml"] {
   list-style: none;
 }
 
-.pages-tree > div > ul > li > a {
+.pages-tree > ul > li > a {
   font-weight: bold;
 }
