@@ -13,6 +13,9 @@ object TeorijaSkupova extends MatematikaTemplate {
   /* PAGE SETTINGS */
   override def pageTitle = "Teorija skupova"
   override def pageLabel = "Teorija skupova"
+  override def pageDescription = Option(
+    "Kratak uvod u teoriju skupova. Unija, presjek, razlika, De Morgan."
+  )
 
   override def dateCreated = LocalDate.of(2017, 6, 11)
 

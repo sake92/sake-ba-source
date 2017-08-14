@@ -1,4 +1,4 @@
-package hepek.posts.programiranje
+package hepek.posts.programiranje.java
 
 import java.time.LocalDate
 
@@ -12,6 +12,9 @@ object Java extends ProgramiranjeTemplate {
 
   /* PAGE SETTINGS */
   override def pageTitle = "Uvod u Javu"
+  override def pageDescription = Option(
+    "Uvod u Java programski jezik."
+  )
 
   override def dateCreated = LocalDate.now()
 

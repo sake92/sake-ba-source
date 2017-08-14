@@ -3,6 +3,7 @@ package hepek.templates
 import scalatags.Text.all._
 
 import hepek.images.Image
+import hepek.Site
 
 trait SakeBaBlogPage extends Page {
 
@@ -14,11 +15,7 @@ trait SakeBaBlogPage extends Page {
   override def siteFaviconNormal = Image.favicon
   override def siteFaviconInverted = Image.faviconWhite
 
-  override def mainPages = Seq(
-    hepek.posts.matematika.Index,
-    hepek.posts.programiranje.Index,
-    hepek.posts.programiranje.scala.Index
-  )
+  override def mainPages = Site.mainPages
 
   // maybe we'll override it someday
   override def pageBody = pageContent

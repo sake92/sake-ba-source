@@ -12,12 +12,16 @@ case class Section(
     children: Seq[Section] = Seq.empty
 ) {
 
-  /* remove apostrophes, replace spaces with dashes, lowercase */
+  val UnsafeCharsRegex = """[& +$,:;=?@"#{}|^~\[`%!'\]./()*\\]""" // REGEX !
+
+  /* @see urlify in anchorjs.js */
   def id: String = {
-    val trimmedLowerCase = name.trim.toLowerCase
-    val validId = trimmedLowerCase.filter { c =>
-      c.isLetterOrDigit || c == '-' || c == '_'
-    }
-    validId
+    val trimmedLower = name.trim.toLowerCase.filterNot(_ == ''')
+    // replace all unsafe chars with a dash
+    val replacedWithDash = trimmedLower.replaceAll(UnsafeCharsRegex, "-")
+    // remove all dashes at left and right
+    val removedTrailingDashes = replacedWithDash.dropWhile(_ == '-').reverse.dropWhile(_ == '-').reverse
+    // remove 1+ dashes with just one
+    removedTrailingDashes.replaceAll("-+", "-")
   }
 }

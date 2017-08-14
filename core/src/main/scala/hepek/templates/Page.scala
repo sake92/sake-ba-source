@@ -25,6 +25,9 @@ trait Page extends ClassRelativePath
 
   def additionalJS: Seq[Modifier] = Seq()
 
+  /** Koristi se za <meta description> bcoz google search */
+  def pageDescription: Option[String] = None
+
   // a VERY handy util method for referring from one page to another
   def relTo(other: RelativePath): String = {
     this.relPath.toPath.getParent.relativize(other.relPath.toPath).toString.replaceAll("""\\""", "/")
@@ -48,6 +51,7 @@ trait Page extends ClassRelativePath
         head(
           meta(charset := "utf-8"),
           meta(name := "viewport", content := "width=device-width, initial-scale=1"),
+          pageDescription.map(d => meta(name := "description", content := d)),
           link(rel := "shortcut icon", href := relTo(siteFaviconNormal), tpe := "image/x-icon"),
           tag("title")(pageTitle + " - " + siteName),
           // CSS

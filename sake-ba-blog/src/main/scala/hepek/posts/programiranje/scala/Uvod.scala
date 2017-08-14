@@ -12,6 +12,9 @@ object Uvod extends ScalaTemplate {
   /* PAGE SETTINGS */
   override def pageTitle = "Uvod u Scalu"
   override def pageLabel = "Uvod"
+  override def pageDescription = Option(
+    "Uvod u Scala programski jezik."
+  )
 
   override def dateCreated = LocalDate.now()
 

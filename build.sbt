@@ -33,6 +33,7 @@ lazy val commonSiteSettings = Seq(
   //logLevel in hepek := Level.Debug
 ) ++ commonSettings
 
+
 /* PROJECTS-MODULES */
 lazy val core = (project in file("core"))
   .settings(

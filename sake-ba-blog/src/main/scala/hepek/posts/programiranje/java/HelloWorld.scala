@@ -1,4 +1,4 @@
-package hepek.posts.programiranje
+package hepek.posts.programiranje.java
 
 import java.time.LocalDate
 
@@ -11,6 +11,9 @@ object HelloWorld extends ProgramiranjeTemplate {
 
   /* PAGE SETTINGS */
   override def pageTitle = "Hello world!"
+  override def pageDescription = Option(
+    "Hello world program u Javi."
+  )
 
   override def dateCreated = LocalDate.now()
 

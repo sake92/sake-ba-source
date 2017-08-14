@@ -1,4 +1,4 @@
-package hepek.posts.programiranje
+package hepek.posts.programiranje.java
 
 import hepek.templates._
 

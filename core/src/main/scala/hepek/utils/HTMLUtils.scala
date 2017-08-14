@@ -6,7 +6,7 @@ import hepek.templates.Section
 
 object HTMLUtils {
 
-  /* custom tags */
+  ///////////// custom tags
   private val section = tag("section")
 
   def rowDiv(cont: Frag*): Frag =
@@ -24,6 +24,7 @@ object HTMLUtils {
     a(href := hreff, optParams)(cont)
   }
 
+  ///////////////// PAGE SECTIONS, Table Of Contents, sadržaj :D
   /** This method renders the sections properly. */
   private def renderSections(secs: Seq[Section], depth: Int = 1): Seq[Frag] = {
     secs.flatMap { s =>
@@ -53,7 +54,7 @@ object HTMLUtils {
               a(data.toggle := "collapse", href := "#collapseSadrzaj")("Sadržaj")
             )
           ),
-          div(id := "collapseSadrzaj", cls := "panel-collapse collapse")(
+          div(id := "collapseSadrzaj", cls := "panel-collapse collapse pages-tree")(
             div(cls := "panel-body")(renderTOC(secs, depth))
           )
         )
@@ -61,7 +62,7 @@ object HTMLUtils {
       div(renderSections(secs, depth))
     )
 
-  /* IMAGE RENDERING */
+  ///////////////////////// IMAGE RENDERING
   /** Renders a pretty bootstrapy image with optional caption text */
   def image(source: String, captionn: String = "") =
     div(cls := "thumbnail")(
@@ -82,7 +83,7 @@ object HTMLUtils {
       }
     )
 
-  /* CODE RENDERING */
+  ///////////////////// CODE RENDERING
   def scalaSnippet(body: String) = codeSnippet("scala")(body)
   def javaSnippet(body: String) = codeSnippet("java")(body)
   def shellSnippet(body: String) = codeSnippet("powershell")(body)

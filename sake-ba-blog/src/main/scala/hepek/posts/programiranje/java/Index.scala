@@ -1,4 +1,4 @@
-package hepek.posts.programiranje
+package hepek.posts.programiranje.java
 
 import java.time.LocalDate
 
@@ -13,6 +13,7 @@ object Index extends ProgramiranjeTemplate {
   /* PAGE SETTINGS */
   override def pageTitle = "Uvod u programiranje"
   override def pageLabel = "Početna"
+  override def pageDescription = Option("Uvod u programiranje.")
 
   override def dateCreated = LocalDate.of(2017, 7, 1)
 

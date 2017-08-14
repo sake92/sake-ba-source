@@ -27,12 +27,7 @@ trait SakeBaPage extends Page {
   }
 
   override def pageBody = frag(
-    div(pageContent),
-    footer(cls := "text-center")(
-      p("Hvala na Bootstrap 'Cyborg' temi: ")(
-        aHref("http://thomaspark.co/")("Thomas Park")
-      )
-    )
+    div(pageContent)
   )
 
 }

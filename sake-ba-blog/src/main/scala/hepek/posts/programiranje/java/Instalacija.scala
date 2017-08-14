@@ -1,4 +1,4 @@
-package hepek.posts.programiranje
+package hepek.posts.programiranje.java
 
 import java.time.LocalDate
 
@@ -12,6 +12,9 @@ object Instalacija extends ProgramiranjeTemplate {
 
   /* PAGE SETTINGS */
   override def pageTitle = "Instalacija"
+  override def pageDescription = Option(
+    "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
+  )
 
   override def dateCreated = LocalDate.of(2017, 7, 2)
 
