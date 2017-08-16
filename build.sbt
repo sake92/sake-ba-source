@@ -3,10 +3,11 @@ import scalariform.formatter.preferences._
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
+scalaVersion in ThisBuild := "2.11.8"
+
 lazy val commonSettings = Seq(
   organization := "ba.sake",
   version := "0.0.0-SNAPSHOT",
-  scalaVersion := "2.11.8",
   libraryDependencies ++= Seq(
     "com.lihaoyi" %% "scalatags" % "0.6.3"
   ),

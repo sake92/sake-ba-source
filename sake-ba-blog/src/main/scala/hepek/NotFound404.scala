@@ -16,7 +16,7 @@ object NotFound extends SakeBaBlogPage {
    * it doesn't work well when you land on a page e.g. sake.ba/balah/sdfd/fdf/dsf/s
    */
   override def relTo(other: RelativePath) =
-    "https://blog.sake.ba/" + super.relTo(other)
+    Site.url + "/" + super.relTo(other)
 
   override def pageContent = div(cls := "text-center")(
     p(raw("""Resurs '<!--#echo var="REQUEST_URI" -->' ne postoji!""")),

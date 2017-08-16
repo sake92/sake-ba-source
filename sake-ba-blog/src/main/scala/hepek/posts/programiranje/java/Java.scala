@@ -45,7 +45,7 @@ object Java extends ProgramiranjeTemplate {
       li("nezavisna od arhitekture"),
       li("portabilna"),
       li("visokih performansi"),
-      li("robustna (otporan na greške)"),
+      li("robustna (otporna na greške)"),
       li("bezbjedna")
     ),
     div(cls := "row")(

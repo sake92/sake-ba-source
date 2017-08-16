@@ -9,13 +9,14 @@ import ba.sake.hepek.core.RelativePath
 
 import hepek.lib.WebJars
 import hepek.utils.HTMLUtils
+import hepek.Site
 
 trait BlogPost extends SakeBaBlogPage {
 
   def sections: Seq[Section]
 
   /** Every page will have a sidebar of pages rendered */
-  def pages: Seq[PageSettings with RelativePath]
+  def pages: Seq[BlogPost]
 
   def author: String
 
@@ -27,7 +28,7 @@ trait BlogPost extends SakeBaBlogPage {
   override def additionalCSS = Seq(link(rel := "stylesheet", href := relTo(WebJars.css.prismjs)))
 
   // DISQUS COMMENTS STUFF
-  val PAGE_URL = "http://blog.sake.ba/" + hepek.Index.relTo(this).toString.replaceAll("""\\""", "/")
+  val PAGE_URL = Site.url + "/" + hepek.Index.relTo(this).toString.replaceAll("""\\""", "/")
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
 
   override def additionalJS = Seq(
