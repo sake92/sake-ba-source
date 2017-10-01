@@ -12,6 +12,7 @@ project/boot/
 project/plugins/project/
 project/project/
 target/
+bin/
 
 # Scala-IDE specific
 .scala_dependencies
@@ -22,4 +23,8 @@ target/
 .project
 .settings/
 
-bin/
+# Ensime
+.ensime
+.ensime_cache/
+
+

@@ -3,7 +3,7 @@ import scalariform.formatter.preferences._
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
-scalaVersion in ThisBuild := "2.11.8"
+scalaVersion in ThisBuild := "2.12.3"
 
 lazy val commonSettings = Seq(
   organization := "ba.sake",
@@ -38,11 +38,9 @@ lazy val commonSiteSettings = Seq(
 /* PROJECTS-MODULES */
 lazy val core = (project in file("core"))
   .settings(
-    commonSettings,
-    libraryDependencies ++= Seq(
-      "ba.sake" % "hepek-core" % "0.0.1"
-    )
+    commonSettings
   )
+  .enablePlugins(HepekPlugin)
 
 lazy val sakeBa = (project in file("sake-ba"))
   .settings(
