@@ -5,13 +5,20 @@ package hepek.templates
  */
 trait PageSettings {
 
-  /** Used in "title" && "h1" */
+  /**
+   * @return Title of the page. Used in "title" and "h1".
+   */
   def pageTitle: String
 
-  /** Used in "a" links */
+  /**
+   * @return Label for links.
+   */
   def pageLabel: String = pageTitle
 
-  /** Used for grouping pages. E.g. a link label in navbar for each category.. */
+  /**
+   * Used for grouping pages. E.g. a link label in navbar for each category.
+   * @return Category of the page.
+   */
   def pageCategory: Option[String] = None
 
 }

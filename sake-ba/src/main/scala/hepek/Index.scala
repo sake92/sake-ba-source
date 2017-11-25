@@ -4,11 +4,10 @@ import scalatags.Text.all._
 
 import hepek.templates.SakeBaPage
 import hepek.templates.Section
-import hepek.utils.HTMLUtils._
+import hepek.utils.html.HTMLUtils._
 
-/* Ovaj objekat sadrži SEKCIJE na index.html stranici.
- * Radzdvojen je jer se koristi i u samom Page templejtu.
- * U protivnom postoji problem inicijalizacije.
+/* This object contains SECTIONS of the index.html page.
+ * Splitted here bcoz initialization problem
  * */
 object Sections {
 
@@ -26,7 +25,7 @@ object Sections {
       div(
         raw(
           """<a href="https://twitter.com/sake_92" class="twitter-follow-button" data-show-count="false">@sake_92</a>""" +
-            """<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>"""
+            """<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>"""
         )
       ),
       div(
@@ -72,7 +71,7 @@ object Index extends SakeBaPage {
 
   // @see https://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp
   override def pageContent = frag {
-    Sections.sections map { section =>
+    Sections.sections.map { section =>
       div(id := section.id, cls := "container-fluid sekcija")(
         h1(section.name),
         p(section.content)

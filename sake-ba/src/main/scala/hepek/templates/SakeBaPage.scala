@@ -5,8 +5,7 @@ import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 
 import hepek.Index
-import hepek.images.Image
-import hepek.utils.HTMLUtils.aHref
+import hepek.Resources.images
 
 trait SakeBaPage extends Page {
 
@@ -15,8 +14,8 @@ trait SakeBaPage extends Page {
   /* SITE SETTINGS */
   override def siteName = "sake.ba"
   override def siteIndexPage = Index
-  override def siteFaviconNormal = Image.favicon
-  override def siteFaviconInverted = Image.faviconWhite
+  override def siteFaviconNormal = images.ico("favicon")
+  override def siteFaviconInverted = images.ico("favicon-white")
 
   // this is an ugly hack indeed
   override def mainPages = hepek.Sections.sections.map { s =>

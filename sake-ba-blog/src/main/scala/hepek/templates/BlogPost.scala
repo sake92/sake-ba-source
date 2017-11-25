@@ -8,32 +8,30 @@ import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 
 import hepek.lib.WebJars
-import hepek.utils.HTMLUtils
+import hepek.utils.html.SectionUtils
 import hepek.Site
 
 trait BlogPost extends SakeBaBlogPage {
 
   def sections: Seq[Section]
 
-  /** Every page will have a sidebar of pages rendered */
+  /** Every post has a sidebar of related pages */
   def pages: Seq[BlogPost]
 
   def author: String
 
-  def dateCreated: LocalDate
-
-  val dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+  def dateCreated: LocalDate = LocalDate.now()
 
   // I want highlighter only on tutorial pages
-  override def additionalCSS = Seq(link(rel := "stylesheet", href := relTo(WebJars.css.prismjs)))
+  override def additionalCSS = Seq(link(rel := "stylesheet", href := relTo(WebJars.CSS.prismjs)))
 
   // DISQUS COMMENTS STUFF
   val PAGE_URL = Site.url + "/" + hepek.Index.relTo(this).toString.replaceAll("""\\""", "/")
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
 
   override def additionalJS = Seq(
-    script(src := relTo(WebJars.js.prismjs)),
-    WebJars.js.prismjsLangs.map(lang => script(src := relTo(lang))),
+    script(src := relTo(WebJars.JS.prismjs)),
+    WebJars.JS.prismjsLangs.map(lang => script(src := relTo(lang))),
 
     //DISQUS_SCRIPT
     script(s"""
@@ -57,14 +55,16 @@ trait BlogPost extends SakeBaBlogPage {
       activeClass = if (p.relPath == this.relPath) "active" else ""
     } yield li(cls := activeClass, a(href := relTo(p))(p.pageLabel))
 
-    ul(cls := "nav nav-pills nav-stacked")( // TODO maybe anchor this on side?
+    ul(cls := "nav nav-pills nav-stacked")(
       pageLiTags
     )
   }
 
+  private val dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+
   override def pageContent = frag(
     div(cls := "row")(
-      div(cls := "page-header text-center")( // center title
+      div(cls := "page-header text-center")(
         h1(this.pageTitle)
       )
     ),
@@ -78,7 +78,7 @@ trait BlogPost extends SakeBaBlogPage {
           span(cls := "glyphicon glyphicon-user"), " Autor: " + author // author
         ),
         tag("article")(
-          HTMLUtils.renderTOCAndSections(sections) // start from h2
+          SectionUtils.renderTOCAndSections(sections) // start from h2
         ),
         div(id := "disqus_thread")
       )

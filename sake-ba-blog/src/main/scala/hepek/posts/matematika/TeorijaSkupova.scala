@@ -4,9 +4,9 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
-import hepek.images._
 import hepek.templates._
-import hepek.utils.HTMLUtils._
+import hepek.utils.html.ImageUtils._
+import hepek.images.Images
 
 object TeorijaSkupova extends MatematikaTemplate {
 
@@ -135,7 +135,7 @@ object TeorijaSkupova extends MatematikaTemplate {
         )
       ),
       div(cls := "col-md-5")( // desno slika
-        svg(relTo(Image.math.skup), "Vennov dijagram")
+        svg(relTo(Images.math.skup), "Vennov dijagram")
       )
     )
 
@@ -159,7 +159,7 @@ object TeorijaSkupova extends MatematikaTemplate {
         )
       ),
       div(cls := "col-md-5")( // desno slika
-        svg(relTo(Image.math.unija), "Unija skupova")
+        svg(relTo(Images.math.unija), "Unija skupova")
       )
     )
 
@@ -183,7 +183,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           )
         ),
         div(cls := "col-md-5")( // desno slika
-          svg(relTo(Image.math.presjek), "Presjek skupova")
+          svg(relTo(Images.math.presjek), "Presjek skupova")
         )
       ),
       blockquote(
@@ -212,7 +212,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           )
         ),
         div(cls := "col-md-5")( // desno slika
-          svg(relTo(Image.math.razlika), "Razlika skupova")
+          svg(relTo(Images.math.razlika), "Razlika skupova")
         )
       ),
       p(

@@ -6,14 +6,14 @@ trait Navbar { self: Page =>
 
   /* Misc tags, not defined in scalatags */
   private val nav = tag("nav")
-  private val btn = tag("btn")(tpe := "button", cls := "btn ")
+  private val btn = tag("button")(tpe := "button", cls := "btn")
 
   private val categoryLiTags = for {
     page <- mainPages
     klasa = if (page.pageCategory == this.pageCategory) "active" else ""
-    labela = page.pageCategory.getOrElse(page.pageLabel)
+    labell = page.pageCategory.getOrElse(page.pageLabel)
   } yield li(cls := klasa)(
-    a(href := relTo(page))(labela)
+    a(href := relTo(page))(labell)
   )
 
   def navbar =
@@ -22,7 +22,7 @@ trait Navbar { self: Page =>
         // Brand and toggle get grouped for better mobile display
         div(cls := "navbar-header")(
           btn(
-            cls := "navbar-toggle collapsed",
+            cls := " navbar-toggle collapsed",
             data.toggle := "collapse", data.target := "#main-navbar"
           )(
               span(cls := "sr-only")("Toggle navigation"),

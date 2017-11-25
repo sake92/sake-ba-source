@@ -3,7 +3,7 @@ package hepek.templates
 import scalatags.Text.all.Frag
 
 /**
- * Used for sectioning a page (usually blog post).
+ * Used for sectioning a page (usually blog post). <br>
  * Also useful for generating a TOC (Table Of Contents).
  */
 case class Section(
@@ -12,7 +12,7 @@ case class Section(
     children: Seq[Section] = Seq.empty
 ) {
 
-  val UnsafeCharsRegex = """[& +$,:;=?@"#{}|^~\[`%!'\]./()*\\]""" // REGEX !
+  import Section._
 
   /* @see urlify in anchorjs.js */
   def id: String = {
@@ -24,4 +24,8 @@ case class Section(
     // remove 1+ dashes with just one
     removedTrailingDashes.replaceAll("-+", "-")
   }
+}
+
+object Section {
+  private val UnsafeCharsRegex = """[& +$,:;=?@"#{}|^~\[`%!'\]./()*\\]""" // REGEX !
 }

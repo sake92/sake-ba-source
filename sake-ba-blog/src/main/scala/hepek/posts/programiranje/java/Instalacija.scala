@@ -4,9 +4,9 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
-import hepek.images.Image
+import hepek.utils.html.HTMLUtils._
 import hepek.templates.Section
-import hepek.utils.HTMLUtils._
+import hepek.images.Images
 
 object Instalacija extends ProgramiranjeTemplate {
 
@@ -23,7 +23,7 @@ object Instalacija extends ProgramiranjeTemplate {
     div(
       p(
         "Kliknite na ", aHref("http://www.oracle.com/technetwork/java/javase/downloads/index.html", true)("ovaj link"), ".",
-        image(relTo(Image.java.downloadJDK1), "JDK download step 1"),
+        image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
         "Kada se otvori stranica sa prethodne slike kliknite na dugme ", b("download JDK"), ".", br,
         blockquote(
           "JDK (Java Development Kit) su alati za razvijanje Java programa: kompajler, debager itd.", br,
@@ -33,7 +33,7 @@ object Instalacija extends ProgramiranjeTemplate {
       p(
         """Na sljedećoj slici kliknite na "jdk-8u131-windows-x64.exe".
              To je instalacija za 64-bitni Windows. Ako znate da imate 32-bitni Windows onda skinite tu verziju... """,
-        image(relTo(Image.java.downloadJDK2), "JDK download step 2")
+        image(relTo(Images.java.downloadJDK2), "JDK download step 2")
       ),
       p(
         """Preporučujem da Javu instalirate u folder pod nazivom "C:\Java". """, br,
@@ -47,10 +47,10 @@ object Instalacija extends ProgramiranjeTemplate {
       ),
       p(
         "Kada se završi download, otvorite instalaciju i kliknite Next.", br,
-        image(relTo(Image.java.installJDKFolder), "JDK folder"),
+        image(relTo(Images.java.installJDKFolder), "JDK folder"),
         """Zatim kliknite dugme "Change..." i prepravite putanju foldera na "C:\Java\jdk1.8.0_131\". """, br,
         "JRE će već biti instaliran zajedno sa JDK! Tako da nam ne treba još jedna instalacija...",
-        image(relTo(Image.java.installJRENope), "JRE, nope!")
+        image(relTo(Images.java.installJRENope), "JRE, nope!")
       )
     )
 
@@ -58,9 +58,9 @@ object Instalacija extends ProgramiranjeTemplate {
     p(
       "Dio koji slijedi specifičan je više za sam rad operativnog sistema (Windows u našem slučaju), nego za Javu.", br,
       "Otvorite Computer Properties na Windowsu (desni klik na My Computer -> Properties). Otvoriće vam se sljedeći prozor:",
-      image(relTo(Image.os.winCompProps), "Computer Properties"),
+      image(relTo(Images.os.winCompProps), "Computer Properties"),
       "Kliknite na Advanced System Settings. Dobićete sljedeći prozor: ",
-      image(relTo(Image.os.winSysProps), "System Properties")
+      image(relTo(Images.os.winSysProps), "System Properties")
     ),
     p(
       "Dodajte 3 sistemske varijable u donji prozor (u System Variables):",
@@ -73,7 +73,7 @@ object Instalacija extends ProgramiranjeTemplate {
       """Na kraju, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj. Bez navodnika, naravno! Kliknite Ok, Ok...""", br,
       "To je to! Uspješno ste instalirali Javu! :)", br,
       "Stanje bi trebalo biti otprilike ovako:",
-      image(relTo(Image.os.winSysVars), "System Properties")
+      image(relTo(Images.os.winSysVars), "System Properties")
     )
   )
 
@@ -87,7 +87,7 @@ object Instalacija extends ProgramiranjeTemplate {
     aHref(relTo(this) + "#" + dodavanjePATHSection.id, false)(dodavanjePATHSection.name),
     " ponovo!", br,
     "Ako dobijete nešto slično sljedećoj slici, sve je OK:",
-    image(relTo(Image.os.winJavaVer), "Java verzija")
+    image(relTo(Images.os.winJavaVer), "Java verzija")
   )
 
   val uvodSection = Section("Instalacija Jave", uvodSectionContent)

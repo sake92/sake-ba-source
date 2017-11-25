@@ -5,12 +5,10 @@ import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 import ba.sake.hepek.core.Renderable
 
-import hepek.css.CSSResource
-import hepek.js.JSResource
-import hepek.lib.WebJarResource
-import hepek.utils.ClassRelativePath
+import hepek.utils.path.ClassPackageRelativePath
+import hepek.Resources._
 
-trait Page extends ClassRelativePath
+trait Page extends ClassPackageRelativePath
   with SiteSettings
   with PageSettings
   with Navbar
@@ -28,29 +26,46 @@ trait Page extends ClassRelativePath
   /** Koristi se za <meta description> bcoz google search */
   def pageDescription: Option[String] = None
 
-  // a VERY handy util method for referring from one page to another
+  /**
+   * @param other Resource to which path should be calculated
+   * @return Relative path from this page to `other`
+   */
   def relTo(other: RelativePath): String = {
-    this.relPath.toPath.getParent.relativize(other.relPath.toPath).toString.replaceAll("""\\""", "/")
+    val relP = this.relPath.toPath.getParent.relativize(other.relPath.toPath)
+    relP.toString.replaceAll("""\\""", "/") // change '\' to '/'
   }
 
-  // CONSTS
+  // jQuery
+  private val jQueryJS = lib.jsMin("jquery/jquery")
+  // Bootstrap
   private val BOOTSTRAP_THEME = "bootswatch-cyborg"
-  // CSS core
-  private val bootstrapCSS = WebJarResource.cssMin(s"${BOOTSTRAP_THEME}/css/bootstrap")
-  private val mainCSS = CSSResource("main")
-  // JS core
-  private val jQueryJS = WebJarResource.jsMin("jquery/jquery")
-  private val bootstrapJS = WebJarResource.jsMin(s"${BOOTSTRAP_THEME}/js/bootstrap")
-  private val anchorJS = WebJarResource.jsMin("anchorjs/anchor")
-  private val mainJS = JSResource("main")
+  private val bootstrapCSS = lib.cssMin(s"${BOOTSTRAP_THEME}/css/bootstrap")
+  private val bootstrapJS = lib.jsMin(s"${BOOTSTRAP_THEME}/js/bootstrap")
+  // AnchorJS
+  private val anchorJS = lib.jsMin("anchorjs/anchor")
+  // custom
+  private val mainCSS = styles.css("main")
+  private val mainJS = scripts.js("main")
 
   override def render: String = {
     "<!DOCTYPE html>" +
       html(
         lang := "bs",
         head(
+          raw("""
+              <!-- Global Site Tag (gtag.js) - Google Analytics -->
+              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
+              <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+              
+                gtag('config', 'UA-93179008-1');
+              </script>
+          """),
           meta(charset := "utf-8"),
           meta(name := "viewport", content := "width=device-width, initial-scale=1"),
+          meta(attr("http-equiv") := "X-UA-Compatible", content := "ie=edge"),
           pageDescription.map(d => meta(name := "description", content := d)),
           link(rel := "shortcut icon", href := relTo(siteFaviconNormal), tpe := "image/x-icon"),
           tag("title")(pageTitle + " - " + siteName),

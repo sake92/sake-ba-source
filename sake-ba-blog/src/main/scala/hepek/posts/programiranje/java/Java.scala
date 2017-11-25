@@ -4,9 +4,9 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
-import hepek.images.Image
+import hepek.utils.html.HTMLUtils._
 import hepek.templates.Section
-import hepek.utils.HTMLUtils._
+import hepek.images.Images
 
 object Java extends ProgramiranjeTemplate {
 
@@ -60,7 +60,7 @@ object Java extends ProgramiranjeTemplate {
         )
       ),
       div(cls := "col-md-5")( // desno slika
-        image(relTo(Image.java.compiler), "Razvijanje i izvršavanje Java programa")
+        image(relTo(Images.java.compiler), "Razvijanje i izvršavanje Java programa")
       )
     ),
     div(cls := "row")(
@@ -73,7 +73,7 @@ object Java extends ProgramiranjeTemplate {
         )
       ),
       div(cls := "col-md-5")( // desno slika
-        image(relTo(Image.java.portability), "Portabilnost Java programa")
+        image(relTo(Images.java.portability), "Portabilnost Java programa")
       )
     )
   )
@@ -89,7 +89,7 @@ object Java extends ProgramiranjeTemplate {
         )
       ),
       div(cls := "col-md-5")(
-        image(relTo(Image.java.platform), "Razvijanje i izvršavanje Java programa")
+        image(relTo(Images.java.platform), "Razvijanje i izvršavanje Java programa")
       )
     ),
     p(

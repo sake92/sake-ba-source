@@ -5,7 +5,7 @@ import java.time.LocalDate
 import scalatags.Text.all._
 
 import hepek.templates.Section
-import hepek.utils.HTMLUtils._
+import hepek.utils.html.ImageUtils._
 
 object Index extends MatematikaTemplate {
 

@@ -1,9 +1,9 @@
 package hepek.templates
 
-import scalatags.Text.all._
+import scalatags.Text.all.Frag
 
-import hepek.images.Image
 import hepek.Site
+import hepek.images.Images
 
 trait SakeBaBlogPage extends Page {
 
@@ -12,8 +12,8 @@ trait SakeBaBlogPage extends Page {
   /* SITE SETTINGS */
   override def siteName = "blog.sake.ba"
   override def siteIndexPage = hepek.Index
-  override def siteFaviconNormal = Image.favicon
-  override def siteFaviconInverted = Image.faviconWhite
+  override def siteFaviconNormal = Images.favicon
+  override def siteFaviconInverted = Images.faviconWhite
 
   override def mainPages = Site.mainPages
 

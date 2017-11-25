@@ -4,9 +4,9 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
-import hepek.images.Image
 import hepek.templates.Section
-import hepek.utils.HTMLUtils._
+import hepek.utils.html.HTMLUtils._
+import hepek.images.Images
 
 object Index extends ProgramiranjeTemplate {
 
@@ -52,7 +52,7 @@ object Index extends ProgramiranjeTemplate {
           "Proces u kojem tražimo greške i ispravljamo ih naziva se debagovanje."
         )
       ),
-      rightDiv(image(relTo(Image.programming.error), "To je to."))
+      rightDiv(image(relTo(Images.programming.error), "To je to."))
     )
   )
 
