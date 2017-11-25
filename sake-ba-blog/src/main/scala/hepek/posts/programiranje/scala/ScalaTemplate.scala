@@ -10,6 +10,4 @@ trait ScalaTemplate extends BlogPost {
 
   override def pageCategory = Option("Scala")
 
-  override def author = "Sakib Hadžiavdić"
-
 }

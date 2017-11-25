@@ -16,7 +16,7 @@ object Uvod extends ScalaTemplate {
     "Uvod u Scala programski jezik."
   )
 
-  override def dateCreated = LocalDate.now()
+  //override def dateCreated = LocalDate.now()
 
   val uvodSectionContent = div(
     "Scala ima dvije vrste varijabli, var i val:",

@@ -1,4 +1,4 @@
 package hepek.scripts
 
-object JS {
+object Scripts {
 }

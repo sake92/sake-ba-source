@@ -5,7 +5,7 @@ import java.time.LocalDate
 import scalatags.Text.all._
 
 import hepek.templates._
-import hepek.utils.html.ImageUtils._
+import hepek.utils.html.HTMLUtils._
 import hepek.images.Images
 
 object TeorijaSkupova extends MatematikaTemplate {
@@ -120,8 +120,8 @@ object TeorijaSkupova extends MatematikaTemplate {
 
   // OPERACIJE: unija, presjek, komplement...
   val operacijeSectionContent =
-    div(cls := "row")(
-      div(cls := "col-md-7")(
+    rowDiv(
+      leftDiv(
         p(
           "Pošto element skupa može biti bilo šta, obično se ograničavamo samo na određeni tip stvari tj. na neki skup. ", br,
           "Npr. kada govorimo o cijelim brojevima ne zanimaju nas imaginarni brojevi, jabuke i auta... ", br,
@@ -134,14 +134,14 @@ object TeorijaSkupova extends MatematikaTemplate {
           "Univerzum (`U`) je pravougaonik koji obuhvata ova dva skupa. Recimo da je to skup `NN`. To je igralište iz kojeg ne smijemo izlaziti. "
         )
       ),
-      div(cls := "col-md-5")( // desno slika
+      rightDiv(
         svg(relTo(Images.math.skup), "Vennov dijagram")
       )
     )
 
   val unijaSectionContent =
-    div(cls := "row")(
-      div(cls := "col-md-7")(
+    rowDiv(
+      leftDiv(
         p(
           "Unija dva skupa `A` i `B` označava se sa `A uu B`. ", br,
           "Primijetite da ovo nije obično slovo U već specijalni simbol, mada izgleda kao `uu`nija. ", br,
@@ -158,15 +158,15 @@ object TeorijaSkupova extends MatematikaTemplate {
           )
         )
       ),
-      div(cls := "col-md-5")( // desno slika
+      rightDiv(
         svg(relTo(Images.math.unija), "Unija skupova")
       )
     )
 
   val presjekSectionContent =
     div(
-      div(cls := "row")(
-        div(cls := "col-md-7")(
+      rowDiv(
+        leftDiv(
           p(
             "Često se postavlja pitanje šta dva skupa imaju zajedničko.", br,
             "Presjek dva skupa `A` i `B` označava se sa `A nn B`. ", br,
@@ -182,7 +182,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             "Za ovakve skupove, koji nemaju zajedničke elemente, kaže se da su", b("disjunktni"), "."
           )
         ),
-        div(cls := "col-md-5")( // desno slika
+        rightDiv(
           svg(relTo(Images.math.presjek), "Presjek skupova")
         )
       ),
@@ -198,8 +198,8 @@ object TeorijaSkupova extends MatematikaTemplate {
 
   val razlikaSectionContent =
     div(
-      div(cls := "row")(
-        div(cls := "col-md-7")(
+      rowDiv(
+        leftDiv(
           p(
             "Možemo postaviti i pitanje u čemu se skup `A` razlikuje od skupa `B`. Ova operacija se naziva ", i("razlika"), ".", br,
             "Razlika skupova `A` i `B` označava se sa `A \\\\ B`. ", br,
@@ -211,7 +211,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             "Razliku možemo formalno zapisati kao `A nn B = {x | x in A ^^ x !in B}`. "
           )
         ),
-        div(cls := "col-md-5")( // desno slika
+        rightDiv(
           svg(relTo(Images.math.razlika), "Razlika skupova")
         )
       ),

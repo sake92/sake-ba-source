@@ -4,8 +4,8 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
+import hepek.utils.html.HTMLUtils._
 import hepek.templates.Section
-import hepek.utils.html.ImageUtils._
 
 object Index extends MatematikaTemplate {
 
@@ -16,8 +16,8 @@ object Index extends MatematikaTemplate {
   override def dateCreated = LocalDate.of(2017, 6, 10)
 
   val matematikaUvodSectionContent =
-    div(cls := "row")(
-      div(cls := "col-md-7")( // lijevo tekst
+    rowDiv(
+      leftDiv(
         p(
           "Matematika je jedan od najomraženijih predmeta kod većine učenika. ",
           "S pravom, dakako! ", "Zapitajmo se šta je uzrok tome? ", "Da li je matematika zaista toliko teška, komplikovana? ",
@@ -37,7 +37,7 @@ object Index extends MatematikaTemplate {
           "Nauči me! To ti je pos'o! "
         )
       ),
-      div(cls := "col-md-5")( // desno slika
+      rightDiv(
         image("http://i.imgur.com/UOhQzH5.gif", "Vako nekako")
       )
     )

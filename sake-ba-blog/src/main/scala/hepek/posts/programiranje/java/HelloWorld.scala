@@ -15,7 +15,7 @@ object HelloWorld extends ProgramiranjeTemplate {
     "Hello world program u Javi."
   )
 
-  override def dateCreated = LocalDate.now()
+  //override def dateCreated = LocalDate.now()
 
   val uvodSectionContent =
     div(

@@ -11,8 +11,6 @@ trait MatematikaTemplate extends BlogPost {
 
   override def pageCategory = Option("Matematika")
 
-  override def author: String = "Sakib Hadžiavdić"
-
   override def additionalJS = super.additionalJS ++
     Seq(
       // MathJax library for highlighting

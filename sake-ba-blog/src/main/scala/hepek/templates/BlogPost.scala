@@ -18,7 +18,7 @@ trait BlogPost extends SakeBaBlogPage {
   /** Every post has a sidebar of related pages */
   def pages: Seq[BlogPost]
 
-  def author: String
+  def author: String = "Sakib Hadžiavdić"
 
   def dateCreated: LocalDate = LocalDate.now()
 
@@ -72,10 +72,10 @@ trait BlogPost extends SakeBaBlogPage {
       div(cls := "col-lg-2 col-lg-push-1  col-md-3", paddingBottom := 23.px)(sidebar),
       div(cls := "col-lg-8 col-lg-push-1  col-md-9")(
         h6(
-          span(cls := "glyphicon glyphicon-time"), " " + dateCreated.format(dateFormat) // date
+          span(cls := "glyphicon glyphicon-time"), " " + dateCreated.format(dateFormat)
         ),
         h6(
-          span(cls := "glyphicon glyphicon-user"), " Autor: " + author // author
+          span(cls := "glyphicon glyphicon-user"), " Autor: " + author
         ),
         tag("article")(
           SectionUtils.renderTOCAndSections(sections) // start from h2

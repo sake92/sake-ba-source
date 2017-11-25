@@ -12,7 +12,7 @@ object Index extends ScalaTemplate {
   override def pageTitle = "Scala"
   override def pageLabel = "Početna"
 
-  override def dateCreated = LocalDate.now()
+  override def dateCreated = LocalDate.of(2017, 7, 2)
 
   val uvodSection = Section("Početna", "rtgzhujik")
 
