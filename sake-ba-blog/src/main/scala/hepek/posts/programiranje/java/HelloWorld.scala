@@ -5,7 +5,7 @@ import java.time.LocalDate
 import scalatags.Text.all._
 
 import hepek.templates.Section
-import hepek.utils.html.HTMLUtils._
+import hepek.utils.html.AllUtils._
 
 object HelloWorld extends ProgramiranjeTemplate {
 

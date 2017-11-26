@@ -10,7 +10,7 @@ trait SakeBaBlogPage extends Page {
   def pageContent: Frag
 
   /* SITE SETTINGS */
-  override def siteName = "blog.sake.ba"
+  override def siteName = Site.name
   override def siteIndexPage = hepek.Index
   override def siteFaviconNormal = Images.favicon
   override def siteFaviconInverted = Images.faviconWhite

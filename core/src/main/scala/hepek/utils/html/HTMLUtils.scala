@@ -4,9 +4,6 @@ import scalatags.Text.all._
 import scala.collection.Seq
 
 object HTMLUtils extends HTMLUtils
-  with SectionUtils
-  with ImageUtils
-  with CodeUtils
 
 trait HTMLUtils {
 

@@ -23,7 +23,7 @@ trait Page extends ClassPackageRelativePath
 
   def additionalJS: Seq[Modifier] = Seq()
 
-  /** Koristi se za <meta description> bcoz google search */
+  /** Used for <meta description> bcoz google search */
   def pageDescription: Option[String] = None
 
   /**
@@ -52,6 +52,9 @@ trait Page extends ClassPackageRelativePath
       html(
         lang := "bs",
         head(
+          meta(charset := "utf-8"),
+          meta(attr("http-equiv") := "X-UA-Compatible", content := "ie=edge"),
+          meta(name := "viewport", content := "width=device-width, initial-scale=1"),
           raw("""
               <!-- Global Site Tag (gtag.js) - Google Analytics -->
               <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
@@ -59,31 +62,28 @@ trait Page extends ClassPackageRelativePath
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-              
                 gtag('config', 'UA-93179008-1');
               </script>
           """),
-          meta(charset := "utf-8"),
-          meta(name := "viewport", content := "width=device-width, initial-scale=1"),
-          meta(attr("http-equiv") := "X-UA-Compatible", content := "ie=edge"),
           pageDescription.map(d => meta(name := "description", content := d)),
           link(rel := "shortcut icon", href := relTo(siteFaviconNormal), tpe := "image/x-icon"),
           tag("title")(pageTitle + " - " + siteName),
           // CSS
           link(rel := "stylesheet", href := relTo(bootstrapCSS)),
-          link(rel := "stylesheet", href := relTo(mainCSS)),
-          additionalCSS
+          additionalCSS,
+          link(rel := "stylesheet", href := relTo(mainCSS)) // maybe override some of additionalCSS
         ),
         body(
           navbar,
           div(cls := "container-fluid")(
             pageBody
           ),
+          // JS
           script(src := relTo(jQueryJS)),
           script(src := relTo(bootstrapJS)),
           script(src := relTo(anchorJS)),
-          script(src := relTo(mainJS)),
-          additionalJS
+          additionalJS,
+          script(src := relTo(mainJS))
         )
       ).render
   }

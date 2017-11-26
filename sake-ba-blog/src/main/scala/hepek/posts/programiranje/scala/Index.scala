@@ -14,7 +14,7 @@ object Index extends ScalaTemplate {
 
   override def dateCreated = LocalDate.of(2017, 7, 2)
 
-  val uvodSection = Section("Početna", "rtgzhujik")
+  val uvodSection = Section("Početna", "Scala == Java++ ???")
 
   override def sections = Seq(uvodSection)
 

@@ -13,7 +13,7 @@ object NotFound extends SakeBaBlogPage {
   override def fileName: String = "404.shtml"
 
   /* Since we use RELATIVE LINKS when referring to JS files, pages etc.
-   * it doesn't work well when you land on a page e.g. sake.ba/balah/sdfd/fdf/dsf/s
+   * it doesn't work well when you land on a page e.g. sake.ba/blah/sdfd/fdf/dsf/s
    */
   override def relTo(other: RelativePath) =
     Site.url + "/" + super.relTo(other)

@@ -6,6 +6,7 @@ import scalatags.Text.all._
 
 import hepek.templates._
 import hepek.utils.html.HTMLUtils._
+import hepek.utils.html.ImageUtils._
 import hepek.images.Images
 
 object TeorijaSkupova extends MatematikaTemplate {

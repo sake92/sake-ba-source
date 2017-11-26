@@ -4,9 +4,9 @@ import java.time.LocalDate
 
 import scalatags.Text.all._
 
-import hepek.utils.html.HTMLUtils._
 import hepek.templates.Section
 import hepek.images.Images
+import hepek.utils.html.AllUtils._
 
 object Instalacija extends ProgramiranjeTemplate {
 

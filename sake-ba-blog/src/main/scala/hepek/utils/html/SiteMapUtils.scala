@@ -1,12 +1,13 @@
-package hepek.utils
+package hepek.utils.html
 
 import scalatags.Text.all._
-import hepek.Site
-import hepek.Index
-import hepek.templates.Page
-import hepek.utils.html.HTMLUtils
 
-object SitemapUtils extends HTMLUtils {
+import hepek.templates.Page
+import hepek.Site
+
+object SiteMapUtils extends SiteMapUtils
+
+trait SiteMapUtils extends HTMLUtils {
 
   /////////////////// Site map, regular HTML for users (sitemap is XML, dont be confused :p)
   def siteMapHTML(renderingPage: Page) = {

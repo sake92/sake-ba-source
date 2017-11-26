@@ -5,6 +5,7 @@ import java.time.LocalDate
 import scalatags.Text.all._
 
 import hepek.utils.html.HTMLUtils._
+import hepek.utils.html.ImageUtils._
 import hepek.templates.Section
 import hepek.images.Images
 

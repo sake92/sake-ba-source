@@ -18,3 +18,8 @@ object[type="image/svg+xml"] {
 .pages-tree > ul > li > a {
   font-weight: bold;
 }
+
+/* prismjs sets 0.3em and then we get unnecessary horizontal slider. This fixes it. */
+pre[class*="language-"] {
+  border-width: 0.3rem !important;
+}

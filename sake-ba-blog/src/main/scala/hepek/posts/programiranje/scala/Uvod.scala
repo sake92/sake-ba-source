@@ -5,7 +5,7 @@ import java.time.LocalDate
 import scalatags.Text.all._
 
 import hepek.templates.Section
-import hepek.utils.html.HTMLUtils._
+import hepek.utils.html.AllUtils._
 
 object Uvod extends ScalaTemplate {
 
@@ -19,7 +19,8 @@ object Uvod extends ScalaTemplate {
   //override def dateCreated = LocalDate.now()
 
   val uvodSectionContent = div(
-    "Scala ima dvije vrste varijabli, var i val:",
+    "Scala ima dvije vrste varijabli, ", scalaSnippet("val", true),
+    " i val:",
     scalaSnippet("""
         |val unchangeable = 5
         |var changeable = "Whatever"
