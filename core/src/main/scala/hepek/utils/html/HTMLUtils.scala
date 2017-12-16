@@ -22,4 +22,9 @@ trait HTMLUtils {
     a(href := hreff, optParams)(cont)
   }
 
+  def brText(s: String): Frag = {
+    val parts = s.split("\n+").toList
+    parts.map(part => frag(part, br))
+  }
+
 }

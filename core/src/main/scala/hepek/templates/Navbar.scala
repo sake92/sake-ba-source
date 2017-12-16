@@ -12,9 +12,10 @@ trait Navbar { self: Page =>
     page <- mainPages
     klasa = if (page.pageCategory == this.pageCategory) "active" else ""
     labell = page.pageCategory.getOrElse(page.pageLabel)
-  } yield li(cls := klasa)(
-    a(href := relTo(page))(labell)
-  )
+  } yield
+    li(cls := klasa)(
+      a(href := relTo(page))(labell)
+    )
 
   def navbar =
     nav(cls := "navbar navbar-default navbar-fixed-top")(
@@ -23,13 +24,14 @@ trait Navbar { self: Page =>
         div(cls := "navbar-header")(
           btn(
             cls := " navbar-toggle collapsed",
-            data.toggle := "collapse", data.target := "#main-navbar"
+            data.toggle := "collapse",
+            data.target := "#main-navbar"
           )(
-              span(cls := "sr-only")("Toggle navigation"),
-              span(cls := "icon-bar"),
-              span(cls := "icon-bar"),
-              span(cls := "icon-bar")
-            ),
+            span(cls := "sr-only")("Toggle navigation"),
+            span(cls := "icon-bar"),
+            span(cls := "icon-bar"),
+            span(cls := "icon-bar")
+          ),
           a(cls := "navbar-brand", href := relTo(siteIndexPage))(
             span(
               img(src := relTo(siteFaviconInverted))

@@ -1,27 +1,21 @@
 import com.typesafe.sbt.web.Import.WebKeys
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
 scalaVersion in ThisBuild := "2.12.4"
+
+scalafmtOnCompile in ThisBuild := true
 
 lazy val commonSettings = Seq(
   organization := "ba.sake",
   version := "0.0.0-SNAPSHOT",
   libraryDependencies ++= Seq(
     "com.lihaoyi" %% "scalatags" % "0.6.7",
-    "org.webjars" % "anchorjs" % "3.2.2"  // pretty anchor links
-  ),
-  ScalariformKeys.preferences := ScalariformKeys.preferences.value
-    .setPreference(AlignSingleLineCaseStatements, true)
-    .setPreference(DoubleIndentConstructorArguments, true)
-    .setPreference(DanglingCloseParenthesis, Force)
-    .setPreference(NewlineAtEndOfFile, true)
+    "org.webjars" % "anchorjs" % "3.2.2"
+  )
 )
 
 lazy val commonSiteSettings = Seq(
   (hepek in Compile) := {
-    WebKeys.assets.value     // run 'assets' task also after compiling... :)
+    WebKeys.assets.value // run 'assets' task also after compiling... :)
     (hepek in Compile).value
   },
   libraryDependencies ++= Seq(
@@ -34,7 +28,6 @@ lazy val commonSiteSettings = Seq(
   // enable this to see more verbose output
   //logLevel in hepek := Level.Debug
 ) ++ commonSettings
-
 
 /* PROJECTS-MODULES */
 lazy val core = (project in file("core"))
@@ -50,7 +43,7 @@ lazy val sakeBaBlog = (project in file("sake-ba-blog"))
   .settings(
     commonSiteSettings,
     libraryDependencies ++= Seq(
-      "org.webjars" % "prismjs" % "1.6.0"  // code highlight
+      "org.webjars" % "prismjs" % "1.6.0" // code highlight
     )
   )
   .dependsOn(core)

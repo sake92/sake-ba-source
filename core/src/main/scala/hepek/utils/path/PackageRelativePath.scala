@@ -4,9 +4,9 @@ import java.io.File
 import ba.sake.hepek.core.RelativePath
 
 /**
- * Path relative to the class' package. <br>
- * E.g. `object MyPage extends PackageRelativePath { def fileName = "mypage.html" }` in `my.company` package renders to `my/company/mypage.html`
- */
+  * Path relative to the class' package. <br>
+  * E.g. `object MyPage extends PackageRelativePath { def fileName = "mypage.html" }` in `my.company` package renders to `my/company/mypage.html`
+  */
 trait PackageRelativePath extends RelativePath {
 
   /** Simple name of the rendered file. */

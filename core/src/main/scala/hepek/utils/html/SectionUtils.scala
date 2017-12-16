@@ -12,17 +12,18 @@ trait SectionUtils {
   private val section = tag("section")
 
   /**
-   * @param secs Sections to render.
-   * @param depth How deep should the TOC go.
-   * @return HTML of TOC and then sections.
-   */
+    * @param secs Sections to render.
+    * @param depth How deep should the TOC go.
+    * @return HTML of TOC and then sections.
+    */
   def renderTOCAndSections(secs: Seq[Section], depth: Int = 1): Frag =
     frag(
       div(cls := "panel-group")(
         div(cls := "panel panel-default")(
           div(cls := "panel-heading")(
             h4(cls := "panel-title")(
-              a(data.toggle := "collapse", href := "#collapseSadrzaj")("Sadržaj")
+              a(data.toggle := "collapse", href := "#collapseSadrzaj")(
+                "Sadržaj")
             )
           ),
           div(id := "collapseSadrzaj", cls := "panel-collapse collapse")(
@@ -38,7 +39,8 @@ trait SectionUtils {
     secs.flatMap { s =>
       val hTag = tag("h" + (depth + 1)) // depth = h2, h3...
       val thisSection = section(
-        hTag(s.name), s.content
+        hTag(s.name),
+        s.content
       )
       thisSection +: renderSections(s.children, depth + 1)
     }
@@ -54,4 +56,3 @@ trait SectionUtils {
   }
 
 }
-

@@ -4,8 +4,8 @@ import hepek.templates.Page
 import hepek.templates.BlogPost
 
 /**
- * Site global settings.
- */
+  * Site global settings.
+  */
 object Site {
 
   val url = "https://blog.sake.ba"

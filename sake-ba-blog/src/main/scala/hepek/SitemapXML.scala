@@ -24,8 +24,8 @@ object SitemapXML extends Renderable with RelativePath {
         attr("xmlns:xsi") := "http://www.w3.org/2001/XMLSchema-instance",
         attr("xsi:schemaLocation") := "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
       )(
-          allURLs
-        )
+        allURLs
+      )
   }
 
   private def postUrlTag(p: BlogPost) = {
@@ -33,7 +33,10 @@ object SitemapXML extends Renderable with RelativePath {
     urlTag(loc, p.dateCreated.toString, "yearly", 0.5)
   }
 
-  private def urlTag(loc: String, lastmod: String, changefreq: String, priority: Double) = {
+  private def urlTag(loc: String,
+                     lastmod: String,
+                     changefreq: String,
+                     priority: Double) = {
     tag("url")(
       tag("loc")(loc),
       tag("lastmod")(lastmod),

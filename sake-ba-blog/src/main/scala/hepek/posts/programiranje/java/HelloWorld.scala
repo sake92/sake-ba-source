@@ -19,7 +19,7 @@ object HelloWorld extends ProgramiranjeTemplate {
 
   val uvodSectionContent =
     div(
-      p("""Da vidimo kako izgleda obavezujući "Hello World!" primjer:"""),
+      p("""Da vidimo kako izgleda obavezni "Hello World!" primjer:"""),
       javaSnippet(
         """         
             class VozdraSvijeteAplikacija {
@@ -34,7 +34,8 @@ object HelloWorld extends ProgramiranjeTemplate {
         shellSnippet("Vozdra svijete!")
       ),
       p(
-        "Kako se ustvari pokreće program pokazaćemo kasnije!", br,
+        "Kako se ustvari pokreće program pokazaćemo kasnije!",
+        br,
         "Prvo moramo objasniti par stvari u vezi Jave:",
         ul(
           li("")

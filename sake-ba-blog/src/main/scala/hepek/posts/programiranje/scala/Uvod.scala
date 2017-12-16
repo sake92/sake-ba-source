@@ -19,7 +19,8 @@ object Uvod extends ScalaTemplate {
   //override def dateCreated = LocalDate.now()
 
   val uvodSectionContent = div(
-    "Scala ima dvije vrste varijabli, ", scalaSnippet("val", true),
+    "Scala ima dvije vrste varijabli, ",
+    scalaSnippet("val", true),
     " i val:",
     scalaSnippet("""
         |val unchangeable = 5

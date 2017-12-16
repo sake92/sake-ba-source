@@ -3,9 +3,9 @@ package hepek.templates
 import scalatags.Text.all.Frag
 
 /**
- * Used for sectioning a page (usually blog post). <br>
- * Also useful for generating a TOC (Table Of Contents).
- */
+  * Used for sectioning a page (usually blog post). <br>
+  * Also useful for generating a TOC (Table Of Contents).
+  */
 case class Section(
     name: String,
     content: Frag,
@@ -20,7 +20,8 @@ case class Section(
     // replace all unsafe chars with a dash
     val replacedWithDash = trimmedLower.replaceAll(UnsafeCharsRegex, "-")
     // remove all dashes at left and right
-    val removedTrailingDashes = replacedWithDash.dropWhile(_ == '-').reverse.dropWhile(_ == '-').reverse
+    val removedTrailingDashes =
+      replacedWithDash.dropWhile(_ == '-').reverse.dropWhile(_ == '-').reverse
     // remove 1+ dashes with just one
     removedTrailingDashes.replaceAll("-+", "-")
   }

@@ -20,7 +20,10 @@ object NotFound extends SakeBaPage {
 
   override def pageContent = div(cls := "text-center")(
     p(raw("""Resurs '<!--#echo var="REQUEST_URI" -->' ne postoji!""")),
-    p("(Bar zasad...) ^_^"), br, br, br,
+    p("(Bar zasad...) ^_^"),
+    br,
+    br,
+    br,
     raw(""" <a href="https://<!--#echo var="HTTP_HOST" -->">Haj nazad</a> """)
   )
 

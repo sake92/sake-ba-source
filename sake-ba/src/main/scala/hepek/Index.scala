@@ -19,7 +19,8 @@ object Sections {
       div(strong("Sakib Hadžiavdić")),
       div(
         aHref("mailto:sakib@sake.ba")(
-          span(cls := "glyphicon glyphicon-envelope"), " sakib@sake.ba"
+          span(cls := "glyphicon glyphicon-envelope"),
+          " sakib@sake.ba"
         )
       ),
       div(
@@ -52,7 +53,8 @@ object Sections {
   val priceSection = Section(
     "Cijena?",
     div(
-      "Džaba.", br,
+      "Džaba.",
+      br,
       "Fakat? Fakat."
     )
   )

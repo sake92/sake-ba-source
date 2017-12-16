@@ -21,8 +21,11 @@ object Index extends MatematikaTemplate {
       leftDiv(
         p(
           "Matematika je jedan od najomraženijih predmeta kod većine učenika. ",
-          "S pravom, dakako! ", "Zapitajmo se šta je uzrok tome? ", "Da li je matematika zaista toliko teška, komplikovana? ",
-          "Odgovor je jednostavan, naravno... da jeste. :D ", "Ako ne razumijemo osnovne koncepte kao što su skupovi i funkcije kako nastaviti dalje?"
+          "S pravom, dakako! ",
+          "Zapitajmo se šta je uzrok tome? ",
+          "Da li je matematika zaista toliko teška, komplikovana? ",
+          "Odgovor je jednostavan, naravno... da jeste. :D ",
+          "Ako ne razumijemo osnovne koncepte kao što su skupovi i funkcije kako nastaviti dalje?"
         ),
         p(
           "Šta profesori rade po tom pitanju? ",

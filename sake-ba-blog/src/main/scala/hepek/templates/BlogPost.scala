@@ -26,21 +26,25 @@ trait BlogPost extends SakeBaBlogPage {
 
   override def additionalCSS = Seq(
     link(rel := "stylesheet", href := relTo(WebJars.CSS.prismjs)),
-    WebJars.CSS.prismjsExts.map(ext => link(rel := "stylesheet", href := relTo(ext)))
+    WebJars.CSS.prismjsExts.map(ext =>
+      link(rel := "stylesheet", href := relTo(ext)))
   )
 
   // DISQUS COMMENTS STUFF
-  val PAGE_URL = Site.url + "/" + hepek.Index.relTo(this).toString.replaceAll("""\\""", "/")
+  val PAGE_URL = Site.url + "/" + hepek.Index
+    .relTo(this)
+    .toString
+    .replaceAll("""\\""", "/")
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
 
   override def additionalJS = Seq(
     // clipboard.js for copying code
-    script(src := "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"),
+    script(
+      src := "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"),
     // prismjs
     script(src := relTo(WebJars.JS.prismjs)),
     WebJars.JS.prismjsLangs.map(lang => script(src := relTo(lang))),
     WebJars.JS.prismjsExts.map(ext => script(src := relTo(ext))),
-
     //DISQUS_SCRIPT
     script(s"""
       var disqus_config = function () {
@@ -80,10 +84,12 @@ trait BlogPost extends SakeBaBlogPage {
       div(cls := "col-lg-2 col-lg-push-1  col-md-3")(sidebar),
       div(cls := "col-lg-8 col-lg-push-1  col-md-9")(
         h6(
-          span(cls := "glyphicon glyphicon-time"), " " + dateCreated.format(dateFormat)
+          span(cls := "glyphicon glyphicon-time"),
+          " " + dateCreated.format(dateFormat)
         ),
         h6(
-          span(cls := "glyphicon glyphicon-user"), " Autor: " + author
+          span(cls := "glyphicon glyphicon-user"),
+          " Autor: " + author
         ),
         tag("article")(
           SectionUtils.renderTOCAndSections(sections) // start from h2

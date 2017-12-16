@@ -8,11 +8,12 @@ import ba.sake.hepek.core.Renderable
 import hepek.utils.path.ClassPackageRelativePath
 import hepek.Resources._
 
-trait Page extends ClassPackageRelativePath
-  with SiteSettings
-  with PageSettings
-  with Navbar
-  with Renderable {
+trait Page
+    extends ClassPackageRelativePath
+    with SiteSettings
+    with PageSettings
+    with Navbar
+    with Renderable {
 
   def pageBody: Frag
 
@@ -27,9 +28,9 @@ trait Page extends ClassPackageRelativePath
   def pageDescription: Option[String] = None
 
   /**
-   * @param other Resource to which path should be calculated
-   * @return Relative path from this page to `other`
-   */
+    * @param other Resource to which path should be calculated
+    * @return Relative path from this page to `other`
+    */
   def relTo(other: RelativePath): String = {
     val relP = this.relPath.toPath.getParent.relativize(other.relPath.toPath)
     relP.toString.replaceAll("""\\""", "/") // change '\' to '/'
@@ -54,7 +55,8 @@ trait Page extends ClassPackageRelativePath
         head(
           meta(charset := "utf-8"),
           meta(attr("http-equiv") := "X-UA-Compatible", content := "ie=edge"),
-          meta(name := "viewport", content := "width=device-width, initial-scale=1"),
+          meta(name := "viewport",
+               content := "width=device-width, initial-scale=1"),
           raw("""
               <!-- Global Site Tag (gtag.js) - Google Analytics -->
               <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
@@ -66,7 +68,9 @@ trait Page extends ClassPackageRelativePath
               </script>
           """),
           pageDescription.map(d => meta(name := "description", content := d)),
-          link(rel := "shortcut icon", href := relTo(siteFaviconNormal), tpe := "image/x-icon"),
+          link(rel := "shortcut icon",
+               href := relTo(siteFaviconNormal),
+               tpe := "image/x-icon"),
           tag("title")(pageTitle + " - " + siteName),
           // CSS
           link(rel := "stylesheet", href := relTo(bootstrapCSS)),

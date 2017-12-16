@@ -11,10 +11,12 @@ trait MatematikaTemplate extends BlogPost {
 
   override def pageCategory = Option("Matematika")
 
-  override def additionalJS = super.additionalJS ++
-    Seq(
-      // MathJax library for highlighting
-      script(src := "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=AM_CHTML")
-    )
+  override def additionalJS =
+    super.additionalJS ++
+      Seq(
+        // MathJax library for highlighting
+        script(
+          src := "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=AM_CHTML")
+      )
 
 }
