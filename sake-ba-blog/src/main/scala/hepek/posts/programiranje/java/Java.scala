@@ -1,32 +1,38 @@
 package hepek.posts.programiranje.java
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-
-import hepek.utils.html.HTMLUtils._
-import hepek.utils.html.ImageUtils._
-import hepek.templates.Section
+import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
+import hepek.utils.Imports._
 
-object Java extends ProgramiranjeTemplate {
+object Java extends JavaTemplate {
 
-  /* PAGE SETTINGS */
-  override def pageTitle = "Uvod u Javu"
-  override def pageDescription = Option(
-    "Uvod u Java programski jezik."
-  )
+  override def pageTitle       = "Uvod u Javu"
+  override def pageDescription = Option("Uvod u Java programski jezik.")
 
-  override def dateCreated = LocalDate.of(2017, 7, 2)
+  override def postCreateDate = LocalDate.of(2017, 7, 2)
+  override def postSections   = List(uvodSection)
+
+  def uvodSection =
+    Section("Java",
+            uvodSectionContent,
+            List(javaPJSection, javaPlatformSection))
+  def javaPJSection = Section("Java kao programski jezik", javaPJSectionContent)
+
+  def javaPlatformSection =
+    Section("Java kao platforma", javaPlatformSectionContent)
 
   // SEKCIJE
-  val uvodSectionContent = div(
+  def uvodSectionContent = div(
     p(
       "Svako putovanje mora početi od nekud.",
       br,
       "Ovo naše polazi od ",
-      aHref("https://en.wikipedia.org/wiki/Java_(programming_language)", true)(
-        "Jave"),
+      hyperlink("https://en.wikipedia.org/wiki/Java_(programming_language)",
+                true)(
+        "Jave"
+      ),
       ", jednog od najkorištenijih programskih jezika na svijetu."
     ),
     p(
@@ -39,7 +45,7 @@ object Java extends ProgramiranjeTemplate {
     )
   )
 
-  val javaPJSectionContent = div(
+  def javaPJSectionContent = div(
     "Kada je dizajniran Java programski jezik, dizajneri su željeli da Java bude: ",
     ul(
       li("jednostavna"),
@@ -53,8 +59,8 @@ object Java extends ProgramiranjeTemplate {
       li("robustna (otporna na greške)"),
       li("bezbjedna")
     ),
-    rowDiv(
-      leftDiv(
+    row(
+      half1(
         p(
           "Sav izvorni kod se nalazi u običnim tekstualnim fajlovima s nastavkom ",
           i(".java"),
@@ -77,13 +83,13 @@ object Java extends ProgramiranjeTemplate {
           """Jedna instanca JVM (pomoću programa zvanog "java") pokreće Vašu aplikaciju tako što interpretira bajtkod u izvorni kod."""
         )
       ),
-      rightDiv(
+      half2(
         image(relTo(Images.java.compiler),
               "Razvijanje i izvršavanje Java programa")
       )
     ),
-    rowDiv(
-      leftDiv(
+    row(
+      half1(
         p(
           "Možda i najpoznatija uzrečica koja ide uz Javu je ",
           b("Write once - Run anywhere"),
@@ -95,15 +101,15 @@ object Java extends ProgramiranjeTemplate {
           "Neke JVM dodatno optimizuju Vaš kod da bi se brže izvršavao i s manje potrebne memorije."
         )
       ),
-      rightDiv(
+      half2(
         image(relTo(Images.java.portability), "Portabilnost Java programa")
       )
     )
   )
 
-  val javaPlatformSectionContent = div(
-    rowDiv(
-      leftDiv(
+  def javaPlatformSectionContent = div(
+    row(
+      half1(
         p(
           "Platformu čini hardver i softversko okruženje u kojem se program izvršava.",
           br,
@@ -114,7 +120,7 @@ object Java extends ProgramiranjeTemplate {
           "Java platforma se razlikuje od ostalih platformi jer se sastoji samo iz softvera koji se izvršava na različitim hardverski baziranim platformama."
         )
       ),
-      rightDiv(
+      half2(
         image(relTo(Images.java.platform),
               "Razvijanje i izvršavanje Java programa")
       )
@@ -139,11 +145,4 @@ object Java extends ProgramiranjeTemplate {
     )
   )
 
-  val javaPJSection = Section("Java kao programski jezik", javaPJSectionContent)
-  val javaPlatformSection =
-    Section("Java kao platforma", javaPlatformSectionContent)
-  val uvodSection =
-    Section("Java", uvodSectionContent, Seq(javaPJSection, javaPlatformSection))
-
-  override def sections = Seq(uvodSection)
 }

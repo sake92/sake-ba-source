@@ -1,27 +1,53 @@
 package hepek.posts.matematika
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-
-import hepek.templates._
-import hepek.utils.html.HTMLUtils._
-import hepek.utils.html.ImageUtils._
+import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
+import hepek.utils.Imports._
 
 object TeorijaSkupova extends MatematikaTemplate {
 
-  /* PAGE SETTINGS */
+  // TODO asciiMath
+
   override def pageTitle = "Teorija skupova"
-  override def pageLabel = "Teorija skupova"
   override def pageDescription = Option(
     "Kratak uvod u teoriju skupova. Unija, presjek, razlika, De Morgan."
   )
 
-  override def dateCreated = LocalDate.of(2017, 6, 11)
+  override def postCreateDate = LocalDate.of(2017, 6, 11)
+  override def postSections =
+    List(uvodSection, operacijeSection, relacijeSection, kardinalnostSection)
+
+  // CONTENT
+  def uvodSection = Section("Uvod", uvodSectionContent)
+
+  def operacijeSection = Section(
+    "Operacije nad skupovima",
+    operacijeSectionContent,
+    List(
+      Section("Unija", unijaSectionContent),
+      Section("Presjek", presjekSectionContent),
+      Section("Razlika", razlikaSectionContent),
+      Section("De Morganovi zakoni", deMorganoviZakoniSectionContent)
+    )
+  )
+
+  def relacijeSection = Section(
+    "Relacije između skupova",
+    relacijeSectionContent,
+    List(
+      Section("Podskup i nadskup", podskupNadskupSectionContent)
+    )
+  )
+
+  def kardinalnostSection = Section(
+    "Kardinalnost skupa",
+    kardinalnostSectionContent
+  )
 
   // section contents....
-  val uvodSectionContent =
+  def uvodSectionContent =
     div(
       p(
         """
@@ -97,7 +123,9 @@ object TeorijaSkupova extends MatematikaTemplate {
       p(
         "Postoji nekoliko skupova koji se često pojavljuju u matematici i imaju posebne simbole: ",
         ul(
-          li("`O/` - Prazan skup. Skup koji ne sadrži nijedan element. Označava se i sa `{}`."),
+          li(
+            "`O/` - Prazan skup. Skup koji ne sadrži nijedan element. Označava se i sa `{}`."
+          ),
           li(
             "`NN` - Skup prirodnih brojeva (od engl. ",
             b("N"),
@@ -122,9 +150,11 @@ object TeorijaSkupova extends MatematikaTemplate {
             br,
             "Naravno, `q` ne smije biti nula jer bi dijeljenjem dobili `oo` (beskonačno)..."
           ),
-          li("`RR` - Skup realnih brojeva (od engl. ",
-             b("R"),
-             """eal - pravi). Za nas obične smrtnike ovo su "brojevi sa zarezom"."""),
+          li(
+            "`RR` - Skup realnih brojeva (od engl. ",
+            b("R"),
+            """eal - pravi). Za nas obične smrtnike ovo su "brojevi sa zarezom"."""
+          ),
           li("`CC` - Skup kompleksnih brojeva (od engl. ",
              b("C"),
              "omplex - složeni).",
@@ -152,11 +182,17 @@ object TeorijaSkupova extends MatematikaTemplate {
         br,
         "Da vidimo par zanimljivih primjera:",
         ul(
-          li("Ako imamo skup `A = {{1,2},{2,3},4}` tada `1 !in A`.",
-             br,
-             "Zašto? Pa zato što `1` nije direktno u skupu! Skup `A` sadrži dva skupa i broj `4`!"),
-          li("Za bilo koje `x` vrijedi `x !in O/`. Ili napisano hijeroglifima: `AA x, x !in O/`"),
-          li("Ako imamo `A = {O/}` vrijedi `O/ != A`. Štaaa? A je skup koji sadrži prazan skup. Što nije isto kao i prazan skup.")
+          li(
+            "Ako imamo skup `A = {{1,2},{2,3},4}` tada `1 !in A`.",
+            br,
+            "Zašto? Pa zato što `1` nije direktno u skupu! Skup `A` sadrži dva skupa i broj `4`!"
+          ),
+          li(
+            "Za bilo koje `x` vrijedi `x !in O/`. Ili napisano hijeroglifima: `AA x, x !in O/`"
+          ),
+          li(
+            "Ako imamo `A = {O/}` vrijedi `O/ != A`. Štaaa? A je skup koji sadrži prazan skup. Što nije isto kao i prazan skup."
+          )
         ),
         blockquote(
           """Simbol `AA` znači "za svako". Npr. `AA x, tvrdnja` se čita kao "za svako x vrijedi tvrdnja". """,
@@ -167,9 +203,9 @@ object TeorijaSkupova extends MatematikaTemplate {
     )
 
   // OPERACIJE: unija, presjek, komplement...
-  val operacijeSectionContent =
-    rowDiv(
-      leftDiv(
+  def operacijeSectionContent =
+    row(
+      half1(
         p(
           "Pošto element skupa može biti bilo šta, obično se ograničavamo samo na određeni tip stvari tj. na neki skup. ",
           br,
@@ -192,14 +228,14 @@ object TeorijaSkupova extends MatematikaTemplate {
           "Univerzum (`U`) je pravougaonik koji obuhvata ova dva skupa. Recimo da je to skup `NN`. To je igralište iz kojeg ne smijemo izlaziti. "
         )
       ),
-      rightDiv(
+      half2(
         svg(relTo(Images.math.skup), "Vennov dijagram")
       )
     )
 
-  val unijaSectionContent =
-    rowDiv(
-      leftDiv(
+  def unijaSectionContent =
+    row(
+      half1(
         p(
           "Unija dva skupa `A` i `B` označava se sa `A uu B`. ",
           br,
@@ -222,15 +258,15 @@ object TeorijaSkupova extends MatematikaTemplate {
           )
         )
       ),
-      rightDiv(
+      half2(
         svg(relTo(Images.math.unija), "Unija skupova")
       )
     )
 
-  val presjekSectionContent =
+  def presjekSectionContent =
     div(
-      rowDiv(
-        leftDiv(
+      row(
+        half1(
           p(
             "Često se postavlja pitanje šta dva skupa imaju zajedničko.",
             br,
@@ -253,7 +289,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             "."
           )
         ),
-        rightDiv(
+        half2(
           svg(relTo(Images.math.presjek), "Presjek skupova")
         )
       ),
@@ -275,10 +311,10 @@ object TeorijaSkupova extends MatematikaTemplate {
       )
     )
 
-  val razlikaSectionContent =
+  def razlikaSectionContent =
     div(
-      rowDiv(
-        leftDiv(
+      row(
+        half1(
           p(
             "Možemo postaviti i pitanje u čemu se skup `A` razlikuje od skupa `B`. Ova operacija se naziva ",
             i("razlika"),
@@ -296,7 +332,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             "Razliku možemo formalno zapisati kao `A nn B = {x | x in A ^^ x !in B}`. "
           )
         ),
-        rightDiv(
+        half2(
           svg(relTo(Images.math.razlika), "Razlika skupova")
         )
       ),
@@ -326,7 +362,7 @@ object TeorijaSkupova extends MatematikaTemplate {
       )
     )
 
-  val deMorganoviZakoniSectionContent =
+  def deMorganoviZakoniSectionContent =
     div(
       "Dvije vrlo korisne formule vezane za komplemente skupova su ",
       b("De Morganovi zakoni"),
@@ -339,14 +375,14 @@ object TeorijaSkupova extends MatematikaTemplate {
     )
 
   // RELACIJE: jednakost, podskup itd
-  val relacijeSectionContent =
+  def relacijeSectionContent =
     div(
       "Kao što smo već rekli na početku, skupovi su određeni samo elementima koje sadrže. ",
       br,
       "To nam je dovoljno da odredimo da li su dva skupa jednaka, `A = B` akko `AAx | x in A ^^ x in B`."
     )
 
-  val podskupNadskupSectionContent =
+  def podskupNadskupSectionContent =
     div(
       p(
         "Za skup `A` kažemo da je ",
@@ -377,8 +413,12 @@ object TeorijaSkupova extends MatematikaTemplate {
         br,
         "Imamo dvije opcije:",
         ul(
-          li("Jeste, jer nema nijedan element skupa `O/` koji nije element skupa `A.`"),
-          li("Nije, jer nema nijedan element skupa `O/` koji je element skupa `A.`")
+          li(
+            "Jeste, jer nema nijedan element skupa `O/` koji nije element skupa `A.`"
+          ),
+          li(
+            "Nije, jer nema nijedan element skupa `O/` koji je element skupa `A.`"
+          )
         ),
         "Logičari kažu da jeste (prva opcija) i vjerovaćemo im na riječ... xD",
         br,
@@ -387,7 +427,7 @@ object TeorijaSkupova extends MatematikaTemplate {
     )
 
   // KARDINALNOST
-  val kardinalnostSectionContent =
+  def kardinalnostSectionContent =
     div(
       "Kardinalnost skupa je ",
       i("mjera"),
@@ -403,35 +443,5 @@ object TeorijaSkupova extends MatematikaTemplate {
       br,
       "Ne zaboravimo i `|O/|=0`, naravno."
     )
-
-  // SECTIONS
-  val uvodSection = Section("Uvod", uvodSectionContent)
-
-  val operacijeSection = Section(
-    "Operacije nad skupovima",
-    operacijeSectionContent,
-    Seq(
-      Section("Unija", unijaSectionContent),
-      Section("Presjek", presjekSectionContent),
-      Section("Razlika", razlikaSectionContent),
-      Section("De Morganovi zakoni", deMorganoviZakoniSectionContent)
-    )
-  )
-
-  val relacijeSection = Section(
-    "Relacije između skupova",
-    relacijeSectionContent,
-    Seq(
-      Section("Podskup i nadskup", podskupNadskupSectionContent)
-    )
-  )
-
-  val kardinalnostSection = Section(
-    "Kardinalnost skupa",
-    kardinalnostSectionContent
-  )
-
-  override def sections =
-    Seq(uvodSection, operacijeSection, relacijeSection, kardinalnostSection)
 
 }

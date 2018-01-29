@@ -1,18 +1,19 @@
 package hepek
 
-import scalatags.Text.all._
 import java.io.File
+import java.time.LocalDate
+import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 import ba.sake.hepek.core.Renderable
-import hepek.templates.BlogPost
-import java.time.LocalDate
+import ba.sake.hepek.html.structure.blog.BlogPostPage
+import hepek.utils.Site
 
 object SitemapXML extends Renderable with RelativePath {
 
   override def relPath = new File("hepek/sitemap.xml")
 
   override def render = {
-    val pages = Site.mainPages.flatMap(_.pages)
+    val pages = Site.mainPages.flatMap(_.categoryPosts)
     val urls = for {
       p <- pages
     } yield postUrlTag(p)
@@ -28,21 +29,20 @@ object SitemapXML extends Renderable with RelativePath {
       )
   }
 
-  private def postUrlTag(p: BlogPost) = {
+  private def postUrlTag(p: BlogPostPage) = {
     val loc = Site.url + "/" + Index.relTo(p)
-    urlTag(loc, p.dateCreated.toString, "yearly", 0.5)
+    urlTag(loc, p.postCreateDate.toString, "yearly", 0.5)
   }
 
   private def urlTag(loc: String,
                      lastmod: String,
                      changefreq: String,
-                     priority: Double) = {
+                     priority: Double) =
     tag("url")(
       tag("loc")(loc),
       tag("lastmod")(lastmod),
       tag("changefreq")(changefreq),
       tag("priority")(priority)
     )
-  }
 
 }

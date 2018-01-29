@@ -1,12 +1,13 @@
 package hepek
 
+import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
+import hepek.templates.SakeBaBlogStaticPage
+import hepek.utils.SiteMapHTML
+import hepek.utils.Imports._
+
 import scalatags.Text.all._
 
-import hepek.templates.SakeBaBlogPage
-import hepek.utils.html.SiteMapUtils
-import hepek.utils.html.HTMLUtils.rowDiv
-
-object Index extends SakeBaBlogPage {
+object Index extends SakeBaBlogStaticPage {
 
   override def pageTitle = "Početna stranica"
 
@@ -19,10 +20,10 @@ object Index extends SakeBaBlogPage {
     div(cls := "page-header text-center")(
       h1("Dobrodošli!")
     ),
-    rowDiv(
+    row(
       div(cls := "well well-lg col-md-6 col-md-push-3")(
         p("Mapa sajta:"),
-        div(cls := "pages-tree")(SiteMapUtils.siteMapHTML(this))
+        div(cls := "pages-toc")(SiteMapHTML.siteMap(this))
       )
     )
   )

@@ -1,13 +1,13 @@
-package hepek.posts.programiranje.scala
+package hepek.posts.programiranje
 
-import hepek.templates.BlogPost
+package scala
 
-/** Template for Scala tutorial pages. */
-trait ScalaTemplate extends BlogPost {
+import hepek.templates.SakeBaBlogPage
 
-  // all pages in this category
-  override def pages = Seq(Index, Uvod)
+trait ScalaTemplate extends CodeTemplate {
 
   override def pageCategory = Option("Scala")
+
+  override def categoryPosts = List(Index, Uvod)
 
 }

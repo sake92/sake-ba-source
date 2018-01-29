@@ -1,24 +1,25 @@
 package hepek.posts.matematika
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-
-import hepek.utils.html.HTMLUtils._
-import hepek.utils.html.ImageUtils._
-import hepek.templates.Section
+import ba.sake.hepek.html.structure.blog.Section
+import hepek.utils.Imports._
 
 object Index extends MatematikaTemplate {
 
-  /* PAGE SETTINGS */
+  // TODO asciiMath
+
   override def pageTitle = "Matematika"
   override def pageLabel = "Početna"
 
-  override def dateCreated = LocalDate.of(2017, 6, 10)
+  override def postCreateDate = LocalDate.of(2017, 6, 10)
+  override def postSections   = List(matematikaUvodSection)
 
-  val matematikaUvodSectionContent =
-    rowDiv(
-      leftDiv(
+  def matematikaUvodSection = Section("Uvod", matematikaUvodSectionContent)
+
+  def matematikaUvodSectionContent =
+    row(
+      half1(
         p(
           "Matematika je jedan od najomraženijih predmeta kod većine učenika. ",
           "S pravom, dakako! ",
@@ -41,13 +42,9 @@ object Index extends MatematikaTemplate {
           "Nauči me! To ti je pos'o! "
         )
       ),
-      rightDiv(
+      half2(
         image("http://i.imgur.com/UOhQzH5.gif", "Vako nekako")
       )
     )
-
-  val matematikaUvodSection = Section("Uvod", matematikaUvodSectionContent)
-
-  override def sections = Seq(matematikaUvodSection)
 
 }

@@ -1,12 +1,12 @@
 package hepek
 
 import scalatags.Text.all._
-
 import ba.sake.hepek.core.RelativePath
-
 import hepek.templates.SakeBaBlogPage
+import hepek.templates.SakeBaBlogStaticPage
+import hepek.utils.Site
 
-object NotFound extends SakeBaBlogPage {
+object NotFound extends SakeBaBlogStaticPage {
 
   override def pageTitle = "Ne postoji"
 

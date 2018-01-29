@@ -1,31 +1,37 @@
 package hepek.posts.programiranje.java
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-
-import hepek.templates.Section
+import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
-import hepek.utils.html.AllUtils._
+import hepek.utils.Imports._
 
-object Instalacija extends ProgramiranjeTemplate {
+object Instalacija extends JavaTemplate {
 
-  /* PAGE SETTINGS */
   override def pageTitle = "Instalacija"
   override def pageDescription = Option(
     "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
   )
 
-  override def dateCreated = LocalDate.of(2017, 7, 2)
+  override def postCreateDate = LocalDate.of(2017, 7, 2)
+  override def postSections =
+    List(uvodSection, dodavanjePATHSection, provjeraSection)
+
+  def uvodSection = Section("Instalacija Jave", uvodSectionContent)
+
+  def dodavanjePATHSection =
+    Section("Dodavanje PATH varijabli", dodavanjePATHSectionContent)
+  def provjeraSection = Section("Provjera", provjeraSectionContent)
 
   // SEKCIJE
-  val uvodSectionContent =
+  def uvodSectionContent =
     div(
       p(
         "Kliknite na ",
-        aHref(
+        hyperlink(
           "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
-          true)("ovaj link"),
+          true
+        )("ovaj link"),
         ".",
         image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
         "Kada se otvori stranica sa prethodne slike kliknite na dugme ",
@@ -68,7 +74,7 @@ object Instalacija extends ProgramiranjeTemplate {
       )
     )
 
-  val dodavanjePATHSectionContent = div(
+  def dodavanjePATHSectionContent = div(
     p(
       "Dio koji slijedi specifičan je više za sam rad operativnog sistema (Windows u našem slučaju), nego za Javu.",
       br,
@@ -94,30 +100,25 @@ object Instalacija extends ProgramiranjeTemplate {
     )
   )
 
-  val provjeraSectionContent = div(
+  def provjeraSectionContent = div(
     "Da bi provjerili jesmo li uspješno obavili zadatak, otvorićemo Command Prompt (kod Linuxaša se rekne Shell).",
     br,
     """Otvorite Start, ukucajte "cmd" i kliknite Enter. Ukucajte """,
-    shellSnippet("java -version"),
+    chl.batch.inline("java -version"),
     "Ako dobijete poruku ",
     br,
     tag("samp")(
-      "'java' is not recognized as an internal or external command, operable program or batch file."),
+      "'java' is not recognized as an internal or external command, operable program or batch file."
+    ),
     br,
     " nešto nije uredu, provjerite sve korake sekcije ",
-    aHref(relTo(this) + "#" + dodavanjePATHSection.id, false)(
-      dodavanjePATHSection.name),
+    hyperlink(relTo(this) + "#" + dodavanjePATHSection.id, false)(
+      dodavanjePATHSection.name
+    ),
     " ponovo!",
     br,
     "Ako dobijete nešto slično sljedećoj slici, sve je OK:",
     image(relTo(Images.os.winJavaVer), "Java verzija")
   )
 
-  val uvodSection = Section("Instalacija Jave", uvodSectionContent)
-  def dodavanjePATHSection =
-    Section("Dodavanje PATH varijabli", dodavanjePATHSectionContent)
-  val provjeraSection = Section("Provjera", provjeraSectionContent)
-
-  override def sections =
-    Seq(uvodSection, dodavanjePATHSection, provjeraSection)
 }

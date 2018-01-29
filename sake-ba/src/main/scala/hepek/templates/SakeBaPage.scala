@@ -1,32 +1,47 @@
 package hepek.templates
 
 import scalatags.Text.all._
-
-import ba.sake.hepek.core.RelativePath
-
+import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
+import ba.sake.hepek.html.structure.SiteSettings
+import ba.sake.hepek.Resources._
 import hepek.Index
-import hepek.Resources.images
 
-trait SakeBaPage extends Page {
+trait SakeBaPage extends BootstrapStaticPage {
 
-  def pageContent: Frag
+  override def siteSettings = SiteSettings(
+    "sake.ba",
+    Index,
+    List.empty,
+    Option(relTo(images.ico("favicon"))),
+    Option(relTo(images.ico("favicon-white")))
+  )
 
-  /* SITE SETTINGS */
-  override def siteName = "sake.ba"
-  override def siteIndexPage = Index
-  override def siteFaviconNormal = images.ico("favicon")
-  override def siteFaviconInverted = images.ico("favicon-white")
+  override def pageLanguage: String = "bs"
 
-  // this is an ugly hack indeed
-  override def mainPages = hepek.Sections.sections.map { s =>
-    new PageSettings with RelativePath {
-      override def pageTitle = s.name
-      override def relPath = new java.io.File(Index.relPath() + s"#${s.id}")
-    }
-  }
+  override def headContent = super.headContent ++ List(
+    raw("""
+          <!-- Global Site Tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-93179008-1');
+          </script>
+        """)
+  )
 
-  override def pageBody = frag(
-    div(pageContent)
+  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
+  override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
+
+  // BOOTSTRAP
+  private val BOOTSTRAP_THEME = "bootswatch-cyborg"
+  override def bootstrapCSSDependencies = List(
+    relTo(lib.cssMin(s"$BOOTSTRAP_THEME/css/bootstrap"))
+  )
+  override def bootstrapJSDependencies = List(
+    relTo(lib.jsMin("jquery/jquery")),
+    relTo(lib.jsMin(s"$BOOTSTRAP_THEME/js/bootstrap"))
   )
 
 }

@@ -9,7 +9,7 @@ lazy val commonSettings = Seq(
   version := "0.0.0-SNAPSHOT",
   libraryDependencies ++= Seq(
     "com.lihaoyi" %% "scalatags" % "0.6.7",
-    "org.webjars" % "anchorjs" % "3.2.2"
+    "org.webjars" % "anchorjs"   % "3.2.2"
   )
 )
 
@@ -19,14 +19,14 @@ lazy val commonSiteSettings = Seq(
     (hepek in Compile).value
   },
   libraryDependencies ++= Seq(
-    "org.webjars" % "jquery" % "3.2.1",
+    "org.webjars" % "jquery"            % "3.2.1",
     "org.webjars" % "bootswatch-cyborg" % "3.3.7"
   ),
   // override for easier relative referencing, default is "lib"
   WebKeys.webModulesLib := "hepek/lib"
 
   // enable this to see more verbose output
-  //logLevel in hepek := Level.Debug
+  // logLevel in hepek := Level.Debug
 ) ++ commonSettings
 
 /* PROJECTS-MODULES */

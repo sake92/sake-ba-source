@@ -11,11 +11,11 @@ object[type="image/svg+xml"] {
   width: 100%;
 }
 
-.pages-tree ul { 
+.pages-toc ul { 
   list-style: none;
 }
 
-.pages-tree > ul > li > a {
+.pages-toc > ul > li > a {
   font-weight: bold;
 }
 

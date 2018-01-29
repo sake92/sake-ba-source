@@ -1,13 +1,11 @@
 package hepek.posts.programiranje.java
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
+import ba.sake.hepek.html.structure.blog.Section
+import hepek.utils.Imports._
 
-import hepek.templates.Section
-import hepek.utils.html.AllUtils._
-
-object HelloWorld extends ProgramiranjeTemplate {
+object HelloWorld extends JavaTemplate {
 
   /* PAGE SETTINGS */
   override def pageTitle = "Hello world!"
@@ -15,12 +13,14 @@ object HelloWorld extends ProgramiranjeTemplate {
     "Hello world program u Javi."
   )
 
-  //override def dateCreated = LocalDate.now()
+  override def postSections = List(uvodSection)
 
-  val uvodSectionContent =
+  def uvodSection = Section("Hello world!", uvodSectionContent)
+
+  def uvodSectionContent =
     div(
       p("""Da vidimo kako izgleda obavezni "Hello World!" primjer:"""),
-      javaSnippet(
+      chl.java(
         """         
             class VozdraSvijeteAplikacija {
                 public static void main(String[] argumenti) {       
@@ -31,7 +31,7 @@ object HelloWorld extends ProgramiranjeTemplate {
       ),
       p(
         "Kada se pokrene prethodno prikazani program dobićemo sljedeći rezultat u konzoli: ",
-        shellSnippet("Vozdra svijete!")
+        chl.batch.inline("Vozdra svijete!")
       ),
       p(
         "Kako se ustvari pokreće program pokazaćemo kasnije!",
@@ -43,7 +43,7 @@ object HelloWorld extends ProgramiranjeTemplate {
       )
     )
 
-  val pokretanjeSectionContent =
+  def pokretanjeSectionContent =
     div(
       """
         
@@ -54,9 +54,5 @@ Sake@DESKTOP-G5KJR68 C:\Java\TEST
 > java ba.sake.Main
         """
     )
-
-  val uvodSection = Section("Hello world!", uvodSectionContent)
-
-  override def sections = Seq(uvodSection)
 
 }

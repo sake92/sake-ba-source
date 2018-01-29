@@ -1,35 +1,30 @@
 package hepek.posts.programiranje.scala
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-
-import hepek.templates.Section
-import hepek.utils.html.AllUtils._
+import ba.sake.hepek.html.structure.blog.Section
+import hepek.images.Images
+import hepek.utils.Imports._
 
 object Uvod extends ScalaTemplate {
 
   /* PAGE SETTINGS */
-  override def pageTitle = "Uvod u Scalu"
-  override def pageLabel = "Uvod"
-  override def pageDescription = Option(
-    "Uvod u Scala programski jezik."
-  )
+  override def pageTitle       = "Uvod u Scalu"
+  override def pageLabel       = "Uvod"
+  override def pageDescription = Option("Uvod u Scala programski jezik.")
 
-  //override def dateCreated = LocalDate.now()
+  override def postSections = List(uvodSection)
 
-  val uvodSectionContent = div(
+  def uvodSection = Section("Uvod", uvodSectionContent)
+
+  def uvodSectionContent = div(
     "Scala ima dvije vrste varijabli, ",
-    scalaSnippet("val", true),
+    chl.scala.inline("val"),
     " i val:",
-    scalaSnippet("""
-        |val unchangeable = 5
-        |var changeable = "Whatever"
-      """.stripMargin.trim)
+    chl.scala("""
+        val unchangeable = 5
+        var changeable = "Whatever"
+      """)
   )
-
-  val uvodSection = Section("Uvod", uvodSectionContent)
-
-  override def sections = Seq(uvodSection)
 
 }
