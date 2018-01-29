@@ -10,3 +10,10 @@ And of course:
 - [Bootstrap](http://getbootstrap.com/)
 - [Bootswatch](https://bootswatch.com/) (BS themes)
 - [Prismjs](http://prismjs.com/) (syntax highlighter)
+
+TODOs:
+- extract core to separate project !!! :) aka new static-site-generator hepeeeeeeeek
+- CamelCasePage -> camel-case-page.html
+- File -> Path
+- relTo in Renderable
+- parallel rendering
