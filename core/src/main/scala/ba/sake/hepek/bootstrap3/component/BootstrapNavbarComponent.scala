@@ -39,6 +39,7 @@ trait BootstrapNavbarComponent extends NavbarComponent {
       case Position.FixedTop    => "navbar-fixed-top"
       case Position.FixedBottom => "navbar-fixed-bottom"
     }
+    // TODO add padding to styles
     val styleClass = bsNavbarStyle.classes
     nav(cls := s"navbar $styleClass $positionClass")(
       div(cls := "container")(content)

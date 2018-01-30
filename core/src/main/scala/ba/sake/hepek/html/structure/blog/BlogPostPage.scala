@@ -7,6 +7,7 @@ package blog
 import java.time.format.DateTimeFormatter
 import java.time.LocalDate
 import scalatags.text.Frag
+import ba.sake.hepek.utils.StringUtils
 
 trait BlogPostPage extends Page {
 
@@ -16,7 +17,7 @@ trait BlogPostPage extends Page {
 
   def postSections: List[Section] = List.empty
 
-  def categoryPosts: List[BlogPostPage]
+  def categoryPosts: List[BlogPostPage] = List.empty
 
   def dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy")
 
@@ -26,29 +27,13 @@ trait BlogPostPage extends Page {
   * Handy class for sectioning a page (usually blog post). <br>
   * Also useful for generating a TOC (Table Of Contents).
   */
-case class Section(name: String,
-                   content: Frag,
-                   children: List[Section] = List.empty) {
+case class Section(
+    name: String,
+    content: Frag,
+    children: List[Section] = List.empty
+) {
 
-  import Section._
-
-  // TODO replace šđčćž ...
-  /* taken from "urlify" function in anchorjs.js */
-  def id: String = {
-    val trimmedLower = name.trim.toLowerCase.filterNot(_ == ''')
-    // - replace all unsafe chars with a dash
-    // - remove all dashes at left and right
-    // - remove multiple dashes with just one
-    val replacedWithDash = trimmedLower.replaceAll(UnsafeCharsRegex, "-")
-    val removedTrailingDashes =
-      replacedWithDash.dropWhile(_ == '-').reverse.dropWhile(_ == '-').reverse
-    removedTrailingDashes.replaceAll("-+", "-")
-  }
-
-}
-
-object Section {
-
-  private val UnsafeCharsRegex = """[& +$,:;=?@"#{}|^~\[`%!'\]./()*\\]"""
+  def id: String =
+    StringUtils.urlify(id)
 
 }
