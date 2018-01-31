@@ -1,7 +1,9 @@
 package ba.sake.hepek.path.utils
 
 import ba.sake.hepek.core.RelativePath
+import java.nio.file.Paths
 
+// TODO move to hepek-core project, it is indeed a common method
 trait RelativePathUtils { self: RelativePath =>
 
   /**
@@ -9,9 +11,12 @@ trait RelativePathUtils { self: RelativePath =>
     * @return Relative path from this page to `other`
     */
   def relTo(other: RelativePath): String = {
-    // TODO if(nemaParent) poravnaj_na_root OBA !!! i onda relativize... :)
-    val relP = this.relPath.toPath.getParent.relativize(other.relPath.toPath)
-    relP.toString.replaceAll("""\\""", "/") // change '\' to '/'
+    // put both paths ON THE SAME LEVEL, in the dummyRoot (imaginary) folder
+    val dummyRoot    = "dummy-root"
+    val p1           = Paths.get(dummyRoot, this.relPath.toPath.toString())
+    val p2           = Paths.get(dummyRoot, other.relPath.toPath.toString())
+    val relativePath = p1.getParent.relativize(p2)
+    relativePath.toString.replaceAll("""\\""", "/") // change '\' to '/'
   }
 
 }

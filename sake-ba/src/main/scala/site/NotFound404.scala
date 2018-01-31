@@ -1,8 +1,8 @@
-package hepek
+package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
-import hepek.templates.SakeBaPage
+import templates.SakeBaPage
 
 object NotFound extends SakeBaPage {
 
@@ -18,12 +18,11 @@ object NotFound extends SakeBaPage {
 
   override def pageContent = frag(
     div(cls := "text-center")(
-      p(raw("""Resurs '<!--#echo var="REQUEST_URI" -->' ne postoji!""")),
-      p("(Bar zasad...) ^_^"),
-      br,
-      br,
-      br,
-      raw(""" <a href="https://<!--#echo var="HTTP_HOST" -->">Haj nazad</a> """)
+      p(raw("""Resource '<!--#echo var="REQUEST_URI" -->' does not exist!""")),
+      p("(For now...) ^_^"),
+      raw(
+        """<br><br><br> <a href="https://<!--#echo var="HTTP_HOST" -->">Haj nazad</a> """
+      )
     )
   )
 

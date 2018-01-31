@@ -15,13 +15,12 @@ trait PackageRelativePath extends RelativePath {
   /** Path of resource relative to `sbt-hepek:hepekTarget` folder. */
   final override def relPath: File = {
     // needed for Path#relativize later :)
-    val packagePath = if (this.getClass.getPackage == null) {
-      "hepek"
+    val path = if (this.getClass.getPackage == null) {
+      fileName
     } else {
-      this.getClass.getPackage.getName.replaceAll("\\.", "/")
+      this.getClass.getPackage.getName.replaceAll("\\.", "/") + "/" + fileName
     }
-    val p = packagePath + "/" + fileName
-    new File(p.toLowerCase)
+    new File(path.toLowerCase)
   }
 
 }

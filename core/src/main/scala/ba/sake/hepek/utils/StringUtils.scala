@@ -2,11 +2,9 @@ package ba.sake.hepek.utils
 
 import java.text.Normalizer
 
-object StringUtils extends App {
+object StringUtils {
 
   private val UnsafeURLCharsRegex = """[& +$,:;=?@"#{}|^~\[`%!'\]./()*\\]"""
-
-  println(urlify("-Pa&geAđšpžćčđšpžćčžBCNešt-_o"))
 
   /**
     * Returns kebab-case, lowercased, URL-friendly string. <br>
@@ -30,6 +28,6 @@ object StringUtils extends App {
 
     var asciiOnly = dashTrimmed.replaceAll("đ", "dj")
     asciiOnly = Normalizer.normalize(asciiOnly, Normalizer.Form.NFD)
-    asciiOnly.replaceAll("[^\\x00-\\x7F]", "")
+    asciiOnly.replaceAll("[^\\x00-\\x7F]", "") // pa-ge-abc-nest-o
   }
 }

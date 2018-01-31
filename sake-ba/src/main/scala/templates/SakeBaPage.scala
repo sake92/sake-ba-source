@@ -1,10 +1,10 @@
-package hepek.templates
+package templates
 
 import scalatags.Text.all._
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
 import ba.sake.hepek.html.structure.SiteSettings
 import ba.sake.hepek.Resources._
-import hepek.Index
+import site.Index
 
 trait SakeBaPage extends BootstrapStaticPage {
 

@@ -34,6 +34,6 @@ case class Section(
 ) {
 
   def id: String =
-    StringUtils.urlify(id)
+    StringUtils.urlify(name)
 
 }

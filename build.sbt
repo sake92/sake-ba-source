@@ -23,10 +23,10 @@ lazy val commonSiteSettings = Seq(
     "org.webjars" % "bootswatch-cyborg" % "3.3.7"
   ),
   // override for easier relative referencing, default is "lib"
-  WebKeys.webModulesLib := "hepek/lib"
+  WebKeys.webModulesLib := "site/lib"
 
   // enable this to see more verbose output
-  // logLevel in hepek := Level.Debug
+  //, logLevel in hepek := Level.Debug
 ) ++ commonSettings
 
 /* PROJECTS-MODULES */

@@ -1,9 +1,16 @@
 package ba.sake.hepek
 
 import ba.sake.hepek.core.RelativePath
-import ba.sake.hepek.path.RootRelativePath
+import ba.sake.hepek.path.utils.RelativePathUtils
+import java.io.File
 
-case class Resource(fileName: String) extends RootRelativePath
+case class Resource(fileName: String)
+    extends RelativePath
+    with RelativePathUtils {
+
+  override def relPath = new File("site/" + fileName)
+
+}
 
 object Resources {
 

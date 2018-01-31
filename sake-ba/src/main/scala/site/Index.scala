@@ -1,9 +1,9 @@
-package hepek
+package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.bootstrap3.component.AllBootstrapComponents._
 import ba.sake.hepek.html.structure.blog.Section
-import hepek.templates.SakeBaPage
+import templates.SakeBaPage
 
 object Index extends SakeBaPage {
 
@@ -15,7 +15,7 @@ object Index extends SakeBaPage {
 
   override def pageContent = frag(
     div(cls := "jumbotron text-center")(
-      h1("Dobrodošli!"),
+      h1("Welcome!"),
       row(
         third1(),
         third2(
@@ -43,18 +43,83 @@ object Index extends SakeBaPage {
     )
   )
 
-  def sections: Seq[Section] = Seq(whatSection, aboutSection)
+  def sections =
+    List(resourcesSection, projectsSection, talksSection, aboutSection)
 
-  def aboutSection = Section(
-    "O meni",
+  val resourcesSection = Section(
+    "Resources",
     table(cls := "table table-striped table-hover")(
       tr(
-        td("ime i prezime"),
+        td(
+          span(cls := "glyphicon glyphicon-education"),
+          " ",
+          hyperlink("https://blog.sake.ba")("Tutorials")
+        )
+      ),
+      tr(
+        td(
+          span(cls := "glyphicon glyphicon-book"),
+          " ",
+          hyperlink("https://github.com/sake92/Reads")(
+            "Recommended readings"
+          )
+        )
+      )
+    )
+  )
+
+  val projectsSection = Section(
+    "Projects",
+    table(cls := "table table-striped table-hover")(
+      tr(
+        td("Sbt plugin for rendering files"),
+        td(
+          hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek")
+        )
+      ),
+      tr(
+        td("Assembler, VM, and a PL implementations from nand2tetris course"),
+        td(
+          hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris")
+        )
+      ),
+      tr(
+        td(colspan := "2")(
+          raw("""
+                <iframe src="http://githubbadge.appspot.com/sake92" 
+                  style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">
+                </iframe>
+              """)
+        )
+      )
+    )
+  )
+
+  val talksSection = Section(
+    "Talks",
+    table(cls := "table table-striped table-hover")(
+      tr(
+        td("23.01.2018"),
+        td("Scala intro"),
+        td(
+          hyperlink(
+            "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo"
+          )("OpenWeb Sarajevo")
+        )
+      )
+    )
+  )
+
+  val aboutSection = Section(
+    "About",
+    table(cls := "table table-striped table-hover")(
+      tr(
+        td("name"),
         td(strong("Sakib Hadžiavdić")),
       ),
       tr(
         td("email"),
-        td(hyperlink("mailto:sakib@sake.ba")(" sakib@sake.ba"))
+        td(hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba"))
       ),
       tr(
         td("twitter"),
@@ -76,35 +141,12 @@ object Index extends SakeBaPage {
                 </a>
              """)
         )
-      )
-    )
-  )
-
-  def whatSection = Section(
-    "Sadržaj",
-    table(cls := "table table-striped table-hover")(
-      tr(
-        td(
-          span(cls := "glyphicon glyphicon-education"),
-          " ",
-          hyperlink("https://blog.sake.ba")("Tutorijali")
-        )
       ),
       tr(
+        td("job"),
         td(
-          span(cls := "glyphicon glyphicon-blackboard"),
-          " ",
-          // TODO
-          //hyperlink("https://sake.ba/presentations")("Prezentacije")
-          hyperlink("#")("Prezentacije")
-        )
-      ),
-      tr(
-        td(
-          span(cls := "glyphicon glyphicon-registration-mark"),
-          " ",
-          //hyperlink("https://sake.ba/projects")("Projekti")
-          hyperlink("#")("Projekti")
+          span("software dev @ "),
+          hyperlink("http://olivebh.com/", true)("OliveBH")
         )
       )
     )
