@@ -1,16 +1,17 @@
 package hepek.utils
 
 import hepek.templates.SakeBaBlogPage
+import site.posts
 
 object Site {
 
-  val url  = "https://blog.sake.ba"
+  val url = "https://blog.sake.ba"
   val name = "blog.sake.ba"
 
   def mainPages: List[SakeBaBlogPage] = List(
-    hepek.posts.programiranje.java.Index,
-    hepek.posts.programiranje.scala.Index,
-    hepek.posts.matematika.Index
+    posts.programiranje.java.Index,
+    posts.programiranje.scala.Index,
+    posts.matematika.Index
   )
 
 }

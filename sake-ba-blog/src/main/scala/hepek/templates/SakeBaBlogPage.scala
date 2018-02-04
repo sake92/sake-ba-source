@@ -13,9 +13,7 @@ import hepek.utils.Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
 
-  // TODO local bootstrap && mathjax && prismjs
-
-  override def postAuthor     = "Sakib Hadžiavdić"
+  override def postAuthor = "Sakib Hadžiavdić"
   override def postCreateDate = LocalDate.now // override when post is finished
 
   // google analytics
@@ -33,10 +31,8 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
   )
 
   // DISQUS COMMENTS STUFF
-  val PAGE_URL = Site.url + "/" + hepek.Index
-    .relTo(this)
-    .toString
-    .replaceAll("""\\""", "/")
+  val PAGE_URL = Site.url + "/" + site.Index.relTo(this)
+  //.replaceAll("""\\""", "/") // when on windows..
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
 
   // disqus comments
@@ -64,13 +60,13 @@ trait SakeBaBlogStaticPage
 
   override def siteSettings = SiteSettings(
     Site.name,
-    hepek.Index,
+    site.Index,
     Site.mainPages,
     Option(relTo(Images.favicon)),
     Option(relTo(Images.faviconWhite))
   )
 
-  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
+  override def styleURLs = super.styleURLs :+ relTo(styles.css("main"))
   override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
 
   // BOOTSTRAP

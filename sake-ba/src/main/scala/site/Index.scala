@@ -1,11 +1,12 @@
 package site
 
 import scalatags.Text.all._
-import ba.sake.hepek.bootstrap3.component.AllBootstrapComponents._
+import ba.sake.hepek.bootstrap3.component.BootstrapBasicComponents._
+import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.html.structure.blog.Section
 import templates.SakeBaPage
 
-object Index extends SakeBaPage {
+object Index extends SakeBaPage with BootstrapGridComponents {
 
   override def pageTitle = "Početna stranica"
   override def pageDescription = Option(
@@ -13,98 +14,90 @@ object Index extends SakeBaPage {
       "Tutorijali iz programiranja, matematike i slično."
   )
 
-  override def pageContent = frag(
-    div(cls := "jumbotron text-center")(
-      h1("Welcome!"),
-      row(
-        third1(),
-        third2(
-          ul(cls := "nav nav-tabs")(
-            sections.zipWithIndex.map {
-              case (s, i) =>
-                val activeClass = if (i == 0) "active " else ""
-                li(cls := activeClass)(
-                  a(data.toggle := "tab", href := "#" + s.id)(s.name)
-                )
-            }
-          ),
-          div(cls := "tab-content")(
-            sections.zipWithIndex.map {
-              case (s, i) =>
-                val activeClass = if (i == 0) "in active " else ""
-                div(id := s.id, cls := s"tab-pane fade $activeClass")(
-                  s.content
-                )
-            }
-          )
-        ),
-        third3()
+  override def smRatios = None
+  override def xsRatios = None
+
+  override def pageContent = div(cls := "row")(
+    div(cls := "col-md-6 col-md-offset-3")(
+      h1(cls := "text-center")("Welcome!"),
+      ul(cls := "nav nav-tabs nav-justified")(
+        sections.zipWithIndex.map {
+          case (s, i) =>
+            val activeClass = if (i == 0) "active " else ""
+            li(cls := activeClass)(
+              a(data.toggle := "tab", href := "#" + s.id)(s.name)
+            )
+        }
       ),
+      div(cls := "tab-content text-center")(
+        sections.zipWithIndex.map {
+          case (s, i) =>
+            val activeClass = if (i == 0) "in active " else ""
+            div(id := s.id, cls := s"tab-pane fade $activeClass")(
+              s.content
+            )
+        }
+      )
     )
   )
 
   def sections =
     List(resourcesSection, projectsSection, talksSection, aboutSection)
 
+  private def tab = div()
+
   val resourcesSection = Section(
     "Resources",
-    table(cls := "table table-striped table-hover")(
-      tr(
-        td(
-          span(cls := "glyphicon glyphicon-education"),
-          " ",
-          hyperlink("https://blog.sake.ba")("Tutorials")
-        )
+    tab(
+      row(
+        span(cls := "glyphicon glyphicon-education"),
+        " ",
+        hyperlink("https://blog.sake.ba")("Tutorials")
       ),
-      tr(
-        td(
-          span(cls := "glyphicon glyphicon-book"),
-          " ",
-          hyperlink("https://github.com/sake92/Reads")(
-            "Recommended readings"
-          )
-        )
+      hr,
+      row(
+        span(cls := "glyphicon glyphicon-book"),
+        " ",
+        hyperlink("https://github.com/sake92/Reads")("Recommended readings")
       )
     )
   )
 
   val projectsSection = Section(
     "Projects",
-    table(cls := "table table-striped table-hover")(
-      tr(
-        td("Sbt plugin for rendering files"),
-        td(
-          hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek")
-        )
+    tab(
+      row(
+        half1("Sbt plugin for rendering files"),
+        half2(hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek"))
       ),
-      tr(
-        td("Assembler, VM, and a PL implementations from nand2tetris course"),
-        td(
-          hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris")
-        )
+      hr,
+      row(
+        half1(
+          "Assembler, VM, and a PL implementations from nand2tetris course"
+        ),
+        half2(hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris"))
       ),
-      tr(
-        td(colspan := "2")(
-          raw("""
-                <iframe src="http://githubbadge.appspot.com/sake92" 
-                  style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">
-                </iframe>
-              """)
-        )
+      hr,
+      row(
+        raw("""
+              <iframe src="https://githubbadge.appspot.com/sake92" 
+                style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">
+              </iframe>
+            """)
       )
     )
   )
 
   val talksSection = Section(
     "Talks",
-    table(cls := "table table-striped table-hover")(
-      tr(
-        td("23.01.2018"),
-        td("Scala intro"),
-        td(
+    tab(
+      row(
+        third1("23.01.2018"),
+        third2("OpenWeb Sarajevo"),
+        third3(
           hyperlink(
             "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo"
-          )("OpenWeb Sarajevo")
+          )("Scala intro")
         )
       )
     )
@@ -112,27 +105,47 @@ object Index extends SakeBaPage {
 
   val aboutSection = Section(
     "About",
-    table(cls := "table table-striped table-hover")(
-      tr(
-        td("name"),
-        td(strong("Sakib Hadžiavdić")),
+    tab(
+      row(
+        half1("name"),
+        half2("Sakib Hadžiavdić")
       ),
-      tr(
-        td("email"),
-        td(hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba"))
+      hr,
+      row(
+        half1("CV"),
+        half2(
+          hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
+            "view"
+          )
+        )
       ),
-      tr(
-        td("twitter"),
-        td(
+      hr,
+      row(
+        half1("job"),
+        half2(
+          span("software dev @ "),
+          hyperlink("http://olivebh.com/", true)("OliveBH")
+        )
+      ),
+      hr,
+      row(
+        half1("email"),
+        half2(hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba"))
+      ),
+      hr,
+      row(
+        half1("twitter"),
+        half2(
           raw("""
                 <a href="https://twitter.com/sake_92" class="twitter-follow-button" data-show-count="false">@sake_92</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               """)
         )
       ),
-      tr(
-        td("stackoverflow"),
-        td(
+      hr,
+      row(
+        half1("stackoverflow"),
+        half2(
           raw("""
                 <a href="https://stackoverflow.com/users/4496364/insan-e">
                   <img src="https://stackoverflow.com/users/flair/4496364.png?theme=dark" width="208" height="58" 
@@ -140,13 +153,6 @@ object Index extends SakeBaPage {
                     title="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
                 </a>
              """)
-        )
-      ),
-      tr(
-        td("job"),
-        td(
-          span("software dev @ "),
-          hyperlink("http://olivebh.com/", true)("OliveBH")
         )
       )
     )

@@ -31,7 +31,7 @@ trait SakeBaPage extends BootstrapStaticPage {
         """)
   )
 
-  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
+  override def styleURLs = super.styleURLs :+ relTo(styles.css("main"))
   override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
 
   // BOOTSTRAP
