@@ -23,6 +23,7 @@ object Instalacija extends JavaTemplate {
     Section("Dodavanje PATH varijabli", dodavanjePATHSectionContent)
   def provjeraSection = Section("Provjera", provjeraSectionContent)
 
+// TODO refactor to markdown md...
   // SEKCIJE
   def uvodSectionContent =
     div(
@@ -91,7 +92,8 @@ object Instalacija extends JavaTemplate {
         tr(td("JDK_HOME"), td("%JAVA_HOME%")),
         tr(td("JRE_HOME"), td("""%JAVA_HOME%\jre"""))
       ),
-      """Na kraju, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj. Bez navodnika, naravno! Kliknite Ok, Ok...""",
+      b("Glavno"),
+      """, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj. Bez navodnika, naravno! Kliknite Ok, Ok...""",
       br,
       "To je to! Uspješno ste instalirali Javu! :)",
       br,
