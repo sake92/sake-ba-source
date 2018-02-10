@@ -5,6 +5,7 @@ import scalatags.Text.all._
 import ba.sake.hepek.html.structure._
 import ba.sake.hepek.bootstrap3.blog.BootstrapBlogPage
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
+import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import ba.sake.hepek.Resources._
 import ba.sake.hepek.Resource
@@ -14,6 +15,7 @@ import hepek.utils.Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
 
+  override def tocTitle       = "Sadržaj"
   override def postAuthor     = "Sakib Hadžiavdić"
   override def postCreateDate = LocalDate.now // override when post is finished
 
@@ -57,6 +59,7 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
 
 trait SakeBaBlogStaticPage
     extends BootstrapStaticPage
+    with BootstrapGridComponents
     with AnchorjsDependencies {
 
   override def siteSettings = SiteSettings(
@@ -76,5 +79,8 @@ trait SakeBaBlogStaticPage
       Dependency("cyborg/bootstrap.min.css", bootstrapVersion, "bootswatch")
     )
   )
+
+  override def smRatios = None
+  override def xsRatios = None
 
 }

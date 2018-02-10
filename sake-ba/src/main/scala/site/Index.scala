@@ -2,20 +2,16 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.bootstrap3.component.BootstrapBasicComponents._
-import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.html.structure.blog.Section
 import templates.SakeBaPage
 
-object Index extends SakeBaPage with BootstrapGridComponents {
+object Index extends SakeBaPage {
 
   override def pageTitle = "Početna stranica"
   override def pageDescription = Option(
     "sake.ba je web stranica fizičke osobe pod imenom Sakib Hadžiavdić. " +
       "Tutorijali iz programiranja, matematike i slično."
   )
-
-  override def smRatios = None
-  override def xsRatios = None
 
   override def pageContent = div(cls := "row")(
     div(cls := "col-md-6 col-md-offset-3")(
@@ -80,7 +76,7 @@ object Index extends SakeBaPage with BootstrapGridComponents {
       hr,
       row(
         raw("""
-              <iframe src="https://githubbadge.appspot.com/sake92" 
+              <iframe src="https://githubbadge.appspot.com/sake92"
                 style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">
               </iframe>
             """)
@@ -148,8 +144,8 @@ object Index extends SakeBaPage with BootstrapGridComponents {
         half2(
           raw("""
                 <a href="https://stackoverflow.com/users/4496364/insan-e">
-                  <img src="https://stackoverflow.com/users/flair/4496364.png?theme=dark" width="208" height="58" 
-                    alt="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers" 
+                  <img src="https://stackoverflow.com/users/flair/4496364.png?theme=dark" width="208" height="58"
+                    alt="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
                     title="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
                 </a>
              """)

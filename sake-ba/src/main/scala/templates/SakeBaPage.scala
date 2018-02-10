@@ -2,11 +2,12 @@ package templates
 
 import scalatags.Text.all._
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
+import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.html.structure._
 import ba.sake.hepek.Resources._
 import site.Index
 
-trait SakeBaPage extends BootstrapStaticPage {
+trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
 
   override def siteSettings = SiteSettings(
     "sake.ba",
@@ -40,5 +41,8 @@ trait SakeBaPage extends BootstrapStaticPage {
       Dependency("cyborg/bootstrap.min.css", bootstrapVersion, "bootswatch")
     )
   )
+
+  override def smRatios = None
+  override def xsRatios = None
 
 }
