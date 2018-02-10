@@ -6,8 +6,7 @@ import templates.SakeBaPage
 
 object NotFound extends SakeBaPage {
 
-  override def pageTitle = "Ne postoji"
-
+  override def pageTitle        = "Ne postoji"
   override def fileName: String = "404.shtml"
 
   /* Since we use RELATIVE LINKS when referring to JS files, pages etc.

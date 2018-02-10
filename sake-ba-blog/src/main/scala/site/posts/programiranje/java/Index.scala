@@ -8,18 +8,18 @@ import hepek.utils.Imports._
 
 object Index extends JavaTemplate {
 
-  override def pageTitle = "Uvod u programiranje"
-  override def pageLabel = "Početna"
+  override def pageTitle       = "Uvod u programiranje"
+  override def pageLabel       = "Početna"
   override def pageDescription = Option("Uvod u programiranje.")
 
   override def postCreateDate = LocalDate.of(2017, 7, 1)
   override def postSections =
     List(uvodSection, komunikacijaSection, apstrakcijaSection, programiSection)
 
-  def uvodSection = Section("Uvod", uvodSectionContent)
+  def uvodSection         = Section("Uvod", uvodSectionContent)
   def komunikacijaSection = Section("Komunikacija", komunikacijaSectionContent)
-  def apstrakcijaSection = Section("Apstrakcija", apstrakcijaSectionContent)
-  def programiSection = Section("Programi", programiSectionContent)
+  def apstrakcijaSection  = Section("Apstrakcija", apstrakcijaSectionContent)
+  def programiSection     = Section("Programi", programiSectionContent)
 
   def uvodSectionContent = div(
     md(

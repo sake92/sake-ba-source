@@ -2,18 +2,19 @@ package hepek.templates
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure.SiteSettings
+import ba.sake.hepek.html.structure._
 import ba.sake.hepek.bootstrap3.blog.BootstrapBlogPage
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import ba.sake.hepek.Resources._
+import ba.sake.hepek.Resource
 import hepek.images.Images
 import hepek.utils.Site
 import hepek.utils.Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
 
-  override def postAuthor = "Sakib Hadžiavdić"
+  override def postAuthor     = "Sakib Hadžiavdić"
   override def postCreateDate = LocalDate.now // override when post is finished
 
   // google analytics
@@ -43,7 +44,7 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
                 this.page.url = '$PAGE_URL';
                 this.page.identifier = $PAGE_IDENTIFIER;
               };
-        
+
               (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://sake-ba.disqus.com/embed.js';
@@ -66,17 +67,14 @@ trait SakeBaBlogStaticPage
     Option(relTo(Images.faviconWhite))
   )
 
-  override def styleURLs = super.styleURLs :+ relTo(styles.css("main"))
+  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
   override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
 
-  // BOOTSTRAP
-  private val BOOTSTRAP_THEME = "bootswatch-cyborg"
+  // Bootswatch cyborg theme
   override def bootstrapCSSDependencies = List(
-    relTo(lib.cssMin(s"$BOOTSTRAP_THEME/css/bootstrap"))
-  )
-  override def bootstrapJSDependencies = List(
-    relTo(lib.jsMin("jquery/jquery")),
-    relTo(lib.jsMin(s"$BOOTSTRAP_THEME/js/bootstrap"))
+    DependencyProvider.cdnjs.depPath(
+      Dependency("cyborg/bootstrap.min.css", bootstrapVersion, "bootswatch")
+    )
   )
 
 }

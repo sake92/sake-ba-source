@@ -4,7 +4,6 @@
 Written with help of:
 - [sbt-hepek](https://github.com/sake92/sbt-hepek) My static site tool
 - [sbt-web](https://github.com/sbt/sbt-web)
-- [WebJars](http://www.webjars.org/)
 
 And of course:
 - [Bootstrap](http://getbootstrap.com/)

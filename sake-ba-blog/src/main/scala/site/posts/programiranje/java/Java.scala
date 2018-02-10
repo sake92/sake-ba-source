@@ -8,11 +8,11 @@ import hepek.utils.Imports._
 
 object Java extends JavaTemplate {
 
-  override def pageTitle = "Uvod u Javu"
+  override def pageTitle       = "Uvod u Javu"
   override def pageDescription = Option("Uvod u Java programski jezik.")
 
   override def postCreateDate = LocalDate.of(2017, 7, 2)
-  override def postSections = List(uvodSection)
+  override def postSections   = List(uvodSection)
 
   def uvodSection =
     Section("Java",
