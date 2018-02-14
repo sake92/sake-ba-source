@@ -51,29 +51,25 @@ object TeorijaSkupova extends MatematikaTemplate {
           Teorija skupova (engl. Set theory) je jedna od osnovnih grana matematike.  
           Ona, između ostalog, daje odgovor na to da li neki objekat pripada datom skupu objekata.  
           Skup mora biti jasno i nedvosmisleno definisan. 
-         """),
-      md("""
+
           **Skup** kao pojam se obično ne definiše već se uzima kao osnovni pojam.  
           To je ustvari samo kolekcija/mnoštvo __različitih__ objekata (stvari).  
           Objekat koji pripada skupu naziva se **element skupa**.  
           Element skupa može biti bilo šta, npr. broj, jabuka, avion, ili čak skup!  
           Vidimo da su skupovi vrlo liberalni, pa se pojavljuju često u raznim oblastima matematike.
-         """),
-      md("""
+
           Skupovi se označavaju velikim štampanim slovima: `A,B,...` a elementi malim slovima `x,y,...`  
           Definicija se navodi u vitičastim zagradama, npr. `A={1,2,3}`.  
           Redoslijed elemenata **nije bitan**: `A={1,2,3} = {3,2,1} = {2,1,3}`.  
           Zato se kaže i da je skup **neuređena kolekcija**.  
           Ne postoji prvi, drugi element i sl.  
-         """),
-      md("""
+
           Obično se u matematici koristi neko pravilo koje elementi moraju zadovoljavati (umjesto navođenja elemenata pojedinačno...),
             npr. "skup svih prirodnih brojeva koji su manji od 5".            
           To možemo zapisati ovako: `{x | x in NN, x < 5}`.  
           Ovdje `x` označava neki element skupa, `|` se čita kao "takav da je", a zarez se čita kao logičko "i" (engl. and).  
           Negdje se koristi i dvotačka umjesto | znaka, npr. `{x : x in NN, x < 5}`.
-         """),
-      md("""
+
           Dva skupa su jednaka akko imaju iste elemente.  
           To pišemo kao `A=B`, logično... :D
          """),
@@ -183,8 +179,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             Npr. kada govorimo o cijelim brojevima ne zanimaju nas imaginarni brojevi, jabuke i auta...  
             Skup stvari o kojima se *trenutno govori* naziva se **univerzalni skup**, ili kraće **univerzum**.  
             Označava se sa **`U`**.
-           """),
-        md("""
+
             Skupovi i relacija (odnosi) između skupova se mogu grafički predstaviti Venovim dijagramom.  
             Na slici desno vidimo primjer s dva skupa: `A = {1,2,4}` i `B = {2,3}`.  
             Univerzum (`U`) je pravougaonik koji obuhvata ova dva skupa. Recimo da je to skup `NN`.
@@ -231,11 +226,8 @@ object TeorijaSkupova extends MatematikaTemplate {
               Presjek dva skupa `A` i `B` označava se sa `A nn B`.  
               Presjek predstavlja novi skup koji sadrži one elemente koji se nalaze i u `A` skupu i u `B` skupu.  
               U našem primjeru to bi bilo `A nn B = {2}` (na slici obojeno crvenom bojom!).  
-             """),
-          md(
-            "Presjek možemo formalno zapisati kao `A nn B = {x | x in A ^^ x in B}`. "
-          ),
-          md("""
+              Presjek možemo formalno zapisati kao `A nn B = {x | x in A ^^ x in B}`.
+
               Šta ako skupovi nemaju ništa zajedničko?  
               Rezultat je, naravno, prazan skup, `O/` tj. `{}`.  
               Prazan skup ipak ima neku svrhu... :D  
@@ -288,8 +280,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           Postoje još dvije zanimljive operacije, prva je *simetrična razlika*  (`Delta`).  
           Simetrična razlika predstavlja uniju razlika skupova `A` i `B`, tj. `A Delta B = (A \\ B) uu (B \\ A)`.  
           Kroz naš primjer bilo bi `A Delta B = {1,3,4}`
-         """),
-      md("""
+
           Druga operacija je *komplement skupa*.
           Komplement skupa `A` su svi elementi koji nisu u skupu `A`, tj. `bar A = {x in U | x !in A}`, 
             gdje je `U` neki univerzum.  
@@ -325,8 +316,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           Za skup `A` kažemo da je *podskup* skupa `B` ako su svi elementi skupa `A` također elementi skupa `B`.  
           Ako je `A` podskup od `B` pišemo `A sube B`. (Znak `sube` podsjeća na `<=`, zar ne?)  
           Da, može biti i slučaj da je `A=B`!
-         """),
-      md("""
+
           Ako `A != B` (nisu isti skupovi) i `A sube B` tada za `A` kažemo da je **pravi podskup** skupa `B`.  
           Piše se `A sub B`.  
           

@@ -6,6 +6,7 @@ import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
 import hepek.utils.Imports._
 
+// TODO ovo je previše "napredno" za početnike, i haman beskorisno
 object Java extends JavaTemplate {
 
   override def pageTitle       = "Uvod u Javu"
@@ -37,7 +38,7 @@ object Java extends JavaTemplate {
     ),
     p(
       """
-        Kada se kaže "Java" obično se misli na programski jezik, 
+        Kada se kaže "Java" obično se misli na programski jezik,
         ali Java također podrazumijeva i cijelu platformu za razvijanje softvera.
       """,
       br,

@@ -14,7 +14,7 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.0.3-SNAPSHOT"
+    "ba.sake" %% "hepek" % "0.0.3-alpha2-SNAPSHOT"
   )
   // enable this to see more verbose output
   // logLevel in hepek := Level.Debug
