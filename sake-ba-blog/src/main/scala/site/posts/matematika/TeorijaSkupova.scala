@@ -317,7 +317,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           Ako je `A` podskup od `B` pišemo `A sube B`. (Znak `sube` podsjeća na `<=`, zar ne?)  
           Da, može biti i slučaj da je `A=B`!
 
-          Ako `A != B` (nisu isti skupovi) i `A sube B` tada za `A` kažemo da je **pravi podskup** skupa `B`.  
+          Ako `A != B` (nisu isti skupovi) i `A sube B` tada za `A` kažemo da je **pravi podskup** skupa `B`. 
           Piše se `A sub B`.  
           
           Analogno, imamo i relaciju *nadskup* (`A supe B`) za koju vrijedi obrnuto od relacije podskup.

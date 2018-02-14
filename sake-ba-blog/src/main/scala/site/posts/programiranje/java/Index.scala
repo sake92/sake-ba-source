@@ -93,8 +93,8 @@ object Index extends JavaTemplate {
         Dakle, samo znamo da mislimo na NEKI, bilo koji broj.
       """),
     md("""
-      Većina ozbiljnih p.j. ima **tipove**. One koji nemaju slobodno izbjegavajte! ;)  
-      Tip je apstrakcija koju dati p.j. razumije. Npr. kada napišemo
+        Većina ozbiljnih p.j. ima **tipove**. One koji nemaju slobodno izbjegavajte! ;)  
+        Tip je apstrakcija koju dati p.j. razumije. Npr. kada napišemo
       """),
     chl.java.inline("int broj"),
     md("""
@@ -105,65 +105,61 @@ object Index extends JavaTemplate {
 
         Programski jezici sadrže apstrakcije za opisivanje komplikovanijih podataka, za tok programa itd.
         Npr. kada želimo opisati neki (apstraktni) automobil, većina jezika Vam nudi apstrakciju zvanu klasa (en. class):
-      """),
+       """),
     chl.java("""
-        class Automobil {
-          int godinaProizvodnje;
-          string nazivModela;
-        }
-      """),
-    md("""Što se tiče apstrakcija za tok programa, tu stvari postaju komplikovanije, ali krenimo redom.
+              class Automobil {
+                int godinaProizvodnje;
+                string nazivModela;
+              }
+             """),
+    md("""
+      Što se tiče apstrakcija za tok programa, tu stvari postaju komplikovanije, ali krenimo redom.
 
-Jedna od najvažnijih naredbi kontrole toka je naredba za grananje.
-
-TU BI KONTINJUD...
-""")
+      Jedna od najvažnijih naredbi kontrole toka je naredba za grananje.
+      
+      TU BI KONTINJUD...
+      """)
   )
 
   def programiSectionContent = div(
-    p(
-      "Rekli smo da je program ",
-      b("niz naredbi"),
-      " koje računar treba izvršiti, u cilju dobijanja nekog rezultata.",
-      br,
-      "Kako svi ljudi razmišljaju na sebi svojstven način, postoji teoretski beskonačno mnogo rješenja (programa) za jedan te isti problem!"
+    md("""
+      Rekli smo da je program **niz naredbi** koje računar treba izvršiti,
+        u cilju dobijanja nekog rezultata.  
+      Kako svi ljudi razmišljaju na sebi svojstven način,
+        postoji teoretski beskonačno mnogo rješenja (programa) za jedan te isti problem!
+      Detalji su bitni, međutim, postoji nekoliko zajedničkih stvari koje sadrži većina programa:
+    """),
+    ul(
+      li(
+        md(
+          "**ulaz** - bio to fajl, broj unesen pomoću tastature, pokret miša, svejedno..."
+        )
+      ),
+      li(
+        md(
+          "**izlaz** - ispis na ekran ili printer, zvuk zvučnika, vibracija džojstika..."
+        )
+      ),
+      li(md("**algoritmi** i matematičke **funkcije**")),
+      li(
+        md(
+          "**odluke** - ako je nešto istina uradi jedno - ako nije uradi drugo itd..."
+        )
+      ),
+      li(md("**ponavljanja instrukcija** - for petlje, while petlje itd."))
     ),
-    p(
-      "Detalji su bitni, međutim, postoji nekoliko zajedničkih stvari koje sadrži većina programa:",
-      ul(
-        li(
-          b("ulaz"),
-          " - bio to naziv fajla, broj koji unese korisnik pomoću tastature, pokret miša, svejedno..."
-        ),
-        li(
-          b("izlaz"),
-          " - ispis na ekran ili printer, zvuk zvučnika, vibracija džojstika..."
-        ),
-        li(b("algoritmi i matematičke funkcije")),
-        li(b("odluke"),
-           " - ako je nešto istina uradi jedno - ako nije uradi drugo itd..."),
-        li(b("ponavljanja instrukcija"), " - for petlje, while petlje itd.")
-      )
-    ),
-    p(
-      b("Algoritam"),
-      " je niz precizno definisanih koraka za dobijanje nekog rezultata.",
-      br,
-      "Laički rečeno, to je recept za implementaciju neke funkcije."
-    ),
+    md("""
+        **Algoritam** je niz precizno definisanih koraka za dobijanje nekog rezultata.  
+        Laički rečeno, to je recept za implementaciju neke funkcije.
+       """),
     row(
       half1(
-        p(
-          "U toku pisanja koda nekog programa često će nam se pojavljivati logičke greške.",
-          br,
-          "Tj. program se izvršava ali ne radi kako bismo željeli. Te greške se nazivaju bagovi. (engl. bug - buba, insekt)",
-          br,
-          "Za program koji ima takve greške kaže se da je ",
-          i("bagovit"),
-          ".",
-          br,
-          "Proces u kojem tražimo greške i ispravljamo ih naziva se debagovanje."
-        )
+        md("""
+          U toku pisanja koda nekog programa često će nam se pojavljivati logičke greške.  
+          Tj. program se izvršava ali ne radi kako bismo željeli. Te greške se nazivaju bagovi (engl. bug - buba, insekt).  
+          Za program koji ima takve greške kaže se da je  *bagovit*.  
+          Proces u kojem tražimo greške i ispravljamo ih naziva se debagovanje.
+        """)
       ),
       half2(image(relTo(Images.programming.error), "To je to."))
     )
