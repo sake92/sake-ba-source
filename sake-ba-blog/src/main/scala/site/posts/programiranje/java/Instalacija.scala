@@ -27,45 +27,43 @@ object Instalacija extends JavaTemplate {
   // SEKCIJE
   def uvodSectionContent =
     div(
-      p(
-        "Kliknite na ",
-        hyperlink(
-          "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
-          true
-        )("ovaj link"),
-        ".",
-        image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
-        "Kada se otvori stranica sa prethodne slike kliknite na dugme ",
-        b("download JDK"),
-        ".",
-        br,
-        blockquote(
-          "JDK (Java Development Kit) su alati za razvijanje Java programa: kompajler, debager itd.",
-          br,
-          "JDK sadrži JRE (Java Runtime Environment) koji služi za pokretanje Java programa (JVM, Java API klase itd.)."
-        )
+      "Kliknite na ",
+      hyperlink(
+        "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
+        true
+      )("ovaj link"),
+      ".",
+      image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
+      md(
+        "Kada se otvori stranica sa prethodne slike kliknite na dugme **download JDK**."
+      ),
+      blockquote(
+        md("""
+            JDK (Java Development Kit) su alati za razvijanje Java programa: kompajler, debager itd.
+            JDK sadrži JRE (Java Runtime Environment) koji služi za pokretanje Java programa (JVM, Java API klase itd).
+           """)
+      ),
+      md("""
+          Na sljedećoj slici kliknite na "jdk-8u131-windows-x64.exe".
+          To je instalacija za 64-bitni Windows.  
+          Ako znate da imate 32-bitni Windows onda skinite tu verziju... 
+         """),
+      image(relTo(Images.java.downloadJDK2), "JDK download step 2"),
+      md("""
+          Preporučujem da Javu instalirate u folder pod nazivom "C:\Java".  
+          Ovo ne morate raditi ali je korisno kada vam treba više verzija Jave.  
+          Također, neki programi na Windowsu imaju problema kada putanja sadrži razmak, 
+            zato nećemo instalirati u "Program Files"... 
+        """),
+      blockquote(
+        md("""
+            **Napomena**: Ne trebate instalirati i JRE!  
+            Kada vam dođe prozor za JRE kliknite Cancel! (iksić).  
+            Upravo sam vam uštedio 100-tinjak megabajta, nema na čemu... :D
+           """)
       ),
       p(
-        """Na sljedećoj slici kliknite na "jdk-8u131-windows-x64.exe".
-             To je instalacija za 64-bitni Windows. Ako znate da imate 32-bitni Windows onda skinite tu verziju... """,
-        image(relTo(Images.java.downloadJDK2), "JDK download step 2")
-      ),
-      p(
-        """Preporučujem da Javu instalirate u folder pod nazivom "C:\Java". """,
-        br,
-        "Ovo ne morate raditi ali je korisno kada vam treba više verzija Jave, npr. ako klijent koristi 1.7 verziju pa hoćete testirat i sl.",
-        br,
-        """Također, neki programi na Windowsu imaju problema kada putanja sadrži razmak, zato nećemo instalirati u "Program Files"... """,
-        blockquote(
-          "Napomena: Ne trebate instalirati i JRE!",
-          br,
-          "Dakle, kada vam dođe prozor za JRE kliknite Cancel! (iksić).",
-          br,
-          "Upravo sam vam uštedio 100-tinjak megabajta, nema na čemu... :D"
-        )
-      ),
-      p(
-        "Kada se završi download, otvorite instalaciju i kliknite Next.",
+        "Dakle, Kada se završi download, otvorite instalaciju i kliknite Next.",
         br,
         image(relTo(Images.java.installJDKFolder), "JDK folder"),
         """Zatim kliknite dugme "Change..." i prepravite putanju foldera na "C:\Java\jdk1.8.0_131\". """,
@@ -77,7 +75,7 @@ object Instalacija extends JavaTemplate {
 
   def dodavanjePATHSectionContent = div(
     p(
-      "Dio koji slijedi specifičan je više za sam rad operativnog sistema (Windows u našem slučaju), nego za Javu.",
+      "Dio koji slijedi vezan je više za sam rad operativnog sistema (Windows u našem slučaju) nego za Javu.",
       br,
       "Otvorite Computer Properties na Windowsu (desni klik na My Computer -> Properties). Otvoriće vam se sljedeći prozor:",
       image(relTo(Images.os.winCompProps), "Computer Properties"),
@@ -107,9 +105,9 @@ object Instalacija extends JavaTemplate {
     br,
     """Otvorite Start, ukucajte "cmd" i kliknite Enter. Ukucajte """,
     chl.batch.inline("java -version"),
-    "Ako dobijete poruku ",
+    ". Ako dobijete poruku ",
     br,
-    tag("samp")(
+    chl.batch.inline(
       "'java' is not recognized as an internal or external command, operable program or batch file."
     ),
     br,
