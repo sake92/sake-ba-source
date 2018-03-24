@@ -7,17 +7,15 @@ lazy val commonSettings = Seq(
   organization := "ba.sake",
   version := "0.0.0-SNAPSHOT",
   (hepek in Compile) := {
-    WebKeys.assets.value // run 'assets' task also after compiling... :)
+    WebKeys.assets.value // run 'assets' after compiling...
     (hepek in Compile).value
   },
   // move SbtWeb stuff to "site/lib", default is "lib"
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.0.3-alpha2-SNAPSHOT"
+    "ba.sake" %% "hepek" % "0.1.0-alpha1-SNAPSHOT"
   )
-  // enable this to see more verbose output
-  // logLevel in hepek := Level.Debug
 )
 
 lazy val sakeBa = (project in file("sake-ba"))

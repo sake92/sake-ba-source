@@ -1,5 +1,6 @@
 
 var parent = "section";
-for (i = 1; i < 4; i++) { // ne bi trebalo dublje ić
-    anchors.add(parent + ' h' + i); // CSS selectors "section h1", "section h2" ...
+for (i = 1; i <= 6; i++) {
+    // CSS selectors "section h1", "section h2" ...
+    anchors.add(parent + ' h' + i);
 }

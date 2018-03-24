@@ -35,7 +35,7 @@ object Index extends MatematikaTemplate {
 
             Zar je sramota pitati takva pitanja?  
             Hoćeš li ti biti manje profesor ako zastaneš 5 minuta i objasniš terminologiju?  
-            Lema, korolar, teorema, šta su te stvari??? :D
+            Lema, korolar, teorema, šta su te stvari??? :D  
             Nauči me! To ti je pos'o!
            """)
       ),

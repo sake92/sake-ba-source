@@ -98,10 +98,8 @@ object TeorijaSkupova extends MatematikaTemplate {
           li(
             md("""
                 `NN` - Skup prirodnih brojeva (od engl. **N**atural - prirodni). `NN = {0,1,2,...}`.  
-                
                 Neki autori ne uključuju nulu u ovaj skup.  
                 Zato kada se želi posebno istaći da je i nula uključena koriste se simboli `N_0`, `N^0`.  
-                
                 Kada se želi istaći da nula nije uključena piše se `N^+ = {1,2,...}`.  
                 Analogna notacija vrijedi i za ostale skupove.
                """)
