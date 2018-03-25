@@ -13,7 +13,7 @@ object TeorijaSkupova extends MatematikaTemplate {
     "Kratak uvod u teoriju skupova. Unija, presjek, razlika, De Morgan."
   )
 
-  override def postCreateDate = LocalDate.of(2017, 6, 11)
+  override def postCreateDate = Option(LocalDate.of(2017, 6, 11))
   override def postSections =
     List(uvodSection, operacijeSection, relacijeSection, kardinalnostSection)
 

@@ -13,7 +13,7 @@ object HelloWorld extends JavaTemplate {
     "Hello world program u Javi."
   )
 
-  override def postCreateDate = LocalDate.of(2018, 2, 4)
+  override def postCreateDate = Option(LocalDate.of(2018, 2, 4))
   override def postSections   = List(uvodSection, pokretanjeSection)
 
   val uvodSection = Section(

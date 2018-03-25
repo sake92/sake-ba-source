@@ -13,7 +13,7 @@ object Instalacija extends JavaTemplate {
     "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
   )
 
-  override def postCreateDate = LocalDate.of(2017, 7, 2)
+  override def postCreateDate = Option(LocalDate.of(2017, 7, 2))
   override def postSections =
     List(uvodSection, dodavanjePATHSection, provjeraSection)
 

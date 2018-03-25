@@ -10,7 +10,7 @@ object Index extends MatematikaTemplate {
   override def pageTitle = "Matematika"
   override def pageLabel = "Početna"
 
-  override def postCreateDate = LocalDate.of(2017, 6, 10)
+  override def postCreateDate = Option(LocalDate.of(2017, 6, 10))
   override def postSections   = List(matematikaUvodSection)
 
   def matematikaUvodSection = Section("Uvod", matematikaUvodSectionContent)

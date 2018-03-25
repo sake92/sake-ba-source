@@ -10,7 +10,7 @@ object Site {
 
   def mainPages: List[SakeBaBlogPage] = List(
     posts.programiranje.java.Index,
-    posts.programiranje.scala.Index,
+    //posts.programiranje.scala.Index,
     posts.matematika.Index
   )
 

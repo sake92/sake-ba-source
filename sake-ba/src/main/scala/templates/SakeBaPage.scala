@@ -42,7 +42,9 @@ trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
     )
   )
 
-  override def smRatios = None
-  override def xsRatios = None
+  override def screenRatios = super.screenRatios.copy(
+    sm = None,
+    xs = None
+  )
 
 }

@@ -12,7 +12,7 @@ object Index extends JavaTemplate {
   override def pageLabel       = "Početna"
   override def pageDescription = Option("Uvod u programiranje.")
 
-  override def postCreateDate = LocalDate.of(2017, 7, 1)
+  override def postCreateDate = Option(LocalDate.of(2017, 7, 1))
   override def postSections =
     List(
       Section("Uvod", uvodSectionContent),
@@ -86,7 +86,7 @@ object Index extends JavaTemplate {
         I to im moramo "ručno" unijeti...
         Te kompjuterske misli su ustvari naše **naredbe**, koje se skupno nazivaju **program**.
 
-        Ovdje smo da naučimo neke od načina za komuniciranje s kompjuterima.
+        Ovdje smo da naučimo neke od načina za komuniciranje s kompjuterima.  
         Naime, ljudi su razvili na stotine **programskih jezika** koje se koriste za pisanje kompjuterskih programa.  
         Ovi jezici su slični našim jezicima, imaju svoju *sintaksu*, *gramatiku* i *pravila* koja se moraju poštovati.
       """)

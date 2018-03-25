@@ -16,8 +16,8 @@ import hepek.utils.Imports._
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
 
   override def tocTitle       = "Sadržaj"
-  override def postAuthor     = "Sakib Hadžiavdić"
-  override def postCreateDate = LocalDate.now // override when post is finished
+  override def postAuthor     = Option("Sakib Hadžiavdić")
+  override def postCreateDate = Option(LocalDate.now)
 
   // google analytics
   override def headContent = super.headContent ++ List(
@@ -80,7 +80,9 @@ trait SakeBaBlogStaticPage
     )
   )
 
-  override def smRatios = None
-  override def xsRatios = None
+  override def screenRatios = super.screenRatios.copy(
+    sm = None,
+    xs = None
+  )
 
 }
