@@ -13,11 +13,25 @@ object Basics extends JavaTemplate {
   override def postCreateDate  = Option(LocalDate.of(2018, 3, 25))
 
   override def postSections = List(
+    jshellSection,
     expressionsAndOperatorsSection,
     variablesSection
   )
 
   def jshell = chl.batch.withPrompt("jshell>")
+
+  def jshellSection = Section(
+    "JShell",
+    div(
+      md("""
+          Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
+          Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  
+          Dobićete tzv. interaktivni shell u kojem možete kucati Javu.  
+          Zovu ga još i REPL (Read Evaluate Print Loop), jer dobija unos od nas,
+            evaluira ga, isprinta neki odgovor, i ponavlja ovo sve.
+      """)
+    )
+  )
 
   def expressionsAndOperatorsSection = Section(
     "Izrazi i operatori",

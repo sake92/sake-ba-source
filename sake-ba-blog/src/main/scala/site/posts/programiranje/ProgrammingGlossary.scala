@@ -9,7 +9,7 @@ case class Term(name: String, explanation: Frag)
 
 object ProgrammingGlossary extends SakeBaBlogStaticPage {
 
-  override def pageTitle = "Rječnik pojmova"
+  override def pageTitle = "Glosarij"
 
   override def pageContent = row(
     div(cls := "well well-lg col-md-6 col-md-push-3 ")(
