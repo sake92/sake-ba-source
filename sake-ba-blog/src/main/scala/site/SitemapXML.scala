@@ -12,7 +12,10 @@ object SitemapXML extends Renderable {
   override def relPath = Paths.get("site/sitemap.xml")
 
   override def render = {
-    val pages = Site.mainPages.flatMap(_.categoryPosts)
+    val pages = Site.mainPages.flatMap {
+      case mp: BlogPostPage => mp.categoryPosts
+      case mp               => List()
+    }
     val urls = for {
       p <- pages
     } yield postUrlTag(p)

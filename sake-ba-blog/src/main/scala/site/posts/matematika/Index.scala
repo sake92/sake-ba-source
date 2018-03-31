@@ -13,9 +13,8 @@ object Index extends MatematikaTemplate {
   override def postCreateDate = Option(LocalDate.of(2017, 6, 10))
   override def postSections   = List(matematikaUvodSection)
 
-  def matematikaUvodSection = Section("Uvod", matematikaUvodSectionContent)
-
-  def matematikaUvodSectionContent =
+  def matematikaUvodSection = Section(
+    "Uvod",
     row(
       half1(
         md("""
@@ -43,5 +42,6 @@ object Index extends MatematikaTemplate {
         image("https://i.imgur.com/UOhQzH5.gif", "Vako nekako")
       )
     )
+  )
 
 }

@@ -15,16 +15,17 @@ object Uvod extends ScalaTemplate {
 
   override def postSections = List(uvodSection)
 
-  def uvodSection = Section("Uvod", uvodSectionContent)
-
-  def uvodSectionContent = div(
-    "Scala ima dvije vrste varijabli, ",
-    chl.scala.inline("val"),
-    " i val:",
-    chl.scala("""
+  def uvodSection = Section(
+    "Uvod",
+    div(
+      "Scala ima dvije vrste varijabli, ",
+      chl.scala.inline("val"),
+      " i val:",
+      chl.scala("""
         val unchangeable = 5
         var changeable = "Whatever"
       """)
+    )
   )
 
 }

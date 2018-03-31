@@ -17,16 +17,15 @@ object Instalacija extends JavaTemplate {
   override def postSections =
     List(uvodSection, dodavanjePATHSection, provjeraSection)
 
-  def uvodSection = Section("Instalacija Jave", uvodSectionContent)
-
-  def dodavanjePATHSection =
-    Section("Dodavanje PATH varijabli", dodavanjePATHSectionContent)
-  def provjeraSection = Section("Provjera", provjeraSectionContent)
-
 // TODO refactor to markdown md...
-  // SEKCIJE
-  def uvodSectionContent =
+
+  def uvodSection = Section(
+    "Instalacija Jave",
     div(
+      md("""
+          U nastavku slijedi primjer za instalaciju Jave 8. 
+          Potpuno isti postupak je i za ostale verzije.  
+      """),
       "Kliknite na ",
       hyperlink(
         "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
@@ -72,53 +71,61 @@ object Instalacija extends JavaTemplate {
         image(relTo(Images.java.installJRENope), "JRE, nope!")
       )
     )
-
-  def dodavanjePATHSectionContent = div(
-    p(
-      "Dio koji slijedi vezan je više za sam rad operativnog sistema (Windows u našem slučaju) nego za Javu.",
-      br,
-      "Otvorite Computer Properties na Windowsu (desni klik na My Computer -> Properties). Otvoriće vam se sljedeći prozor:",
-      image(relTo(Images.os.winCompProps), "Computer Properties"),
-      "Kliknite na Advanced System Settings. Dobićete sljedeći prozor: ",
-      image(relTo(Images.os.winSysProps), "System Properties")
-    ),
-    p(
-      "Dodajte 3 sistemske varijable u donji prozor (u System Variables):",
-      table(cls := "table table-hover")(
-        tr(th("Naziv varijable"), th("Vrijednost")),
-        tr(td("JAVA_HOME"), td("""C:\Java\jdk1.8.0_131""")),
-        tr(td("JDK_HOME"), td("%JAVA_HOME%")),
-        tr(td("JRE_HOME"), td("""%JAVA_HOME%\jre"""))
-      ),
-      b("Glavno"),
-      """, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj. Bez navodnika, naravno! Kliknite Ok, Ok...""",
-      br,
-      "To je to! Uspješno ste instalirali Javu! :)",
-      br,
-      "Stanje bi trebalo biti otprilike ovako:",
-      image(relTo(Images.os.winSysVars), "System Properties")
-    )
   )
 
-  def provjeraSectionContent = div(
-    "Da bi provjerili jesmo li uspješno obavili zadatak, otvorićemo Command Prompt (kod Linuxaša se rekne Shell).",
-    br,
-    """Otvorite Start, ukucajte "cmd" i kliknite Enter. Ukucajte """,
-    chl.batch.inline("java -version"),
-    ". Ako dobijete poruku ",
-    br,
-    chl.batch.inline(
-      "'java' is not recognized as an internal or external command, operable program or batch file."
-    ),
-    br,
-    " nešto nije uredu, provjerite sve korake sekcije ",
-    hyperlink(relTo(this) + "#" + dodavanjePATHSection.id, false)(
-      dodavanjePATHSection.name
-    ),
-    " ponovo!",
-    br,
-    "Ako dobijete nešto slično sljedećoj slici, sve je OK:",
-    image(relTo(Images.os.winJavaVer), "Java verzija")
+  def dodavanjePATHSection =
+    Section(
+      "Dodavanje PATH varijabli",
+      div(
+        p(
+          "Dio koji slijedi vezan je više za sam rad operativnog sistema (Windows u našem slučaju) nego za Javu.",
+          br,
+          "Otvorite Computer Properties na Windowsu (desni klik na My Computer -> Properties). Otvoriće vam se sljedeći prozor:",
+          image(relTo(Images.os.winCompProps), "Computer Properties"),
+          "Kliknite na Advanced System Settings. Dobićete sljedeći prozor: ",
+          image(relTo(Images.os.winSysProps), "System Properties")
+        ),
+        p(
+          "Dodajte 3 sistemske varijable u donji prozor (u System Variables):",
+          table(cls := "table table-hover")(
+            tr(th("Naziv varijable"), th("Vrijednost")),
+            tr(td("JAVA_HOME"), td("""C:\Java\jdk1.8.0_131""")),
+            tr(td("JDK_HOME"), td("%JAVA_HOME%")),
+            tr(td("JRE_HOME"), td("""%JAVA_HOME%\jre"""))
+          ),
+          b("Glavno"),
+          """, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj. Bez navodnika, naravno! Kliknite Ok, Ok...""",
+          br,
+          "To je to! Uspješno ste instalirali Javu! :)",
+          br,
+          "Stanje bi trebalo biti otprilike ovako:",
+          image(relTo(Images.os.winSysVars), "System Properties")
+        )
+      )
+    )
+
+  def provjeraSection = Section(
+    "Provjera",
+    div(
+      "Da bi provjerili jesmo li uspješno obavili zadatak, otvorićemo Command Prompt (kod Linuxaša se rekne Shell).",
+      br,
+      """Otvorite Start, ukucajte "cmd" i kliknite Enter. Ukucajte """,
+      chl.batch.inline("java -version"),
+      ". Ako dobijete poruku ",
+      br,
+      chl.batch.inline(
+        "'java' is not recognized as an internal or external command, operable program or batch file."
+      ),
+      br,
+      " nešto nije uredu, provjerite sve korake sekcije ",
+      hyperlink(relTo(this) + "#" + dodavanjePATHSection.id, false)(
+        dodavanjePATHSection.name
+      ),
+      " ponovo!",
+      br,
+      "Ako dobijete nešto slično sljedećoj slici, sve je OK:",
+      image(relTo(Images.os.winJavaVer), "Java verzija")
+    )
   )
 
 }

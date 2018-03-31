@@ -16,7 +16,7 @@ object HelloWorld extends JavaTemplate {
   override def postCreateDate = Option(LocalDate.of(2018, 2, 4))
   override def postSections   = List(uvodSection, pokretanjeSection)
 
-  val uvodSection = Section(
+  def uvodSection = Section(
     "Poyy sviete!",
     div(
       p("""Da vidimo kako izgleda obavezni "Hello World" primjer:"""),
@@ -38,7 +38,7 @@ object HelloWorld extends JavaTemplate {
     )
   )
 
-  val pokretanjeSection = Section(
+  def pokretanjeSection = Section(
     "Pokretanje programa",
     div(
       md("""

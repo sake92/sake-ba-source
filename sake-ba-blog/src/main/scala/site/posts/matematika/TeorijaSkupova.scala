@@ -17,35 +17,8 @@ object TeorijaSkupova extends MatematikaTemplate {
   override def postSections =
     List(uvodSection, operacijeSection, relacijeSection, kardinalnostSection)
 
-  // CONTENT
-  def uvodSection = Section("Uvod", uvodSectionContent)
-
-  def operacijeSection = Section(
-    "Operacije nad skupovima",
-    operacijeSectionContent,
-    List(
-      Section("Unija", unijaSectionContent),
-      Section("Presjek", presjekSectionContent),
-      Section("Razlika", razlikaSectionContent),
-      Section("De Morganovi zakoni", deMorganoviZakoniSectionContent)
-    )
-  )
-
-  def relacijeSection = Section(
-    "Relacije između skupova",
-    relacijeSectionContent,
-    List(
-      Section("Podskup i nadskup", podskupNadskupSectionContent)
-    )
-  )
-
-  def kardinalnostSection = Section(
-    "Kardinalnost skupa",
-    kardinalnostSectionContent
-  )
-
-  // section contents....
-  val uvodSectionContent =
+  def uvodSection = Section(
+    "Uvod",
     div(
       md("""
           Teorija skupova (engl. Set theory) je jedna od osnovnih grana matematike.  
@@ -168,8 +141,10 @@ object TeorijaSkupova extends MatematikaTemplate {
         )
       )
     )
+  )
 
-  val operacijeSectionContent =
+  def operacijeSection = Section(
+    "Operacije nad skupovima",
     row(
       half1(
         md("""
@@ -187,9 +162,17 @@ object TeorijaSkupova extends MatematikaTemplate {
       half2(
         svg(relTo(Images.math.skup), "Vennov dijagram")
       )
+    ),
+    List(
+      unijaSection,
+      presjekSection,
+      razlikaSection,
+      deMorganoviZakoniSection
     )
+  )
 
-  val unijaSectionContent =
+  def unijaSection = Section(
+    "Unija",
     row(
       half1(
         md("""
@@ -214,8 +197,10 @@ object TeorijaSkupova extends MatematikaTemplate {
         svg(relTo(Images.math.unija), "Unija skupova")
       )
     )
+  )
 
-  val presjekSectionContent =
+  def presjekSection = Section(
+    "Presjek",
     div(
       row(
         half1(
@@ -253,8 +238,10 @@ object TeorijaSkupova extends MatematikaTemplate {
            """)
       )
     )
+  )
 
-  val razlikaSectionContent =
+  def razlikaSection = Section(
+    "Razlika",
     div(
       row(
         half1(
@@ -287,8 +274,10 @@ object TeorijaSkupova extends MatematikaTemplate {
           Druge oznake su `A'` i `A^C`.
          """)
     )
+  )
 
-  val deMorganoviZakoniSectionContent =
+  def deMorganoviZakoniSection = Section(
+    "De Morganovi zakoni",
     div(
       md("""
           Dvije vrlo korisne formule vezane za komplemente skupova su **De Morganovi zakoni**:
@@ -298,17 +287,22 @@ object TeorijaSkupova extends MatematikaTemplate {
         li("`bar (A nn B) = bar A uu bar B`")
       )
     )
+  )
 
-  val relacijeSectionContent =
+  def relacijeSection = Section(
+    "Relacije između skupova",
     md(
       """
         Kao što smo već rekli na početku, skupovi su određeni samo elementima koje sadrže.  
         To nam je dovoljno da odredimo da li su dva skupa jednaka,
           `A = B` akko `AAx | x in A ^^ x in B`.
       """
-    )
+    ),
+    List(podskupNadskupSection)
+  )
 
-  val podskupNadskupSectionContent =
+  def podskupNadskupSection = Section(
+    "Podskup i nadskup",
     div(
       md("""
           Za skup `A` kažemo da je *podskup* skupa `B` ako su svi elementi skupa `A` također elementi skupa `B`.  
@@ -341,8 +335,10 @@ object TeorijaSkupova extends MatematikaTemplate {
            """)
       )
     )
+  )
 
-  val kardinalnostSectionContent =
+  def kardinalnostSection = Section(
+    "Kardinalnost skupa",
     md(
       """
         Kardinalnost skupa je *mjera* broja elemenata nekog skupa.  
@@ -354,5 +350,6 @@ object TeorijaSkupova extends MatematikaTemplate {
         Ne zaboravimo i `|O/|=0`, naravno.
       """
     )
+  )
 
 }
