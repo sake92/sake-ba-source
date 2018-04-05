@@ -3,7 +3,6 @@ package site.posts.programiranje.java
 import java.time.LocalDate
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure.blog.Section
-import hepek.images.Images
 import hepek.utils.Imports._
 
 object Basics extends JavaTemplate {
@@ -23,7 +22,11 @@ object Basics extends JavaTemplate {
   def jshellSection = Section(
     "JShell",
     div(
-      md("""
+      md(s"""
+          Morate imati instaliranu Javu 9 ili 10. 
+          Ispratite [sekciju za instalaciju](${relTo(Instalacija)}).  
+          Ako vam je mrsko instalirati, [kliknite ovdje](http://www.javarepl.com) za online verziju.
+          
           Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
           Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  
           Dobićete tzv. interaktivni shell u kojem možete kucati Javu.  
@@ -101,7 +104,7 @@ object Basics extends JavaTemplate {
           Sada se sve čini onako kako treba. :)
 
           ---
-          Prvenstvo operatora (en. precedence) radi očekivano.  
+          Redoslijed operatora (en. precedence) radi očekivano.  
           Npr. množenje se radi prije sabiranja.  
           Ako želimo baš, baš, biti sigurni da će program raditi kako treba, možemo koristiti zagrade.
         """
@@ -120,15 +123,13 @@ object Basics extends JavaTemplate {
     div(
       md(
         """   
-          Primijetite šta REPL ispisuje na kraju, "created scratch variable $1 : int".  
-          U prevodu: "kreirana nova varijabla $1: int".
+          Primijetite šta REPL ispisuje kao odgovor, poslije svake unesene linije, "$1 ==> 5".  
           Ako ukucamo `$1` u REPL vidjećemo sljedeće:
         """
       ),
       jshell.withOutputLines("2-3")("""
         $1
         $1 ==> 5
-        |  value of $1 : int
       """),
       md(
         """
@@ -141,7 +142,7 @@ object Basics extends JavaTemplate {
 
           Kreiraćemo novu varijablu pod nazivom `brojJabuka`, 
             za čuvanje `int`egera (en. "integer" je cijeli broj).  
-          Ovo `int` je tip varijable, *veličina i oblik kutije*! 
+          Ovo `int` je tip varijable (veličina i oblik kutije)! 
           Kasnije ćemo govoriti malo detaljnije o tipovima.
         """
       ),

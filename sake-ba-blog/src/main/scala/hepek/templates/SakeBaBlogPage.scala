@@ -67,7 +67,7 @@ trait SakeBaBlogStaticPage
     site.Index,
     Site.mainPages,
     Option(relTo(Images.favicon)),
-    Option(relTo(Images.favicon))
+    Option(relTo(Images.faviconWhite))
   )
 
   override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
