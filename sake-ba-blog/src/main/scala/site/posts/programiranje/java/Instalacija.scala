@@ -26,11 +26,21 @@ object Instalacija extends JavaTemplate {
           U nastavku slijedi primjer za instalaciju Jave 8. 
           Potpuno isti postupak je i za ostale verzije.  
       """),
-      "Kliknite na ",
+      "Odaberite jednu od sljedećih verzija: ",
       hyperlink(
         "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
         true
-      )("ovaj link"),
+      )("Java 8"),
+      " | ",
+      hyperlink(
+        "http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html",
+        true
+      )("Java 9"),
+      " | ",
+      hyperlink(
+        "http://jdk.java.net/10/",
+        true
+      )("Java 10"),
       ".",
       image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
       md(
