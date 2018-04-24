@@ -11,7 +11,7 @@ object Site {
 
   def mainPages: List[StaticPage] = List(
     posts.programiranje.java.Index,
-    //posts.programiranje.scala.Index,
+    posts.programiranje.scala.Index,
     posts.programiranje.ProgrammingGlossary,
     posts.matematika.Index
   )
