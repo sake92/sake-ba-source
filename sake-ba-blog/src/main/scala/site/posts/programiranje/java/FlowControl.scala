@@ -9,70 +9,21 @@ object FlowControl extends JavaTemplate {
 
   override def pageTitle       = "Kontrola toka"
   override def pageDescription = Option("Kontrola toka programa u Javi.")
+  override def postCreateDate  = Option(LocalDate.of(2018, 2, 4))
 
-  // override def postCreateDate = Option(LocalDate.of(2018, 2, 4))
   override def postSections = List(kontrolaTokaSection)
 
   def kontrolaTokaSection = Section(
     "Kontrola toka (programa)",
     div(
       md("""
-      Kompjuteri obično izvršavaju naredbe jednu za drugom.  
-      Međutim, potrebne su nam i naredbe za: 
-      """),
-      ul(
-        li(
-          md(
-            "**skakanje** (jump / goto / call) - kada želimo pozvati neki potprogram/subrutinu"
-          )
-        ),
-        li(
-          md(
-            "**grananje** (if / match / switch / branch) - kada želimo izvršiti nešto samo pod datim **uslovima**"
-          )
-        ),
-        li(
-          md(
-            "**ponavljanje** (while / for / rekurzija) - kada želimo ponavljati neki dio koda, da ne bi kopirali stalno..."
-          )
-        )
-      )
+        Kompjuteri obično izvršavaju naredbe jednu za drugom, sekvencijalno.  
+        Međutim, potrebne su nam i naredbe za: 
+        - **grananje** (if / match / switch / branch) - kada želimo izvršiti nešto samo pod datim **uslovima**"
+        - **ponavljanje** (while / for / rekurzija) - kada želimo ponavljati neki dio koda, da ne bi kopirali stalno..."
+        """)
     ),
-    List(skakanjeSection, grananjeSection, ponavljanjeSection)
-  )
-
-  def skakanjeSection = Section(
-    "Skakanje",
-    div(
-      md("""
-        Pošto je goto naredba zla, i ne preporučuje se da se koristi,
-          vidjećemo **poziv funkcije** "moja_funkcija" u Ruby-ju:
-      """),
-      chl.ruby.withLineHighlight("3")(
-        """
-      p1 = 1
-      p2 = 2
-      rezultat = moja_funkcija(p1, p2)
-      puts rezultat
-    """
-      ),
-      md("""
-        *Objašnjenje*:  
-          Nakon deklarisanja varijabli "p1" i "p2", **pozivamo** funkciju "moja_funkcija" (linija 3).  
-          Tada izvršavanje programa nastavlja **unutar funkcije** "moja_funkcija".  
-          Nakon izračunavanja, rezultat se sprema u varijablu "rezultat" i naš program nastavlja dalje.
-
-          Ovdje nije bitno gdje je "moja_funkcija" deklarisana i kako već je bitno da razumijete semantiku "skakanja".
-
-      """),
-      blockquote(
-        """
-        Većina jezika koristi zagrade za proslijeđivanje parametara potprogramu.  
-        Neki jezici, kao što je Ruby dozvoljavaju da se izostave zagrade.  
-        Navodimo primjere iz različitih jezika samo da bi vidjeli da je to "sve na isti kalup"... :D
-      """
-      )
-    )
+    List(grananjeSection, ponavljanjeSection)
   )
 
   def grananjeSection = Section(

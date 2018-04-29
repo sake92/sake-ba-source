@@ -6,7 +6,15 @@ trait JavaTemplate extends CodeTemplate {
 
   override def pageCategory = Option("Programiranje")
 
-  override def categoryPosts =
-    List(Index, Instalacija, Basics, Types, Functions, FlowControl, HelloWorld)
+  override def categoryPosts = List(
+    Index,
+    Instalacija,
+    Basics,
+    Types,
+    Statements,
+    HelloWorld,
+    FlowControl,
+    Functions
+  )
 
 }

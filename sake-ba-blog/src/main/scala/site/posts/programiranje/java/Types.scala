@@ -11,7 +11,7 @@ object Types extends JavaTemplate {
   override def pageDescription = Option("Tipovi, klase, interfejsi u Javi.")
 
   override def postCreateDate = Option(LocalDate.of(2018, 4, 5))
-  override def postSections   = List(tipoviSection)
+  override def postSections   = List(tipoviSection, stringsSection)
 
   def jshell = chl.batch.withPrompt("jshell>")
 
@@ -65,6 +65,83 @@ object Types extends JavaTemplate {
           O tom ćemo pričati u poglavlju o klasama. :)
         """
         )
+      )
+    )
+
+  def stringsSection =
+    Section(
+      "Stringovi i karakteri",
+      div(
+        md("""
+          Prije nego nastavimo dalje, moramo objasniti i stringove, jer se vrlo često koriste.  
+          String (iz engl. niz, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
+          Karakter (en. *character* je simbol) označava jedan simbol, 
+            bio to broj, slovo ili neki simbol, emoji...
+          
+          Stringovi se pišu s **dvostrukim navodnicima**:
+       """),
+        jshell.withOutputLines("2")(
+          """
+            "Poyy sviete!"
+            $1 ==> "Poyy sviete!"
+          """
+        ),
+        md("""
+          Stringovi se tretiraju specijalno u Javi, pa imamo i operator "sabiranja" nad njima.  
+          Npr. možemo "sabrati" 2 stringa, možemo "sabrati" string s brojem i sl:
+       """),
+        jshell.withOutputLines("2,4,6,8,10")(
+          """
+            "Ime" + "Prezime"
+            $2 ==> "ImePrezime"
+            "x je " + 5
+            $3 ==> "x je 5"
+            "x je " + 5 + ", i kad se pomnoži s " + 3 + " daje " + (5*3)
+            $4 ==> "x je 5, i kad se pomnoži s 3 daje 15"
+            "strin" + 'g'
+            $5 ==> "string"
+            String s = "ABC"
+            s ==> "ABC"
+          """
+        ),
+        md("""
+          Ovo sabiranje se često naziva *konkatenacija* (engl. *concatenate* je nadovezati).  
+          Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "abc"`.  
+          String se deklariše **s velikim početnim slovom**!
+
+          ---
+          Implementacija `String`a u Javi interno koristi `char`actere.  
+          Kao što smo već rekli, `char` je samo jedan karakter.  
+          Piše se s **jednostrukim navodnicima**:
+       """),
+        jshell.withOutputLines("2,4-7,9-12,14-20")(
+          """
+            'a'
+            $9 ==> 'a'
+            ''
+            |  Error:
+            |  empty character literal
+            |  ''
+            |  ^
+            'ab'
+            |  Error:
+            |  unclosed character literal
+            |  'ab'
+            |  ^
+            char slovoA = 'A'
+            slovoA ==> 'A'
+          """
+        ),
+        md("""
+          Dakle, karakter ne može biti prazan, niti može sadržati više karaktera.  
+          Za ove namjene koristi se `String`! :)
+
+          ---
+          Vrlo važne napomene:
+          - string "1" nije isto kao broj 1
+          - karakter '1' nije isto kao broj 1
+          - postoje posebne funkcije za pretvaranje iz jednog tipa u drugi, ali otom potom...
+       """),
       )
     )
 }

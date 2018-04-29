@@ -185,8 +185,62 @@ object Basics extends JavaTemplate {
         """
           Sada je vrijednost promijenjena na `5`. 
           Nakon ove linije, gdje god koristimo `brojJabuka` to je kao da napišemo `5`.
+
+          ---
+          Također, možemo iskoristiti **prethodnu vrijednost varijable** da bismo dobili novu:
         """
-      )
+      ),
+      jshell.withOutputLines("2,4")("""
+        brojJabuka = brojJabuka + 1;
+        brojJabuka ==> 6
+        brojJabuka += 1;
+        $23 ==> 7
+      """),
+      md(
+        """
+          U izrazu `brojJabuka + 1`, vrijednost `brojJabuka` odnosi se na **zadnju vrijednost varijable**,
+            dakle vrijednost prije ove linije, tj. `5`.
+
+          Postoji i skraćena verzija za ovo, prikazana na liniji 3, s operatorom `+=`.  
+          Također imaju skraćene verzije i za oduzimanje, množenje, dijeljenje i modulo: 
+            `-=`, `*=`, `/=`, `%=` respektivno.  
+          Ovo "respektivno" je fancy izraz za "u navedenom redoslijedu". :D
+        """
+      ),
+    ),
+    List(variableNamesSection)
+  )
+
+  def variableNamesSection = Section(
+    "Nazivi varijabli",
+    div(
+      md(
+        """   
+          Varijable ne mogu imati razmake u sebi, 
+            ne mogu biti nijedna od rezervisanih riječi kao što je `class`, `int`.  
+          Ne mogu biti neke rezervisani znakovi, kao npr `,`, `&` itd.  
+          Ne mogu počinjati brojem.
+          Primjeri nevalidnih naziva varijabli (isprobajte u JShellu):
+          - int my variable = 5
+          - int int = 5
+          - int , = 5
+          - int 5something = 5
+
+          Primjeri nevalidnih naziva varijabli:
+          - int _abc = 5
+          - int $xyz = 5
+          - int Z = 5
+          - int t$df_x = 5
+
+          Mogu se koristiti simboli `_` i `$` ali ih treba izbjegavati, 
+            pogotovo kao prvi karakter u nazivu varijable!
+
+          Preporučeno je (konvencija, dogovor, dobra praksa) da varijable počinju malim slovom,
+            da su camelCase (svaka iduća riječ počinje velikim slovom), npr. `myVariable`.  
+          Konstante (varijable koje se neće mijenjati) se pišu velikim slovima 
+            i razdvojene donjom crticom, npr. `MY_CONST`.
+        """
+      ),
     )
   )
 

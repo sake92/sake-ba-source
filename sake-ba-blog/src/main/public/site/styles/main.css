@@ -22,3 +22,13 @@ object[type="image/svg+xml"] {
 pre[class*="language-"] {
   border-width: 0.3rem !important;
 }
+
+/* 
+  printing issue with PDF
+  https://drupal.stackexchange.com/questions/59900/how-to-get-rid-of-added-urls-when-printing-a-bootstrap-themed-page 
+*/
+@media print {
+  a[href]:after {
+    content: none;
+  }
+}
