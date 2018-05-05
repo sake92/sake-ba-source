@@ -43,16 +43,17 @@ object Statements extends JavaTemplate {
           Da vidimo još par primjera:
         """),
       jshell.withOutputLines("2,3,5,7")("""
-        System.out.println("x je " + 5)
+        System.out.println("x je " + 5);
         x je 5
 
         String rezultat = "x je " + 5;
         rezultat ==> "x je 5"
-        System.out.println(rezultat)
+        System.out.println(rezultat);
         x je 5
       """),
       md("""
-          Dakle, možemo proslijediti string direktno, ili varijablu koja je string, svejedno. :)
+          Dakle, možemo proslijediti string direktno, ili varijablu koja je string, svejedno. :)  
+          Kraj naredbe se označava s `;` (tačkazarez, en. semicolon).
         """),
     )
   )

@@ -2,6 +2,7 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
+import ba.sake.hepek.html.component.BasicComponents._
 import templates.SakeBaPage
 
 object NotFound extends SakeBaPage {
@@ -17,10 +18,20 @@ object NotFound extends SakeBaPage {
 
   override def pageContent = frag(
     div(cls := "text-center")(
-      p(raw("""Resource '<!--#echo var="REQUEST_URI" -->' does not exist!""")),
-      p("(For now...) ^_^"),
+      md(
+        """
+          <br /><br /><br />
+          This content is not available in your country.  
+          Sorry about that. :/
+
+          <br /><br />
+          ---
+          <br /><br />
+          Just kidding, there's nothing here, this is the best I can do...  
+        """
+      ),
       raw(
-        """<br><br><br> <a href="https://<!--#echo var="HTTP_HOST" -->">Haj nazad</a> """
+        """<a href="https://<!--#echo var="HTTP_HOST" -->">GOTO: homepage</a>"""
       )
     )
   )

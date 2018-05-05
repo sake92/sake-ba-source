@@ -3,9 +3,9 @@ package hepek.templates
 import java.time.LocalDate
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure._
-import ba.sake.hepek.bootstrap3.blog.BootstrapBlogPage
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
 import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
+import ba.sake.hepek.theme.bootstrap3.HepekBootstrap3BlogPage
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import ba.sake.hepek.Resources._
 import ba.sake.hepek.Resource
@@ -13,7 +13,7 @@ import hepek.images.Images
 import hepek.utils.Site
 import hepek.utils.Imports._
 
-trait SakeBaBlogPage extends SakeBaBlogStaticPage with BootstrapBlogPage {
+trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
   override def tocTitle       = "Sadržaj"
   override def postAuthor     = Option("Sakib Hadžiavdić")

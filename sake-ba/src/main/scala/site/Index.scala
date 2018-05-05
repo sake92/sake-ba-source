@@ -63,6 +63,11 @@ object Index extends SakeBaPage {
     "Projects",
     tab(
       row(
+        half1("Static site generator"),
+        half2(hyperlink("https://github.com/sake92/hepek")("Hepek"))
+      ),
+      hr,
+      row(
         half1("Sbt plugin for rendering files"),
         half2(hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek"))
       ),
