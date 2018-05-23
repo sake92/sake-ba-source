@@ -6,3 +6,8 @@ Written with help of:
 - [sbt-web](https://github.com/sbt/sbt-web)
 - [Bootswatch](https://bootswatch.com/) (Bootstrap themes)
 - [Prismjs](http://prismjs.com/) (syntax highlighter)
+
+
+## Render PDFs
+Run this command to generate PDFs of *blog.sake.ba*, by categories:
+`sbt> sakeBaBlog/generatePdfs`

@@ -1,10 +1,10 @@
 package site.posts.matematika
-
+import scalatags.Text.all._
 import hepek.templates.SakeBaBlogPage
 import ba.sake.hepek.html.structure.blog.BlogPostPage
-import ba.sake.hepek.mathjax.MathjaxDependencies
+import ba.sake.hepek.katex.KatexDependencies
 
-trait MatematikaTemplate extends SakeBaBlogPage with MathjaxDependencies {
+trait MatematikaTemplate extends SakeBaBlogPage with KatexDependencies {
 
   override def pageCategory = Option("Matematika")
 
@@ -12,15 +12,16 @@ trait MatematikaTemplate extends SakeBaBlogPage with MathjaxDependencies {
   override def categoryPosts: List[BlogPostPage] = List(Index, TeorijaSkupova)
 
   // https://en.wikipedia.org/wiki/Acute_accent
-  // couldn't find better escape character,
-  // all other are used in Markdown
+  // couldn't find better escape character, all other are used in Markdown
   override def scriptsInline =
     super.scriptsInline ++
-      List(s"""
-        MathJax.Hub.Config({
-            asciimath2jax: {
-                delimiters: [['´','´']]
-            }
+      List("""
+        renderMathInElement(
+          document.body, {
+            delimiters: [
+              { left: "´", right: "´", display: false }, // inline
+              { left: "$$", right: "$$", display: true } // block, centered
+            ]
         });
       """)
 

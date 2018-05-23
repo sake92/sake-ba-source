@@ -85,4 +85,7 @@ trait SakeBaBlogStaticPage
     xs = None
   )
 
+  override def renderPretty = true
+  override def renderXhtml  = true
+
 }
