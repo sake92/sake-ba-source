@@ -30,7 +30,7 @@ object PdfGenApp {
 
     println("Rendering PDFs...")
     for ((fileName, pages) <- pdfs) {
-      val file = new File(s"pdfs/$fileName.pdf")
+      val file = new File(s"$targetFolder/site/pdfs/$fileName.pdf")
       PdfGenerator.generate(file, targetFolder, pages, fonts)
     }
 

@@ -1,6 +1,7 @@
 package hepek.utils
 
 import ba.sake.hepek.html.structure.StaticPage
+import ba.sake.hepek.Resources
 import hepek.templates.SakeBaBlogPage
 import site.posts
 
@@ -15,5 +16,9 @@ object Site {
     posts.programiranje.ProgrammingGlossary,
     posts.matematika.Index
   )
+
+  val programiranjePdf = Resources.resource("pdfs/Programiranje.pdf")
+  val scalaPdf         = Resources.resource("pdfs/Scala.pdf")
+  val matematikaPdf    = Resources.resource("pdfs/Matematika.pdf")
 
 }

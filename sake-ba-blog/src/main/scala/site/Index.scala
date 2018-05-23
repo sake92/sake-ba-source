@@ -3,6 +3,7 @@ package site
 import hepek.templates.SakeBaBlogStaticPage
 import hepek.utils.SiteMapHTML
 import hepek.utils.Imports._
+import hepek.utils.Site
 import scalatags.Text.all._
 
 object Index extends SakeBaBlogStaticPage {
@@ -20,8 +21,20 @@ object Index extends SakeBaBlogStaticPage {
     ),
     row(
       div(cls := "well well-lg col-md-6 col-md-push-3 ")(
-        p("Mapa sajta:"),
-        div(cls := "pages-toc")(SiteMapHTML.siteMap(this))
+        row(
+          half1(
+            p("Mapa sajta:"),
+            div(cls := "pages-toc")(SiteMapHTML.siteMap(this))
+          ),
+          half2(
+            md(s"""
+              PDF verzije tutorijala:
+              - [Uvod u programiranje](${relTo(Site.programiranjePdf)}) (Java)
+              - [Scala](${relTo(Site.scalaPdf)})
+              - [Matematika](${relTo(Site.matematikaPdf)})
+            """)
+          )
+        )
       )
     )
   )
