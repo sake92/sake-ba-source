@@ -18,7 +18,7 @@ object Instalacija extends JavaTemplate {
     List(uvodSection, dodavanjePATHSection, provjeraSection)
 
   val linkToAddPath =
-    hyperlink(relTo(this) + "#" + dodavanjePATHSection.id, false)(
+    hyperlink(relTo(this) + "#" + dodavanjePATHSection.id)(
       dodavanjePATHSection.name
     )
 
@@ -32,17 +32,17 @@ object Instalacija extends JavaTemplate {
       "Odaberite jednu od sljedećih verzija: ",
       hyperlink(
         "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
-        true
+        target := "_blank"
       )("Java 8"),
       " | ",
       hyperlink(
         "http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html",
-        true
+        target := "_blank"
       )("Java 9"),
       " | ",
       hyperlink(
         "http://jdk.java.net/10/",
-        true
+        target := "_blank"
       )("Java 10"),
       ".",
       image(relTo(Images.java.downloadJDK1), "JDK download step 1"),

@@ -6,7 +6,7 @@ import hepek.utils.Imports._
 import hepek.utils.Site
 import scalatags.Text.all._
 
-object Index extends SakeBaBlogStaticPage {
+object Index extends SakeBaBlogStaticPage with SiteMapHTML {
 
   override def pageTitle = "Početna stranica"
 
@@ -24,7 +24,7 @@ object Index extends SakeBaBlogStaticPage {
         row(
           half1(
             p("Mapa sajta:"),
-            div(cls := "pages-toc")(SiteMapHTML.siteMap(this))
+            div(cls := "pages-toc")(siteMap())
           ),
           half2(
             md(s"""

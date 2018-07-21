@@ -1,7 +1,6 @@
 package site.posts.programiranje
 
 import hepek.templates.SakeBaBlogStaticPage
-import hepek.utils.SiteMapHTML
 import hepek.utils.Imports._
 import scalatags.Text.all._
 

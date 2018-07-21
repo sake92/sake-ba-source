@@ -14,7 +14,7 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.1.1-SNAPSHOT"
+    "ba.sake" %% "hepek" % "0.1.2-SNAPSHOT"
   )
 )
 
@@ -33,6 +33,7 @@ val genPdfs = Def.taskDyn {
     (runMain in Compile).toTask(" hepek.PdfGenApp " + targetFolder).value
   }
 }
+
 lazy val sakeBaBlog = (project in file("sake-ba-blog"))
   .settings(commonSettings)
   .settings(

@@ -125,7 +125,7 @@ object Index extends SakeBaPage {
         half1("job"),
         half2(
           span("software dev @ "),
-          hyperlink("http://olivebh.com/", true)("OliveBH")
+          hyperlink("http://olivebh.com/", target := "_blank")("OliveBH")
         )
       ),
       hr,
