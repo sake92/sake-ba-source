@@ -2,8 +2,8 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure.blog.Section
-import hepek.utils.Imports._
+import ba.sake.hepek.implicits._
+import utils.Imports._
 
 object FlowControl extends JavaTemplate {
 

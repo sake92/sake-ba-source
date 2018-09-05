@@ -1,8 +1,7 @@
-package hepek.utils
+package utils
 
 import ba.sake.hepek.html.structure.StaticPage
 import ba.sake.hepek.Resources
-import hepek.templates.SakeBaBlogPage
 import site.posts
 
 object Site {

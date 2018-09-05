@@ -1,4 +1,4 @@
-package hepek.templates
+package templates
 
 import java.time.LocalDate
 
@@ -8,12 +8,9 @@ import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
 import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.theme.bootstrap3.HepekBootstrap3BlogPage
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
+import images.Images
 import ba.sake.hepek.Resources._
-import ba.sake.hepek.Resource
-import ba.sake.hepek.html.structure.blog.BlogSettings
-import hepek.images.Images
-import hepek.utils.Site
-import hepek.utils.Imports._
+import utils.Site
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 

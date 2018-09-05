@@ -1,4 +1,4 @@
-package hepek.images
+package images
 
 import ba.sake.hepek.Resources.images._
 

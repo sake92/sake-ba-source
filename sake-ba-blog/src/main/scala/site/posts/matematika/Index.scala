@@ -2,7 +2,7 @@ package site.posts.matematika
 
 import java.time.LocalDate
 import ba.sake.hepek.implicits._
-import hepek.utils.Imports._
+import utils.Imports._
 
 object Index extends MatematikaTemplate {
 
@@ -18,7 +18,7 @@ object Index extends MatematikaTemplate {
     "Uvod",
     row(
       half1(
-        md("""
+        """
             Matematika je jedan od najomraženijih predmeta kod većine učenika.
             S pravom, dakako!  
             Zapitajmo se šta je uzrok tome?
@@ -37,7 +37,7 @@ object Index extends MatematikaTemplate {
             Hoćeš li ti biti manje profesor ako zastaneš 5 minuta i objasniš terminologiju?  
             Lema, korolar, teorema, šta su te stvari??? :D  
             Nauči me! To ti je pos'o!
-           """)
+        """.md
       ),
       half2(
         image("https://i.imgur.com/UOhQzH5.gif", "Vako nekako")

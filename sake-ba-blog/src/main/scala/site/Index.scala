@@ -2,12 +2,9 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.implicits._
-import hepek.templates.SakeBaBlogStaticPage
-import hepek.utils.SiteMapHTML
-import hepek.utils.Imports._
-import hepek.utils.Site
+import utils._
 
-object Index extends SakeBaBlogStaticPage with SiteMapHTML {
+object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
 
   override def pageSettings =
     PageSettings("Početna stranica")

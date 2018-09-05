@@ -2,10 +2,11 @@ package site
 
 import java.time.LocalDate
 import java.nio.file.Paths
+
 import scalatags.Text.all._
 import ba.sake.hepek.core.Renderable
 import ba.sake.hepek.html.structure.blog.BlogPostPage
-import hepek.utils.Site
+import utils.Site
 
 object SitemapXML extends Renderable {
 

@@ -1,9 +1,9 @@
 package site.posts.matematika
 
 import ba.sake.hepek.html.structure.PageSettings
-import hepek.templates.SakeBaBlogPage
 import ba.sake.hepek.html.structure.blog.BlogPostPage
 import ba.sake.hepek.katex.KatexDependencies
+import templates.SakeBaBlogPage
 
 trait MatematikaTemplate extends SakeBaBlogPage with KatexDependencies {
 

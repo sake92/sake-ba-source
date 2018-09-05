@@ -1,4 +1,4 @@
-package hepek.utils
+package utils
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath

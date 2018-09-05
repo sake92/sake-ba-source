@@ -1,7 +1,7 @@
 package site.posts.programiranje
 
 import ba.sake.hepek.prismjs.{PrismDependencies, PrismSettings, Themes}
-import hepek.templates.SakeBaBlogPage
+import templates.SakeBaBlogPage
 
 trait CodeTemplate extends SakeBaBlogPage with PrismDependencies {
 

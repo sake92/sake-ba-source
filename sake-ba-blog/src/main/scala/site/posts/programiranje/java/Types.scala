@@ -2,8 +2,8 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure.blog.Section
-import hepek.utils.Imports._
+import ba.sake.hepek.implicits._
+import utils.Imports._
 
 object Types extends JavaTemplate {
 
@@ -110,7 +110,7 @@ object Types extends JavaTemplate {
         ),
         md("""
           Ovo sabiranje se često naziva *konkatenacija* (engl. *concatenate* je nadovezati).  
-          Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "abc"`.  
+          Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "hepek.abc"`.  
           String se deklariše **s velikim početnim slovom**!
 
           ---

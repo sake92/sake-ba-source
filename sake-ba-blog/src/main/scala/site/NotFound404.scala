@@ -3,8 +3,8 @@ package site
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 import ba.sake.hepek.implicits.PageSettings
-import hepek.templates.SakeBaBlogStaticPage
-import hepek.utils.Site
+import templates.SakeBaBlogStaticPage
+import utils.Site
 
 object NotFound extends SakeBaBlogStaticPage {
 

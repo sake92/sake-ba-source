@@ -1,13 +1,12 @@
 package site.posts.programiranje
 
-import ba.sake.hepek.implicits.PageSettings
-import hepek.templates.SakeBaBlogStaticPage
-import hepek.utils.Imports._
 import scalatags.Text.all._
+import ba.sake.hepek.implicits._
+import utils.Imports._
 
 case class Term(name: String, explanation: Frag)
 
-object ProgrammingGlossary extends SakeBaBlogStaticPage {
+object ProgrammingGlossary extends templates.SakeBaBlogStaticPage {
 
   override def pageSettings = PageSettings("Glosarij")
 
