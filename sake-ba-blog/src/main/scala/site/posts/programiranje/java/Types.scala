@@ -7,11 +7,15 @@ import hepek.utils.Imports._
 
 object Types extends JavaTemplate {
 
-  override def pageTitle       = "Tipovi"
-  override def pageDescription = Option("Tipovi, klase, interfejsi u Javi.")
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Tipovi")
+      .withDescription("Tipovi, klase, interfejsi u Javi.")
 
-  override def postCreateDate = Option(LocalDate.of(2018, 4, 5))
-  override def postSections   = List(tipoviSection, stringsSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 4, 5))
+      .withSections(tipoviSection, stringsSection)
 
   def jshell = chl.batch.withPrompt("jshell>")
 

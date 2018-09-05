@@ -1,19 +1,20 @@
 package site
 
+import scalatags.Text.all._
+import ba.sake.hepek.implicits._
 import hepek.templates.SakeBaBlogStaticPage
 import hepek.utils.SiteMapHTML
 import hepek.utils.Imports._
 import hepek.utils.Site
-import scalatags.Text.all._
 
 object Index extends SakeBaBlogStaticPage with SiteMapHTML {
 
-  override def pageTitle = "Početna stranica"
-
-  override def pageDescription = Option(
-    "blog.sake.ba je blog fizičke osobe pod imenom Sakib Hadžiavdić. " +
-      "Tutorijali iz programiranja, matematike i slično."
-  )
+  override def pageSettings =
+    PageSettings("Početna stranica")
+      .withDescription(
+        "blog.sake.ba je blog fizičke osobe pod imenom Sakib Hadžiavdić. " +
+          "Tutorijali iz programiranja, matematike i slično."
+      )
 
   override def pageContent = frag(
     div(cls := "page-header text-center")(
@@ -24,7 +25,7 @@ object Index extends SakeBaBlogStaticPage with SiteMapHTML {
         row(
           half1(
             p("Mapa sajta:"),
-            div(cls := "pages-toc")(siteMap())
+            div(cls := "pages-toc")(siteMap)
           ),
           half2(
             md(s"""

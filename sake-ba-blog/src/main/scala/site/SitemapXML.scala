@@ -33,7 +33,7 @@ object SitemapXML extends Renderable {
 
   private def postUrlTag(p: BlogPostPage) = {
     val loc = Site.url + "/" + Index.relTo(p)
-    urlTag(loc, p.postCreateDate.toString, "yearly", 0.5)
+    urlTag(loc, p.blogSettings.createDate.get.toString, "yearly", 0.5)
   }
 
   private def urlTag(loc: String,

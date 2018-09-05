@@ -7,11 +7,15 @@ import hepek.utils.Imports._
 
 object FlowControl extends JavaTemplate {
 
-  override def pageTitle       = "Kontrola toka"
-  override def pageDescription = Option("Kontrola toka programa u Javi.")
-  override def postCreateDate  = Option(LocalDate.of(2018, 2, 4))
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Kontrola toka")
+      .withDescription("Kontrola toka programa u Javi.")
 
-  override def postSections = List(kontrolaTokaSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 2, 4))
+      .withSections(kontrolaTokaSection)
 
   def kontrolaTokaSection = Section(
     "Kontrola toka (programa)",

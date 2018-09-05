@@ -1,17 +1,22 @@
 package site.posts.programiranje.scala
 
 import java.time.LocalDate
+
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure.blog.Section
+import ba.sake.hepek.html.structure.blog.{BlogSettings, Section}
 import hepek.utils.Imports._
 
 object Index extends ScalaTemplate {
 
-  override def pageTitle      = "Scala"
-  override def pageLabel      = "Početna"
-  override def postCreateDate = Option(LocalDate.of(2018, 4, 23))
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Scala")
+      .withLabel("Početna")
 
-  override def postSections = List(scalaSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 4, 23))
+      .withSections(scalaSection)
 
   def scalaSection = Section(
     "Scala",

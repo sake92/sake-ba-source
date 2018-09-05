@@ -1,5 +1,6 @@
 package site.posts.programiranje
 
+import ba.sake.hepek.implicits.PageSettings
 import hepek.templates.SakeBaBlogStaticPage
 import hepek.utils.Imports._
 import scalatags.Text.all._
@@ -8,7 +9,7 @@ case class Term(name: String, explanation: Frag)
 
 object ProgrammingGlossary extends SakeBaBlogStaticPage {
 
-  override def pageTitle = "Glosarij"
+  override def pageSettings = PageSettings("Glosarij")
 
   override def pageContent = row(
     div(cls := "well well-lg col-md-6 col-md-push-3 ")(

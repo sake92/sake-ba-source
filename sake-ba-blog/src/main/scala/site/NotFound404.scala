@@ -2,12 +2,14 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
+import ba.sake.hepek.implicits.PageSettings
 import hepek.templates.SakeBaBlogStaticPage
 import hepek.utils.Site
 
 object NotFound extends SakeBaBlogStaticPage {
 
-  override def pageTitle = "Ne postoji"
+  override def pageSettings =
+    PageSettings("Ne postoji!")
 
   override def fileName: String = "404.shtml"
 

@@ -7,12 +7,16 @@ import hepek.utils.Imports._
 
 object Uvod extends ScalaTemplate {
 
-  override def pageTitle       = "Uvod u Scalu"
-  override def pageLabel       = "Uvod"
-  override def pageDescription = Option("Uvod u Scala programski jezik.")
-  override def postCreateDate  = Option(LocalDate.of(2018, 4, 23))
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Uvod u Scalu")
+      .withLabel("Uvod")
+      .withDescription("Uvod u Scala programski jezik.")
 
-  override def postSections = List(uvodSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 4, 23))
+      .withSections(uvodSection)
 
   def uvodSection = Section(
     "Uvod",

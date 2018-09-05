@@ -1,21 +1,24 @@
 package site.posts.programiranje.java
 
 import java.time.LocalDate
+
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure.blog.Section
 import hepek.utils.Imports._
 
 object Basics extends JavaTemplate {
 
-  override def pageTitle       = "Osnove"
-  override def pageDescription = Option(pageTitle)
-  override def postCreateDate  = Option(LocalDate.of(2018, 3, 25))
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Osnove")
+      .withDescription("Osnove Jave.")
 
-  override def postSections = List(
-    jshellSection,
-    expressionsAndOperatorsSection,
-    variablesSection
-  )
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 3, 25))
+      .withSections(jshellSection,
+                    expressionsAndOperatorsSection,
+                    variablesSection)
 
   def jshell = chl.batch.withPrompt("jshell>")
 

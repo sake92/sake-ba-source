@@ -1,6 +1,7 @@
 package hepek.templates
 
 import java.time.LocalDate
+
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure._
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
@@ -9,15 +10,19 @@ import ba.sake.hepek.theme.bootstrap3.HepekBootstrap3BlogPage
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import ba.sake.hepek.Resources._
 import ba.sake.hepek.Resource
+import ba.sake.hepek.html.structure.blog.BlogSettings
 import hepek.images.Images
 import hepek.utils.Site
 import hepek.utils.Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
-  override def tocTitle       = "Sadržaj"
-  override def postAuthor     = Option("Sakib Hadžiavdić")
-  override def postCreateDate = Option(LocalDate.now)
+  override def tocTitle = "Sadržaj"
+
+  override def blogSettings =
+    super.blogSettings
+      .withAuthor("Sakib Hadžiavdić")
+      .withCreateDate(LocalDate.now)
 
   // google analytics
   override def headContent = super.headContent ++ List(
@@ -62,28 +67,31 @@ trait SakeBaBlogStaticPage
     with BootstrapGridComponents
     with AnchorjsDependencies {
 
-  override def siteSettings = SiteSettings(
-    Site.name,
-    site.Index,
-    Site.mainPages,
-    Option(relTo(Images.favicon)),
-    Option(relTo(Images.faviconWhite))
-  )
+  override def siteSettings =
+    SiteSettings()
+      .withName(Site.name)
+      .withIndexPage(site.Index)
+      .withMainPages(Site.mainPages)
+      .withFaviconNormal(Images.favicon.ref)
+      .withFaviconInverted(Images.faviconWhite.ref)
 
-  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
-  override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
+  override def styleURLs  = super.styleURLs :+ styles.css("main").ref
+  override def scriptURLs = super.scriptURLs :+ scripts.js("main").ref
 
   // Bootswatch cyborg theme
-  override def bootstrapCSSDependencies = List(
-    DependencyProvider.cdnjs.depPath(
-      Dependency("cyborg/bootstrap.min.css", bootstrapVersion, "bootswatch")
+  override def bootstrapDependencies =
+    super.bootstrapDependencies.withCssDependencies(
+      Dependencies().withDeps(
+        Dependency("cyborg/bootstrap.min.css",
+                   bootstrapSettings.version,
+                   "bootswatch")
+      )
     )
-  )
 
-  override def screenRatios = super.screenRatios.copy(
-    sm = None,
-    xs = None
-  )
+  override def screenRatios =
+    super.screenRatios
+      .withSm(None)
+      .withXs(None)
 
   override def renderPretty = true
   override def renderXhtml  = true

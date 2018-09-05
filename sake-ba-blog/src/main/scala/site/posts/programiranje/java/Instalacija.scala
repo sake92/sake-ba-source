@@ -8,14 +8,17 @@ import hepek.utils.Imports._
 
 object Instalacija extends JavaTemplate {
 
-  override def pageTitle = "Instalacija"
-  override def pageDescription = Option(
-    "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
-  )
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Instalacija")
+      .withDescription(
+        "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
+      )
 
-  override def postCreateDate = Option(LocalDate.of(2017, 7, 2))
-  override def postSections =
-    List(uvodSection, dodavanjePATHSection, provjeraSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2017, 7, 2))
+      .withSections(uvodSection, dodavanjePATHSection, provjeraSection)
 
   val linkToAddPath =
     hyperlink(relTo(this) + "#" + dodavanjePATHSection.id)(

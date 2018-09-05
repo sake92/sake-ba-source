@@ -7,11 +7,15 @@ import hepek.utils.Imports._
 
 object Functions extends JavaTemplate {
 
-  override def pageTitle       = "Funkcije"
-  override def pageDescription = Option("Funkcije u Javi.")
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Funkcije")
+      .withDescription("Funkcije u Javi.")
 
-  override def postCreateDate = Option(LocalDate.of(2018, 4, 5))
-  override def postSections   = List(funkcijeSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 4, 5))
+      .withSections(funkcijeSection)
 
   def jshell = chl.batch.withPrompt("jshell>")
 

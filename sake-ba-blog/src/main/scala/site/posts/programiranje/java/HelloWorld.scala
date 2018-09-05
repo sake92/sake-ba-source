@@ -8,11 +8,15 @@ import hepek.utils.Imports._
 
 object HelloWorld extends JavaTemplate {
 
-  override def pageTitle       = "Poyy sviete!"
-  override def pageDescription = Option("Hello world program u Javi.")
-  override def postCreateDate  = Option(LocalDate.of(2018, 2, 4))
-  override def postSections =
-    List(introSection, commentsSection, compileAndRunSection)
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Poyy sviete!")
+      .withDescription("Hello world program u Javi.")
+
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 2, 4))
+      .withSections(introSection, commentsSection, compileAndRunSection)
 
   def introSection = Section(
     "Poyy sviete!",

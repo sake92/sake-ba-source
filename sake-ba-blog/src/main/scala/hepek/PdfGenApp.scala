@@ -26,7 +26,7 @@ object PdfGenApp {
       site.posts.programiranje.java.Index,
       site.posts.programiranje.scala.Index,
       site.posts.matematika.Index
-    ).map(p => p.pageCategory.get -> p.categoryPosts)
+    ).map(p => p.pageSettings.category.get -> p.categoryPosts)
 
     println("Rendering PDFs...")
     for ((fileName, pages) <- pdfs) {

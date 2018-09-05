@@ -1,17 +1,18 @@
 package site.posts.matematika
 
 import java.time.LocalDate
-import scalatags.Text.all._
-import ba.sake.hepek.html.structure.blog.Section
+import ba.sake.hepek.implicits._
 import hepek.utils.Imports._
 
 object Index extends MatematikaTemplate {
 
-  override def pageTitle = "Matematika"
-  override def pageLabel = "Početna"
+  override def pageSettings =
+    super.pageSettings.withTitle("Matematika").withLabel("Početna")
 
-  override def postCreateDate = Option(LocalDate.of(2017, 6, 10))
-  override def postSections   = List(matematikaUvodSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2017, 6, 10))
+      .withSections(matematikaUvodSection)
 
   def matematikaUvodSection = Section(
     "Uvod",

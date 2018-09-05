@@ -1,6 +1,8 @@
 package site.posts.programiranje.java
 
 import java.time.LocalDate
+
+import ba.sake.hepek.html.structure.PageSettings
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
@@ -8,18 +10,20 @@ import hepek.utils.Imports._
 
 object Index extends JavaTemplate {
 
-  override def pageTitle       = "Uvod u programiranje"
-  override def pageLabel       = "Početna"
-  override def pageDescription = Option("Uvod u programiranje.")
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Uvod u programiranje")
+      .withLabel("Početna")
+      .withDescription("Uvod u programiranje.")
 
-  override def postCreateDate = Option(LocalDate.of(2017, 7, 1))
-  override def postSections = List(
-    uvodSection,
-    komunikacijaSection,
-    apstrakcijeSection,
-    paradigmeSection,
-    programiSection
-  )
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2017, 7, 1))
+      .withSections(uvodSection,
+                    komunikacijaSection,
+                    apstrakcijeSection,
+                    paradigmeSection,
+                    programiSection)
 
   def uvodSection = Section(
     "Uvod",

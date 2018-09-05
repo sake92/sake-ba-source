@@ -7,12 +7,17 @@ import hepek.utils.Imports._
 
 object Statements extends JavaTemplate {
 
-  override def pageTitle      = "Naredbe"
-  override def postCreateDate = Option(LocalDate.of(2018, 4, 27))
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Naredbe")
+      .withDescription(
+        "Postupak downloada i instalacije Java platforme: JDK, JRE, javac, java."
+      )
 
-  override def postSections = List(
-    statementsSection,
-  )
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2018, 4, 27))
+      .withSections(statementsSection)
 
   def jshell = chl.batch.withPrompt("jshell>")
 

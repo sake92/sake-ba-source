@@ -1,6 +1,7 @@
 package site.posts.matematika
 
 import java.time.LocalDate
+
 import scalatags.Text.all._
 import ba.sake.hepek.html.structure.blog.Section
 import hepek.images.Images
@@ -8,14 +9,20 @@ import hepek.utils.Imports._
 
 object TeorijaSkupova extends MatematikaTemplate {
 
-  override def pageTitle = "Teorija skupova"
-  override def pageDescription = Option(
-    "Kratak uvod u teoriju skupova. Unija, presjek, razlika, De Morgan."
-  )
+  override def pageSettings =
+    super.pageSettings
+      .withTitle("Teorija skupova")
+      .withDescription(
+        "Kratak uvod u teoriju skupova. Unija, presjek, razlika, De Morgan."
+      )
 
-  override def postCreateDate = Option(LocalDate.of(2017, 6, 11))
-  override def postSections =
-    List(uvodSection, operacijeSection, relacijeSection, kardinalnostSection)
+  override def blogSettings =
+    super.blogSettings
+      .withCreateDate(LocalDate.of(2017, 6, 11))
+      .withSections(uvodSection,
+                    operacijeSection,
+                    relacijeSection,
+                    kardinalnostSection)
 
   def uvodSection = Section(
     "Uvod",
