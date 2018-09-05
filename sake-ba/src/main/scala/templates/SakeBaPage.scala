@@ -9,15 +9,12 @@ import site.Index
 
 trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
 
-  override def siteSettings = SiteSettings(
-    "sake.ba",
-    Index,
-    List.empty,
-    Option(relTo(images.ico("favicon"))),
-    Option(relTo(images.ico("favicon-white")))
-  )
-
-  override def pageLanguage: String = "bs"
+  override def siteSettings =
+    SiteSettings()
+      .withName("sake.ba")
+      .withIndexPage(Index)
+      .withFaviconNormal(images.ico("favicon").ref)
+      .withFaviconInverted(images.ico("favicon-white").ref)
 
   override def headContent = super.headContent ++ List(
     raw("""
@@ -35,16 +32,18 @@ trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
   override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
   override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
 
-  // Bootswatch cyborg theme
-  override def bootstrapCSSDependencies = List(
-    DependencyProvider.cdnjs.depPath(
-      Dependency("cyborg/bootstrap.min.css", bootstrapVersion, "bootswatch")
+  override def bootstrapDependencies =
+    super.bootstrapDependencies.withCssDependencies(
+      Dependencies().withDeps(
+        Dependency("cyborg/bootstrap.min.css",
+                   bootstrapSettings.version,
+                   "bootswatch")
+      )
     )
-  )
 
-  override def screenRatios = super.screenRatios.copy(
-    sm = None,
-    xs = None
-  )
+  override def screenRatios =
+    super.screenRatios
+      .withSm(None)
+      .withXs(None)
 
 }

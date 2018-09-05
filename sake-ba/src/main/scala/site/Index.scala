@@ -1,17 +1,17 @@
 package site
 
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure.blog.Section
-import ba.sake.hepek.html.component.BasicComponents._
-import templates.SakeBaPage
+import ba.sake.hepek.implicits._
+import ba.sake.hepek.html.component.BasicComponents
 
-object Index extends SakeBaPage {
+object Index extends templates.SakeBaPage with BasicComponents {
 
-  override def pageTitle = "Početna stranica"
-  override def pageDescription = Option(
-    "sake.ba je web stranica fizičke osobe pod imenom Sakib Hadžiavdić. " +
-      "Tutorijali iz programiranja, matematike i slično."
-  )
+  override def pageSettings =
+    PageSettings("Home")
+      .withDescription(
+        "sake.ba is personal website belonging to Sakib Hadžiavdić. " +
+          "Tutorials from maths, programming etc."
+      )
 
   override def pageContent = div(cls := "row")(
     div(cls := "col-md-6 col-md-offset-3")(
@@ -92,70 +92,72 @@ object Index extends SakeBaPage {
   val talksSection = Section(
     "Talks",
     tab(
-      row(
-        third1("23.01.2018"),
-        third2("OpenWeb Sarajevo"),
-        third3(
-          hyperlink(
-            "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo"
-          )("Scala intro")
+      List(
+        (
+          "23.01.2018",
+          "OpenWeb Sarajevo",
+          "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo",
+          "Scala intro"
+        ),
+        (
+          "20.08.2018",
+          "OpenWeb Sarajevo",
+          "https://sake.ba/presentations/2018-08-28%20Hepek%20-%20OpenWeb%20Sarajevo",
+          "Hepek"
+        ),
+        (
+          "08.09.2018",
+          "freeCodeCamp Sarajevo",
+          "https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo",
+          "FP intro"
         )
-      )
+      ).map {
+          case (date, place, url, title) =>
+            row(
+              third1(date),
+              third2(place),
+              third3(hyperlink(url)(title))
+            )
+        }
+        .flatMap(List(hr, _)) // insert he between each
+        .tail
     )
   )
 
   val aboutSection = Section(
     "About",
     tab(
-      row(
-        half1("name"),
-        half2("Sakib Hadžiavdić")
-      ),
-      hr,
-      row(
-        half1("CV"),
-        half2(
-          hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
-            "view"
-          )
-        )
-      ),
-      hr,
-      row(
-        half1("job"),
-        half2(
-          span("software dev @ "),
-          hyperlink("http://olivebh.com/", target := "_blank")("OliveBH")
-        )
-      ),
-      hr,
-      row(
-        half1("email"),
-        half2(hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba"))
-      ),
-      hr,
-      row(
-        half1("twitter"),
-        half2(
-          raw("""
+      List[(Frag, Frag)](
+        ("name", "Sakib Hadžiavdić"),
+        ("CV",
+         hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
+           "view"
+         )),
+        ("job",
+         frag(
+           span("software engineer @ "),
+           hyperlink("http://olivebh.com/", target := "_blank")("OliveBH")
+         )),
+        ("email", hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba")),
+        ("twitter",
+         raw("""
                 <a href="https://twitter.com/sake_92" class="twitter-follow-button" data-show-count="false">@sake_92</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              """)
-        )
-      ),
-      hr,
-      row(
-        half1("stackoverflow"),
-        half2(
-          raw("""
+              """)),
+        ("stackoverflow",
+         raw("""
                 <a href="https://stackoverflow.com/users/4496364/insan-e">
                   <img src="https://stackoverflow.com/users/flair/4496364.png?theme=dark" width="208" height="58"
                     alt="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
                     title="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
                 </a>
-             """)
-        )
-      )
+             """)),
+      ).map {
+          case (col1, col2) =>
+            row(half1(col1), half2(col2))
+        }
+        .flatMap(List(hr, _)) // insert he between each
+        .tail
     )
   )
 

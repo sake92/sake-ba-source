@@ -1,13 +1,14 @@
 package site
 
 import scalatags.Text.all._
+import ba.sake.hepek.implicits._
 import ba.sake.hepek.core.RelativePath
-import ba.sake.hepek.html.component.BasicComponents._
-import templates.SakeBaPage
+import ba.sake.hepek.html.component.BasicComponents
 
-object NotFound extends SakeBaPage {
+object NotFound extends templates.SakeBaPage with BasicComponents {
 
-  override def pageTitle        = "Ne postoji"
+  override def pageSettings = PageSettings("Ne postoji")
+
   override def fileName: String = "404.shtml"
 
   /* Since we use RELATIVE LINKS when referring to JS files, pages etc.
