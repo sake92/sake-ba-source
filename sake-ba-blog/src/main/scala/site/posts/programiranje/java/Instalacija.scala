@@ -21,9 +21,7 @@ object Instalacija extends JavaTemplate {
       .withSections(uvodSection, dodavanjePATHSection, provjeraSection)
 
   val linkToAddPath =
-    hyperlink(relTo(this) + "#" + dodavanjePATHSection.id)(
-      dodavanjePATHSection.name
-    )
+    hyperlink(dodavanjePATHSection.ref)(dodavanjePATHSection.name)
 
   def uvodSection = Section(
     "Instalacija Jave",
