@@ -47,14 +47,14 @@ object Index extends templates.SakeBaPage with BasicComponents {
     tab(
       row(
         span(cls := "glyphicon glyphicon-education"),
-        " ",
-        hyperlink("https://blog.sake.ba")("Tutorials")
+        hyperlink("https://blog.sake.ba")(" Tutorials")
       ),
       hr,
       row(
         span(cls := "glyphicon glyphicon-book"),
-        " ",
-        hyperlink("https://github.com/sake92/Reads")("Recommended readings")
+        hyperlink("https://github.com/sake92/notes")(
+          " My notes and useful stuff"
+        )
       )
     )
   )
@@ -119,7 +119,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
               third3(hyperlink(url)(title))
             )
         }
-        .flatMap(List(hr, _)) // insert he between each
+        .flatMap(List(hr, _)) // insert hr between each
         .tail
     )
   )
@@ -156,7 +156,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
           case (col1, col2) =>
             row(half1(col1), half2(col2))
         }
-        .flatMap(List(hr, _)) // insert he between each
+        .flatMap(List(hr, _)) // insert hr between each
         .tail
     )
   )

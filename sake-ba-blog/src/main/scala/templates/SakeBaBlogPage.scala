@@ -6,24 +6,31 @@ import scalatags.Text.all._
 import ba.sake.hepek.html.structure._
 import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
 import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
-import ba.sake.hepek.theme.bootstrap3.HepekBootstrap3BlogPage
+import ba.sake.hepek.theme.bootstrap3.{HepekBootstrap3BlogPage, TocType}
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import images.Images
-import ba.sake.hepek.Resources._
-import utils.Site
+import utils._
+import Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
-  override def tocTitle = "Sadržaj"
+  override def tocSettings =
+    super.tocSettings
+      .copy(title = "Sadržaj", tocType = Some(TocType.Scrollspy(55)))
 
   override def blogSettings =
     super.blogSettings
       .withAuthor("Sakib Hadžiavdić")
       .withCreateDate(LocalDate.now)
 
+  override def pageHeader = None
+
   // google analytics
-  override def headContent = super.headContent ++ List(
-    raw("""
+  override def headContent =
+    frag(
+      super.headContent,
+      raw(
+        """
           <!-- Global Site Tag (gtag.js) - Google Analytics -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
           <script>
@@ -32,12 +39,12 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
             gtag('js', new Date());
             gtag('config', 'UA-93179008-1');
           </script>
-        """)
-  )
+        """
+      )
+    )
 
   // DISQUS COMMENTS STUFF
-  val PAGE_URL = Site.url + "/" + site.Index.relTo(this)
-  //.replaceAll("""\\""", "/") // when on windows..
+  val PAGE_URL        = Site.url + "/" + site.Index.relTo(this)
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
 
   // disqus comments
@@ -65,15 +72,22 @@ trait SakeBaBlogStaticPage
     with AnchorjsDependencies {
 
   override def siteSettings =
-    SiteSettings()
+    super.siteSettings
       .withName(Site.name)
       .withIndexPage(site.Index)
       .withMainPages(Site.mainPages)
       .withFaviconNormal(Images.favicon.ref)
       .withFaviconInverted(Images.faviconWhite.ref)
 
-  override def styleURLs  = super.styleURLs :+ styles.css("main").ref
-  override def scriptURLs = super.scriptURLs :+ scripts.js("main").ref
+  override def styleURLs  = super.styleURLs :+ resources.styles.css("main").ref
+  override def scriptURLs = super.scriptURLs :+ resources.scripts.js("main").ref
+
+  override def stylesInline =
+    super.stylesInline ++ List("""
+        body {
+          padding-top: 73px;
+        }
+      """)
 
   // Bootswatch cyborg theme
   override def bootstrapDependencies =

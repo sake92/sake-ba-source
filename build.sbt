@@ -12,9 +12,9 @@ lazy val commonSettings = Seq(
   },
   // move SbtWeb stuff to "site/lib", default is "lib"
   WebKeys.webModulesLib := "site/lib",
-  //resolvers += Resolver.sonatypeRepo("snapshots"),
+  resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.2.0-SNAPSHOT"
+    "ba.sake" %% "hepek" % "0.2.1-SNAPSHOT"
   )
 )
 

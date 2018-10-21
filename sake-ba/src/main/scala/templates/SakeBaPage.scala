@@ -16,8 +16,11 @@ trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
       .withFaviconNormal(images.ico("favicon").ref)
       .withFaviconInverted(images.ico("favicon-white").ref)
 
-  override def headContent = super.headContent ++ List(
-    raw("""
+  override def headContent =
+    frag(
+      super.headContent,
+      raw(
+        """
           <!-- Global Site Tag (gtag.js) - Google Analytics -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
           <script>
@@ -26,8 +29,9 @@ trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
             gtag('js', new Date());
             gtag('config', 'UA-93179008-1');
           </script>
-        """)
-  )
+        """
+      )
+    )
 
   override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
   override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
