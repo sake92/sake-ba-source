@@ -11,4 +11,6 @@ object Imports extends AllBootstrapComponents with BasicComponents {
 
   object chl extends PrismCodeHighlightComponents
 
+  def jshell = chl.batch.withPrompt("jshell>")
+
 }

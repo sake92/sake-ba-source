@@ -17,8 +17,6 @@ object Functions extends JavaTemplate {
       .withCreateDate(LocalDate.of(2018, 4, 5))
       .withSections(funkcijeSection)
 
-  def jshell = chl.batch.withPrompt("jshell>")
-
   def funkcijeSection = Section(
     "Funkcije",
     div(

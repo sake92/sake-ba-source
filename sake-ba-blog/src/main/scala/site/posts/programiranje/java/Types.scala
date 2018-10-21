@@ -17,14 +17,12 @@ object Types extends JavaTemplate {
       .withCreateDate(LocalDate.of(2018, 4, 5))
       .withSections(tipoviSection, stringsSection)
 
-  def jshell = chl.batch.withPrompt("jshell>")
-
   def tipoviSection =
     Section(
       "Tipovi",
       div(
-        md("""
-          Većina ozbiljnih p.j. ima **tipove**. One koji nemaju slobodno izbjegavajte! ;)  
+        """
+          Većina ozbiljnih jezika ima **tipove**. One koji nemaju slobodno izbjegavajte! ;)  
           Tip je apstrakcija koju dati p.j. razumije. Npr. kada napišemo `int broj`, 
             ovo "int" je tip varijable "broj".  
           Tako će kompjuter znati, između ostalog, *koliko memorije da rezerviše* za tu varijablu.  
@@ -34,7 +32,7 @@ object Types extends JavaTemplate {
             da ne moramo nagađati.
           
           Da vidimo JShell u akciji:
-       """),
+       """.md,
         jshell.withOutputLines("2,4-10")(
           """
             int broj = 6;
@@ -46,29 +44,27 @@ object Types extends JavaTemplate {
             |         ^-^
           """
         ),
-        md("""
+        """
           Dakle, Java nam **ne da** da dodijelimo broj `5.5` varijabli koja je tipa `int` (cijeli broj).  
           To ima smisla itekako, jer bismo izgubili ovo "zarez pet"... :)  
           Ako želimo da budemo pametniji od Jave, i da na silu "utrpamo" `5.5` u `int` to ide ovako:
-        """),
+        """.md,
         jshell.withOutputLines("2,4-10")(
           """
             broj = (int) 5.5;
             broj ==> 5
           """
         ),
-        md(
-          """
+        """
           I šta smo dobili? Samo cijeli dio... Ali, nekad nam ovo baš i treba!  
           Uglavnom, pouka je da trebamo slušati šta nam Java poručuje!  
           To radi za naše dobro, nju nije briga ako je rezultat netačan, ako je to što želimo... :D
           
           ---
           Naravno, imamo još puno toga reći o tipovima, tek smo "zagrebali površinu"!  
-          Kako da grupišemo podatke? Npr. kompleksni brojevi, podaci o ljudima, proizvodima itd?  
+          Npr. kako da grupišemo podatke? Kompleksni brojevi, podaci o ljudima, proizvodima itd?  
           O tom ćemo pričati u poglavlju o klasama. :)
-        """
-        )
+        """.md
       )
     )
 
@@ -76,24 +72,24 @@ object Types extends JavaTemplate {
     Section(
       "Stringovi i karakteri",
       div(
-        md("""
+        """
           Prije nego nastavimo dalje, moramo objasniti i stringove, jer se vrlo često koriste.  
           String (iz engl. niz, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
           Karakter (en. *character* je simbol) označava jedan simbol, 
             bio to broj, slovo ili neki simbol, emoji...
           
           Stringovi se pišu s **dvostrukim navodnicima**:
-       """),
+       """.md,
         jshell.withOutputLines("2")(
           """
             "Poyy sviete!"
             $1 ==> "Poyy sviete!"
           """
         ),
-        md("""
+        """
           Stringovi se tretiraju specijalno u Javi, pa imamo i operator "sabiranja" nad njima.  
-          Npr. možemo "sabrati" 2 stringa, možemo "sabrati" string s brojem i sl:
-       """),
+          Npr. možemo "sabrati" 2 stringa, string s brojem i sl:
+       """.md,
         jshell.withOutputLines("2,4,6,8,10")(
           """
             "Ime" + "Prezime"
@@ -108,8 +104,8 @@ object Types extends JavaTemplate {
             s ==> "ABC"
           """
         ),
-        md("""
-          Ovo sabiranje se često naziva *konkatenacija* (engl. *concatenate* je nadovezati).  
+        """
+          Ovo sabiranje se naziva *konkatenacija* (engl. *concatenate* je nadovezati).  
           Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "hepek.abc"`.  
           String se deklariše **s velikim početnim slovom**!
 
@@ -117,7 +113,7 @@ object Types extends JavaTemplate {
           Implementacija `String`a u Javi interno koristi `char`actere.  
           Kao što smo već rekli, `char` je samo jedan karakter.  
           Piše se s **jednostrukim navodnicima**:
-       """),
+       """.md,
         jshell.withOutputLines("2,4-7,9-12,14-20")(
           """
             'a'
@@ -136,16 +132,16 @@ object Types extends JavaTemplate {
             slovoA ==> 'A'
           """
         ),
-        md("""
+        """
           Dakle, karakter ne može biti prazan, niti može sadržati više karaktera.  
           Za ove namjene koristi se `String`! :)
 
           ---
-          Vrlo važne napomene:
-          - string "1" nije isto kao broj 1
-          - karakter '1' nije isto kao broj 1
-          - postoje posebne funkcije za pretvaranje iz jednog tipa u drugi, ali otom potom...
-       """),
+          > Vrlo važne napomene:
+          > - string "1" nije isto kao broj 1
+          > - karakter '1' nije isto kao broj 1
+          > - postoje posebne funkcije za pretvaranje iz jednog tipa u drugi, ali otom potom...
+       """.md
       )
     )
 }

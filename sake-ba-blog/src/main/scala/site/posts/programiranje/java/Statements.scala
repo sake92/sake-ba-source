@@ -19,8 +19,6 @@ object Statements extends JavaTemplate {
       .withCreateDate(LocalDate.of(2018, 4, 27))
       .withSections(statementsSection)
 
-  def jshell = chl.batch.withPrompt("jshell>")
-
   def statementsSection = Section(
     "Naredbe",
     div(

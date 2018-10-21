@@ -19,8 +19,6 @@ object Basics extends JavaTemplate {
                     expressionsAndOperatorsSection,
                     variablesSection)
 
-  def jshell = chl.batch.withPrompt("jshell>")
-
   def jshellSection = Section(
     "JShell",
     s"""
