@@ -22,19 +22,19 @@ object Statements extends JavaTemplate {
   def statementsSection = Section(
     "Naredbe",
     div(
-      md("""
+      """
           Naredbe (en. statements) su kao rečenice u govornom jeziku, 
             i obično su u imperativnom obliku, kao da se obraćamo kompjuteru:
             uradi ovo, izbriši ono, upiši u fajl itd.  
           Deklaracije varijabli su naredbe, npr. `int i = 5;`, može se čitati kao  
             "napravi varijablu s imenom 'i' i dodijeli joj vrijednost 5! ODMAH!".  
           Iako još nismo objasnili procedure, i one su također naredbe, npr:
-        """),
+        """.md,
       jshell.withOutputLines("2")("""
         System.out.println("Hello!")
         Hello!
       """),
-      md("""
+      """
           Vrlo duga naredba `System.out.println` je procedura za printanje u konzolu 
             (ono gdje tipkamo naredbe, JShell ekran).  
           Do sada je JShell to automatski radio za nas, ispisivao vrijednost zadnjeg izraza,
@@ -44,7 +44,7 @@ object Statements extends JavaTemplate {
           Isto je i sa karakterima.
 
           Da vidimo još par primjera:
-        """),
+        """.md,
       jshell.withOutputLines("2,3,5,7")("""
         System.out.println("x je " + 5);
         x je 5
@@ -54,10 +54,10 @@ object Statements extends JavaTemplate {
         System.out.println(rezultat);
         x je 5
       """),
-      md("""
+      """
           Dakle, možemo proslijediti string direktno, ili varijablu koja je string, svejedno. :)  
           Kraj naredbe se označava s `;` (tačkazarez, en. semicolon).
-        """),
+        """.md
     )
   )
 
