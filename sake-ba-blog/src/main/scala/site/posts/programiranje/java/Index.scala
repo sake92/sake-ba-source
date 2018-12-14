@@ -26,7 +26,7 @@ object Index extends JavaTemplate {
   def uvodSection = Section(
     "Uvod",
     """
-      Vrlo je teško ustanoviti odakle početi s objašnjavanjem termina i suštine programiranje.
+      Vrlo je teško ustanoviti odakle početi s objašnjavanjem termina i suštine programiranja.
       Pretpostavljam da znate makar neke osnove matematike, i naravno koristiti računar...
 
       Dosta vremena ćemo posvetiti objašnjavanju koncepata i terminologije.

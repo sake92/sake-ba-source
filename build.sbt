@@ -1,6 +1,7 @@
 import com.typesafe.sbt.web.Import.WebKeys
 
-scalaVersion in ThisBuild := "2.12.4"
+scalaVersion in ThisBuild := "2.12.8"
+
 scalafmtOnCompile in ThisBuild := true
 
 lazy val commonSettings = Seq(
@@ -18,12 +19,19 @@ lazy val commonSettings = Seq(
   )
 )
 
-// main site, sake.ba
+// sake.ba
 lazy val sakeBa = (project in file("sake-ba"))
   .settings(commonSettings)
   .enablePlugins(HepekPlugin, SbtWeb)
 
-// blog site, blog.sake.ba
+// blog.sake.ba
+lazy val sakeBaBlog = (project in file("sake-ba-blog"))
+  .settings(commonSettings)
+  .settings(
+    generatePdfs := genPdfs.value
+  )
+  .enablePlugins(HepekPlugin, SbtWeb)
+
 val generatePdfs = taskKey[Unit]("Generate PDFs.")
 
 val genPdfs = Def.taskDyn {
@@ -33,10 +41,3 @@ val genPdfs = Def.taskDyn {
     (runMain in Compile).toTask(" hepek.PdfGenApp " + targetFolder).value
   }
 }
-
-lazy val sakeBaBlog = (project in file("sake-ba-blog"))
-  .settings(commonSettings)
-  .settings(
-    generatePdfs := genPdfs.value
-  )
-  .enablePlugins(HepekPlugin, SbtWeb)

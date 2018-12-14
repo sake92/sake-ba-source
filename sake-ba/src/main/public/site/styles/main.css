@@ -8,6 +8,11 @@ h1 {
   padding-bottom: 33px;
 }
 
+hr {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
 .tab-content {
   margin-top: 33px;
 }

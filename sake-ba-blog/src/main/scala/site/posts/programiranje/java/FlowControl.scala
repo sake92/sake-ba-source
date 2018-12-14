@@ -20,12 +20,12 @@ object FlowControl extends JavaTemplate {
   def kontrolaTokaSection = Section(
     "Kontrola toka (programa)",
     div(
-      md("""
-        Kompjuteri obično izvršavaju naredbe jednu za drugom, sekvencijalno.  
+      """
+        Kompjuteri obično izvršavaju naredbe jednu nakon druge tj. sekvencijalno.  
         Međutim, potrebne su nam i naredbe za: 
-        - **grananje** (if / match / switch / branch) - kada želimo izvršiti nešto samo pod datim **uslovima**"
-        - **ponavljanje** (while / for / rekurzija) - kada želimo ponavljati neki dio koda, da ne bi kopirali stalno..."
-        """)
+        - **grananje** (`if`, `switch`, `match` i sl.) - kada želimo izvršiti nešto samo pod datim **uslovima**
+        - **ponavljanje** (`while`, `for`, rekurzija) - kada želimo ponavljati neki dio koda, da ne bi kopirali kod stalno...
+      """.md
     ),
     List(grananjeSection, ponavljanjeSection)
   )
@@ -33,108 +33,127 @@ object FlowControl extends JavaTemplate {
   def grananjeSection = Section(
     "Grananje",
     div(
-      md("""
-        Grananje pomoću "if" naredbe je vrlo jednostavno i lahko razumljivo.  
-        Ako je **uslov** ispunjen tj. istinit (en. true) onda će se taj dio koda izvršiti.  
-        U suprotnom program nastavlja dalje. Ili, ako ima još uslova onda nastavlja njih da ispituje itd.
-      """),
-      chl.python.withLineHighlight("2,4")(
-        """
-        temperatura = float(input('Unesite trenutnu temperaturu (°C): '))
-        if temperatura > 15:
-            print('Toplo je.')
-        else:
-            print('Hladno je.')
       """
-      ),
-      md("""
-        *Objašnjenje*:  
-          Ovdje je uslov vrijednost izraza (temperatura > 15) na liniji 2, koji je ili true ili false.  
-          Ako korisnik unese broj 16 ili više ispisaće se na ekran "Toplo je."
-            a u suprotnom (en. else, linija 4) ispisaće se na ekran "Hladno je.".
-      """),
-      hr,
-      md("""
-        Grananjem pomoću "switch-case" naredbe možemo preglednije napisati više uslova.  
-        Sljedeći primjer napisan je u PHP-u.
-      """),
-      chl.php.withLineHighlight("1,5-7")(
+        Grananje pomoću `if` naredbe je vrlo jednostavno i lahko razumljivo.  
+        Ako je **uslov** ispunjen onda će se taj dio koda izvršiti.  
+        U suprotnom program nastavlja dalje.
+        
+        Ovo "uslov ispunjen" može biti DA ili NE, tj. ISTINA (en. true) ili NEISTINA (en. false).  
+        Ovaj **tip podatka** se naziva **Boolean** po matematičaru George Boole-u.  
+        
+        Ako se sjećate logike iz matematike, tablica istine, "I", "ILI", "NE" i ostalih, TO JE TO! :D  
+        Logička operacija "I" (en. and) se u Javi piše kao `&&`.  
+        Logička operacija "ILI" (en. or) se u Javi piše kao `||`.  
+        Logička operacija "NE" (en. negate, not) se u Javi piše kao `!`, i piše se prije uslova koji negira, npr. `!small`.
+        
+        Primjer:
+      """.md,
+      chl.java.withLineHighlight("4,6,8")(
         """
-        switch ($i) {
-            case 0:
-                echo "i je 0";
+          double temperatura = 21.33;
+          boolean uslovToplo = temperatura > 25;
+          boolean uslovTaman = temperatura > 19 && temperatura <= 25;
+          if (uslovToplo) // mogli smo napisati i "if(temperatura > 25)"
+              System.out.println("Toplo je");
+          else if (uslovTaman)
+              System.out.println("Taman je");
+          else
+              System.out.println("Hladno je");
+        """
+      ),
+      """
+        Prethodni kod će ispisati "Taman je", jer je uslov `uslovTaman` ispunjen, tj. istina je da je `21.33 > 19 && 21.33 <=25`.  
+        
+        Niz uslova `if else-if ... else` se tretira kao **jedna naredba**!  
+        Ovi uslovi bi trebali biti **međusobno isključivi** tj. smisleni.  
+        
+        > Ako napišete `if (broj>5) {/* prvi */} else if (broj>7) {/* drugi */}` to nema puno smisla jer
+        >   ako broj nije veći od 5, ne može biti veći od 7, nema šansone. :D  
+        > Ako jeste veći od 5, biće izvršen prvi blok, ali drugi blok koda NIKAD NEĆE BITI IZVRŠEN!
+        
+        Ako postoji grana `else`, ona će biti izvršena **ako nijedan uslov nije ispunjen**.  
+        Ako ne postoji `else` i nijedan uslov nije ispunjen, ništa neće biti izvršeno od te cijele if naredbe.
+        
+        ---
+        Grananje pomoću "switch-case" naredbe može učiniti kod dosta preglednijim.  
+        Ova naredba se koristi umjesto mnoštva if-else grana, od koje svaka grana provjerava je li varijabla jednaka nekoj vrijednosti.  
+        U Javi možete "switchati" cijele brojeve, karaktere, stringove i enumeracije.
+      """.md,
+      chl.java.withLineHighlight("2,6-8")(
+        """
+        int i = 5;
+        switch (i) {
+            case 3:
+                System.out.println("Tri");
                 break;
-            case 1:
-                echo "i je 1";
+            case 5:
+                System.out.println("Pet");
                 break;
             default:
-                echo "i je nešto što nismo očekivali...";
+                System.out.println("Ne znam...");
                 break;
         }
       """
       ),
-      md("""
-        *Objašnjenje*:  
-          Na liniji 1 ispituje se čemu je jednaka **vrijednost varijable "i"**, 
-            redom i odozgo naravno.  
-          Prvi slučaj (en. case) koji bude ispunjen će biti pozvan.
-          Ako je vrijednost varijable "i" broj 1 ispisaće se na ekran "i je 1".
+      """
+          Na liniji 2 ispituje se čemu je **jednaka vrijednost varijable `i`**, 
+            **redom odozgo** naravno.  
+          Prvi slučaj (en. case) koji bude ispunjen će biti izvršen.  
+          Ako je vrijednost varijable `i` broj 5 ispisaće se na ekran "Pet".
           
           Često ne znamo koliko ima mogućih slučajeva, 
             pa onda trebamo odlučiti šta da uradimo po tom pitanju.  
-          Za to nam služi ključna riječ "default" (u većini jezika).
-      """)
+          Za to nam služi ključna riječ "default". To je ustvari ona `else` grana u `if` naredbi! ;)
+      """.md
     )
   )
 
   def ponavljanjeSection = Section(
     "Ponavljanje",
     div(
-      md("""
-        U sljedećem primjeru (C jezik) želimo izvršavati kod sve dok je neki **uslov** ispunjen (en. while znači "dok").  
-        Naravno, unutar tog bloka uslov se **mora mijenjati**, inače se program *neće nikad zaustaviti*.  
+      """
+        U sljedećem primjeru želimo izvršavati kod sve dok je neki **uslov** ispunjen (en. while znači "dok").  
+        Naravno, unutar tog bloka **uslov se mora mijenjati**, inače se program *neće nikad zaustaviti*.  
         To se naziva **beskonačna petlja** i obično nije poželjna... :)
-       """),
-      chl.c.withLineHighlight("2")(
+       """.md,
+      chl.java.withLineHighlight("2")(
         """
-        int a = 0;
-        while(a < 10) {
-            printf("Cifra a je: %d\n", a);
-            a = a + 1;
-        }
-      """
-      ),
-      md("""
-        *Objašnjenje*:  
-          Uslov se ispituje u svakoj **iteraciji** petlje. Dakle, svaki put kada se dođe do linije 4 uslov će se ponovo ispitati.
-          Ako uslov nije zadovoljen, petlja se zaustavlja i program se nastavlja izvršavati na liniji 6 
-            (nije prikazana u primjeru, možda je i kraj programa).
-      """),
-      hr,
-      md("""
-        Dosta jezika ima i tzv. "for petlje". To su otprilike while petlje s finijom sintaksom.  
-        Sljedeći primjer (C# jezik) radi isto kao i prethodni sa while petljom.  
-        Samo što se ovdje varijabla zove "i" i koristimo for petlju.
-       """),
-      chl.csharp.withLineHighlight("1")(
+          int i = 0;
+          while(i < 10) {
+              System.out.println("Cifra i je: " + i);
+              i = i + 1;
+          }
+          
         """
-        for (int i = 0; i < 10; i = i + 1) {
-            Console.WriteLine("Cifra a je: {0}", i);
-        }
-      """
       ),
-      md("""
-        *Objašnjenje*:  
-          Uopćena sintaksa for petlje je sljedeća: for(inicijalizacije; uslov; koraci).  
-          Vidimo da su dijelovi razdvojeni tačkazarezom.  
+      """
+        Uslov se ispituje u svakoj **iteraciji** petlje. Dakle, svaki put kada se dođe do linije 5 uslov će se ponovo ispitati.
+        Ako uslov nije zadovoljen, petlja se zaustavlja i program se nastavlja izvršavati na liniji 6.
+      
+        ---
+        Java ima i tzv. `for` petlje. To su haman-ha `while` petlje s finijom sintaksom.  
+        Sljedeći primjer radi isto kao i prethodni sa `while` petljom.
+      """.md,
+      chl.java.withLineHighlight("1")(
+        """
+          for (int i = 0; i < 10; i = i + 1) {
+              System.out.println("Cifra i je: " + i);
+          }
+        """
+      ),
+      """
+          Uopćena sintaksa for petlje je sljedeća: `for(inicijalizacije; uslov; koraci)`.  
+          Vidimo da su dijelovi `for` petlje razdvojeni tačkazarezom.  
 
-          Umjesto da deklarišemo varijable prije petlje, nekad je zgodno deklarisati ih u sklopu petlje, 
-            jer nam poslije ne trebaju.  
+          Umjesto da deklarišemo varijable prije petlje, zgodno je deklarisati ih u sklopu petlje, 
+            jer nam poslije petlje one ne trebaju.  
           Za to nam služi dio **inicijalizacije**.  
+          
           Dio **uslov** je isti kao i kod while petlje.  
-          Koraci dolaze **na kraju petlje**, isto kao linija 4 u našoj while petlji.  
-          Oni obično *utiču na uslov za izlaz* iz petlje.
-      """)
+          
+          Dio **koraci** dolazi **na kraju petlje**, isto kao linija 4 u našoj `while` petlji.  
+          Koraci obično *utiču na uslov za izlaz* iz petlje.
+      """.md
     )
   )
 

@@ -3,11 +3,14 @@ package site
 import scalatags.Text.all._
 import ba.sake.hepek.implicits._
 import ba.sake.hepek.html.component.BasicComponents
+import ba.sake.hepek.Resources.images
+import ba.sake.hepek.bootstrap3.component.BootstrapImageComponents._
 
 object Index extends templates.SakeBaPage with BasicComponents {
 
   override def pageSettings =
-    PageSettings("Home")
+    super.pageSettings
+      .withTitle("Home")
       .withDescription(
         "sake.ba is personal website belonging to Sakib Hadžiavdić. " +
           "Tutorials from maths, programming etc."
@@ -38,7 +41,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
   )
 
   def sections =
-    List(resourcesSection, projectsSection, talksSection, aboutSection)
+    List(aboutSection, resourcesSection, projectsSection, talksSection)
 
   private def tab = div()
 
@@ -47,13 +50,13 @@ object Index extends templates.SakeBaPage with BasicComponents {
     tab(
       row(
         span(cls := "glyphicon glyphicon-education"),
-        hyperlink("https://blog.sake.ba")(" Tutorials")
+        hyperlink("https://blog.sake.ba")(" Tutorials in Bosnian")
       ),
       hr,
       row(
         span(cls := "glyphicon glyphicon-book"),
         hyperlink("https://github.com/sake92/notes")(
-          " My notes and useful stuff"
+          " Notes, links and useful stuff"
         )
       )
     )
@@ -110,6 +113,12 @@ object Index extends templates.SakeBaPage with BasicComponents {
           "freeCodeCamp Sarajevo",
           "https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo",
           "FP intro"
+        ),
+        (
+          "27.10.2018",
+          "Hacktoberfest Sarajevo",
+          "https://sake.ba/presentations/2018-10-27%20OpenSource%20-%20Hacktoberfest%20Sarajevo",
+          "Open Source"
         )
       ).map {
           case (date, place, url, title) =>
@@ -140,10 +149,9 @@ object Index extends templates.SakeBaPage with BasicComponents {
          )),
         ("email", hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba")),
         ("twitter",
-         raw("""
-                <a href="https://twitter.com/sake_92" class="twitter-follow-button" data-show-count="false">@sake_92</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              """)),
+         hyperlink("https://twitter.com/sake_92")(
+           img(src := images.png("twitter-follow-button").ref, height := "58px")
+         )),
         ("stackoverflow",
          raw("""
                 <a href="https://stackoverflow.com/users/4496364/insan-e">
@@ -152,6 +160,12 @@ object Index extends templates.SakeBaPage with BasicComponents {
                     title="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
                 </a>
              """)),
+        ("certificates",
+         hyperlink(
+           "https://www.youracclaim.com/badges/f1319384-958c-4f40-b26e-4720d3bae7db/public_url"
+         )(
+           img(src := images.jpg("OCA-Java-SE-1").ref, height := "58px")
+         ))
       ).map {
           case (col1, col2) =>
             row(half1(col1), half2(col2))

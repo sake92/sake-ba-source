@@ -12,9 +12,6 @@ trait CodeTemplate extends SakeBaBlogPage with PrismDependencies {
                              "batch",
                              "scala",
                              "java",
-                             "python",
-                             "php",
-                             "csharp",
                              "markup",
                              "markup-templating")
 

@@ -7,7 +7,7 @@ import ba.sake.hepek.html.component.BasicComponents
 
 object NotFound extends templates.SakeBaPage with BasicComponents {
 
-  override def pageSettings = PageSettings("Ne postoji")
+  override def pageSettings = super.pageSettings.withTitle("Not found")
 
   override def fileName: String = "404.shtml"
 
@@ -19,18 +19,13 @@ object NotFound extends templates.SakeBaPage with BasicComponents {
 
   override def pageContent = frag(
     div(cls := "text-center")(
-      md(
-        """
-          <br /><br /><br />
+      """
           This content is not available in your country.  
           Sorry about that. :/
 
-          <br /><br />
           ---
-          <br /><br />
-          Just kidding, there's nothing here, this is the best I can do...  
-        """
-      ),
+          Just kidding, there's nothing here! ^_^
+        """.md,
       raw(
         """<a href="https://<!--#echo var="HTTP_HOST" -->">GOTO: homepage</a>"""
       )

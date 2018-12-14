@@ -22,14 +22,14 @@ object Basics extends JavaTemplate {
   def jshellSection = Section(
     "JShell",
     s"""
-          Morate imati instaliranu Javu verzije 9 ili više. 
-          Ispratite [sekciju za instalaciju](${Instalacija.ref}).  
-          
-          Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
-          Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  
-          Dobićete tzv. interaktivni shell u kojem možete kucati Javu.  
-          Zovu ga još i REPL (Read Evaluate Print Loop), jer dobija unos od nas,
-            evaluira ga, isprinta neki odgovor, i ponavlja ukrug.
+      Morate imati instaliranu Javu verzije 9 ili više. 
+      Ispratite [sekciju za instalaciju](${Instalacija.ref}).  
+      
+      Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
+      Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  
+      Dobićete tzv. interaktivni shell u kojem možete kucati Javu.  
+      Zovu ga još i REPL (Read Evaluate Print Loop), jer dobija unos od nas,
+        evaluira ga, isprinta neki odgovor, i ponavlja ukrug.
     """.md
   )
 
