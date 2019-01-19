@@ -5,11 +5,11 @@ import ba.sake.hepek.core.RelativePath
 import ba.sake.hepek.implicits.PageSettings
 import templates.SakeBaBlogStaticPage
 import utils.Site
+import utils.Imports._
 
 object NotFound extends SakeBaBlogStaticPage {
 
-  override def pageSettings =
-    PageSettings("Ne postoji!")
+  override def pageSettings = super.pageSettings.withTitle("Not found")
 
   override def fileName: String = "404.shtml"
 
@@ -19,13 +19,19 @@ object NotFound extends SakeBaBlogStaticPage {
   override def relTo(other: RelativePath) =
     Site.url + "/" + super.relTo(other)
 
-  override def pageContent = div(cls := "text-center")(
-    p(raw("""Resurs '<!--#echo var="REQUEST_URI" -->' ne postoji!""")),
-    p("(Bar zasad...) ^_^"),
-    br,
-    br,
-    br,
-    raw(""" <a href="https://<!--#echo var="HTTP_HOST" -->">Haj nazad</a> """)
+  override def pageContent = frag(
+    div(cls := "text-center")(
+      """
+          This content is not available in your country.  
+          Sorry about that. :/
+
+          ---
+          Just kidding, there's nothing here! ^_^
+        """.md,
+      raw(
+        """<a href="https://<!--#echo var="HTTP_HOST" -->">GOTO: homepage</a>"""
+      )
+    )
   )
 
 }

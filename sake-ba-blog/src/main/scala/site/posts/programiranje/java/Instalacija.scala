@@ -23,25 +23,27 @@ object Instalacija extends JavaTemplate {
   val linkToAddPath =
     hyperlink(dodavanjePATHSection.ref)(dodavanjePATHSection.name)
 
+  val installJava8 =
+    "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
+  val installJava11 = "https://jdk.java.net/11"
+
   def uvodSection = Section(
     "Instalacija Jave",
     div(
       s"""
-        U nastavku slijedi primjer za instalaciju Jave 8.  
-        Java 11 se samo raspakuje kao obični zip.  
-        Nastavak za [dodavanje PATH varijable](${dodavanjePATHSection.ref}) je identičan.
+        Ako vam je baš mrsko instalirati Javu, za početak možete koristiti i [online verziju](https://www.jdoodle.com/online-java-compiler).  
+        Zgodno je za probavanje i igranje sa Javom.
+        
+        ---
+        Preporučujem da instalirate [Javu 11]($installJava11) jer ona sadrži JShell koji je zgodan za eksperimentisanje.  
+        Java 11 je dostupna samo za 64-bitne računare.  
+        Samo downloadujte i raspakujte zip npr. u `C:\\Java`.  
+        Idući korak je [dodavanje PATH varijable](${dodavanjePATHSection.ref}).
+        
+        ---
+        Instalacija [Jave 8]($installJava8) je malo komplikovanija, ali je dostupna i za 32-bitne i 64-bitne računare.        
+        Naravno, možete instalirati više verzija Jave, ali samo jednu možete dodati u `PATH`!
       """.md,
-      "Odaberite jednu od sljedećih verzija: ",
-      hyperlink(
-        "http://www.oracle.com/technetwork/java/javase/downloads/index.html",
-        target := "_blank"
-      )("Java 8"),
-      " | ",
-      hyperlink(
-        "https://jdk.java.net/11/",
-        target := "_blank"
-      )("Java 11"),
-      ".",
       image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
       """
         Kada se otvori stranica sa prethodne slike kliknite na dugme **download JDK**.
@@ -55,10 +57,10 @@ object Instalacija extends JavaTemplate {
        """.md,
       image(relTo(Images.java.downloadJDK2), "JDK download step 2"),
       """
-          Preporučujem da Javu instalirate u folder pod nazivom "C:\Java".  
+          Preporučujem da Javu instalirate u folder pod nazivom `C:\Java`.  
           Ovo ne morate raditi ali je korisno kada vam treba više verzija Jave.  
           Također, neki programi na Windowsu imaju problema kada putanja sadrži razmak, 
-            zato nećemo instalirati u "Program Files"... 
+            zato nećemo instalirati u `Program Files`... 
 
           > **Napomena**: Ne trebate instalirati i JRE!  
           > Kada vam dođe prozor za JRE kliknite Cancel! (iksić).  
@@ -68,9 +70,10 @@ object Instalacija extends JavaTemplate {
         "Dakle, kada se završi download, otvorite instalaciju i kliknite Next.",
         br,
         image(relTo(Images.java.installJDKFolder), "JDK folder"),
-        """Zatim kliknite dugme "Change..." i prepravite putanju foldera na "C:\Java\jdk1.8.0_131\". """,
-        br,
-        "JRE će već biti instaliran zajedno sa JDK! Tako da nam ne treba još jedna instalacija...",
+        """
+            Zatim kliknite dugme "Change..." i prepravite putanju foldera na `C:\Java\jdk1.8.0_131`.  
+            JRE će već biti instaliran zajedno sa JDK! Tako da nam ne treba još jedna instalacija...
+        """.md,
         image(relTo(Images.java.installJRENope), "JRE, nope!")
       )
     )
@@ -101,7 +104,7 @@ object Instalacija extends JavaTemplate {
             tr(td("JRE_HOME"), td("""%JAVA_HOME%\jre"""))
           ),
           """
-            **Glavno**, otvorite "PATH" varijablu i dodajte ";%JAVA_HOME%\bin" na kraj.  
+            **Glavno**, otvorite `PATH` varijablu i dodajte `;%JAVA_HOME%\bin` na kraj.  
             Nemojte zaboravit tačkazarez kopirati! :D  
             Bez navodnika, naravno! Kliknite Ok, Ok...
 
@@ -119,7 +122,7 @@ object Instalacija extends JavaTemplate {
       s"""
         Da bi provjerili jesmo li uspješno obavili zadatak, 
           otvorićemo Command Prompt (kod Linuxaša se rekne Shell).  
-        Otvorite Start, ukucajte "cmd" i kliknite Enter. Ukucajte `java -version`.  
+        Otvorite Start, ukucajte `cmd` i kliknite <kbd>Enter</kbd>. Ukucajte `java -version`.  
         Ako dobijete poruku 
           `'java' is not recognized as an internal or external command, operable program or batch file.`
           nešto nije uredu, provjerite sve korake sekcije $linkToAddPath ponovo!

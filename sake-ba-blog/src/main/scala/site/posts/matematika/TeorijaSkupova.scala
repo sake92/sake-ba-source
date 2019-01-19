@@ -28,7 +28,7 @@ object TeorijaSkupova extends MatematikaTemplate {
     "Uvod",
     div(
       md("""
-          Teorija skupova (engl. Set theory) je jedna od osnovnih grana matematike.  
+          Teorija skupova (en. Set theory) je jedna od osnovnih grana matematike.  
           Ona, između ostalog, daje odgovor na to da li neki objekat pripada datom skupu objekata.  
           Skup mora biti jasno i nedvosmisleno definisan. 
 
@@ -47,7 +47,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           Obično se u matematici koristi neko pravilo koje elementi moraju zadovoljavati (umjesto navođenja elemenata pojedinačno...),
             npr. "skup svih prirodnih brojeva koji su manji od 5".            
           To možemo zapisati ovako: ´\\{x | x \\in \mathbb{N}, x < 5\\}´.  
-          Ovdje ´x´ označava neki element skupa, ´|´ se čita kao "takav da je", a zarez se čita kao logičko "i" (engl. and).  
+          Ovdje ´x´ označava neki element skupa, ´|´ se čita kao "takav da je", a zarez se čita kao logičko "i" (en. and).  
           Negdje se koristi i dvotačka umjesto | znaka, npr. ´\\{x : x \\in \mathbb{N}, x < 5\\}´.
 
           Dva skupa su jednaka akko imaju iste elemente.  
@@ -55,7 +55,7 @@ object TeorijaSkupova extends MatematikaTemplate {
          """),
       blockquote(
         md("""
-            Ovo "akko" je skraćeno od "ako i samo ako" (engl. iff - if and only if).  
+            Ovo "akko" je skraćeno od "ako i samo ako" (en. iff - if and only if).  
             Razlika između "ako" i "akko" je sljedeća:  
             Kada kažemo "ako A onda B" ne mora značiti da "ako B onda A"!  
              
@@ -72,18 +72,18 @@ object TeorijaSkupova extends MatematikaTemplate {
       md("""
         Postoji nekoliko skupova koji se često pojavljuju u matematici i imaju posebne simbole:
         - ´\emptyset´ - Prazan skup. Skup koji ne sadrži nijedan element. Označava se i sa ´\\{\\}´.
-        - ´\mathbb{N}´ - Skup prirodnih brojeva (od engl. **N**atural - prirodni). ´\mathbb{N} = \\{0,1,2,...\\}´.  
+        - ´\mathbb{N}´ - Skup prirodnih brojeva (od en. **N**atural - prirodni). ´\mathbb{N} = \\{0,1,2,...\\}´.  
                 Neki autori ne uključuju nulu u ovaj skup.  
                 Zato kada se želi posebno istaći da je i nula uključena koriste se simboli ´N_0´, ´N^0´.  
                 Kada se želi istaći da nula nije uključena piše se ´N^+ = \\{1,2,...\\}´.  
                 Analogna notacija vrijedi i za ostale skupove.
-        - ´\mathbb{Z}´ - Skup cijelih brojeva (od njem. **Z**ahl - broj, engl. integer). ´\mathbb{Z} = \\{0,1,-1,2,-2,...\\}´.
-        - ´\mathbb{Q}´ - Skup racionalnih brojeva (od engl. **Q**uotient - razlomak).  
+        - ´\mathbb{Z}´ - Skup cijelih brojeva (od njem. **Z**ahl - broj, en. integer). ´\mathbb{Z} = \\{0,1,-1,2,-2,...\\}´.
+        - ´\mathbb{Q}´ - Skup racionalnih brojeva (od en. **Q**uotient - razlomak).  
                 Svaki broj koji može biti predstavljen razlomkom ´\frac{p}{q}´ gdje su ´p´ i ´q´ dva cijela broja.  
                 Naravno, ´q´ ne smije biti nula jer bi dijeljenjem dobili ´\infty´ (beskonačno)...
-        - ´\mathbb{R}´ - Skup realnih brojeva (od engl. **R**eal - pravi).  
+        - ´\mathbb{R}´ - Skup realnih brojeva (od en. **R**eal - pravi).  
                 Za nas obične smrtnike ovo su "brojevi sa zarezom".
-        - ´\mathbb{C}´ - Skup kompleksnih brojeva (od engl. **C**omplex - složeni).  
+        - ´\mathbb{C}´ - Skup kompleksnih brojeva (od en. **C**omplex - složeni).  
                 To su brojevi koji pored realnog sadrže i imaginarni dio.
       """),
       md("""

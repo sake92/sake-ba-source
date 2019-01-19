@@ -26,7 +26,6 @@ object HelloWorld extends JavaTemplate {
         Vjerovatno vam je do sada dodijao JShell i kucanje u konzoli... :D  
         Sada ćemo vidjeti kako se ustvari pokreću Java programi.  
         Sastoji se iz 2 dijela: kompajliranje i pokretanje (en. run).  
-        Neki jezici su interpretirani, ne kompajliraju se nikako (Javascript, Ruby, Python).  
 
         ---
         Kompajler (en. compiler) je program koji provjerava sintaksu našeg programa,
@@ -36,7 +35,7 @@ object HelloWorld extends JavaTemplate {
         Javin kompajler se zove `javac` (skraćeno od Java compiler).  
         
         Ulaz u kompajler je izvorni tekst programa (en. source code) 
-          koji smo napisali (`.java` fajlovi, obični tekstualni fajlovi),
+          koji smo napisali (obični tekstualni fajlovi s nastavkom `.java` ),
           a izlaz  su fajlovi koji sadrže izvršni kod, koji se može pokrenuti nekako, izvršiti (`.class` fajlovi).
       """.md,
       row(
@@ -57,17 +56,16 @@ object HelloWorld extends JavaTemplate {
       ),
       """
         ---
-        Da vidimo (napokon) kako izgleda obavezni "Hello World" primjer:
+        Da vidimo napokon kako izgleda obavezni "Hello World" primjer:
       """.md,
       chl.java(
         """
-            package primjer;
-
             // komentar1
+            
             /*
              * komentar2
              */
-
+             
             class PoyySvijeteApp {
                 public static void main(String[] argumenti) {
                     String poruka = "Poyy sviete!";
@@ -89,7 +87,7 @@ object HelloWorld extends JavaTemplate {
     """
         Komentari su tekst koji ne utiče na rezultat programa.  
         Koriste se samo radi objašnjavanja koda, nekom drugom ili nama kad budemo čitali kasnije.  
-        Prva vrsta komentara se piše sa 2 kose crte `//` (en. slash) i pišemo **do kraja linije**.  
+        Prva vrsta komentara se piše sa 2 kose crte `//` (en. slash) i vrijedi **do kraja linije**.  
         Druga vrsta je višelinijska (en. multiline) i počinje s `/*` a završava s `*/`.
       """.md
   )
@@ -98,30 +96,17 @@ object HelloWorld extends JavaTemplate {
     "Kompajliranje i pokretanje programa",
     div(
       """
-        Sadržaj programa sačuvajte u fajl "PoyySvijeteApp.java".
-        Primijetite da se **mora zvati isto kao i klasa**, s nastavkom "java"!  
-        Ovaj fajl se **mora nalaziti u folderu** "primjer" jer je to "package" od naše klase!  
-        Kod mene se ovo sve nalazi na C: particiji, u folderu "programiranje":
-      """.md,
-      chl.batch
-        .withPrompt("PS C:\\programiranje>")
-        .withOutputLines("2-10")("""
-            PS C:\programiranje> tree /f
-            C:.
-            └───primjer
-                    PoyySvijeteApp.class
-                    PoyySvijeteApp.java
-          """),
-      """  
-        Dakle, imamo otvoren CMD i nalazimo se u folderu "programiranje".  
+        Sadržaj programa sačuvajte u fajl `PoyySvijeteApp.java`.
+        Primijetite da se **mora zvati isto kao i klasa**, s nastavkom `.java`!  
+        Kod mene se ovo sve nalazi u folderu `C:\programiranje`.  
         Kucamo sljedeće:
       """.md,
       chl.batch
-        .withPrompt("PS C:\\programiranje>")
+        .withPrompt("C:\\programiranje>")
         .withOutputLines("3")(
           """
-            javac .\primjer\PoyySvijeteApp.java
-            java primjer.PoyySvijeteApp
+            javac PoyySvijeteApp.java
+            java PoyySvijeteApp
             Poyy sviete!
           """
         ),

@@ -78,7 +78,7 @@ object Index extends JavaTemplate {
         Kada se govori o molekulama, znamo da su "ispod" atomi, ali nas u datom kontekstu to ne zanima!
         Kontekst predstavlja skup okolnosti i činjenica, još jedna vrlo bitna stvar kada se govori o apstrakcijama.
         
-        U matematici imamo apstrakciju broja. Kada kažemo broj obično mislimo na cijeli broj. Ali ne kažemo KOJI broj!?  
+        U matematici imamo apstrakciju broja. Kada kažemo broj obično mislimo na cijeli broj. Ali ne kažemo koji broj!?  
         Dakle, samo znamo da mislimo na **neki** broj.
     """.md
   )
@@ -96,12 +96,12 @@ object Index extends JavaTemplate {
         - **logičko**
 
         Dosta jezika danas je miks dvije ili više ovih paradigmi.  
-        Ove paradigme *usmjeravaju naš način razmišljanja* o problemima po svom nekom "šablonu"/fazonu.
+        Ove paradigme *usmjeravaju naš način razmišljanja* o problemima po svom nekom šablonu/fazonu.
 
         Npr. kod proceduralnog/imperativnog načina razmišljanja **mijenjamo varijable** "u mjestu".  
-        Ovdje moramo misliti koja je vrijednost neke varijable *u datom trenutku*, što je većini ljudi izazovan zadatak.
+        Ovdje moramo pamtiti/zamisliti koja je vrijednost neke varijable *u datom trenutku*, što je većini ljudi izazovan zadatak.
 
-        Dok kod funkcionalnog/matematičkog načina razmišljanja pravimo **nove varijable** a stare ne diramo! 
+        Kod funkcionalnog/matematičkog načina razmišljanja pravimo **nove varijable** a stare ne diramo! 
         To nam pomaže kod razumijevanja određenog dijela koda, ne moramo pamtiti u glavi stanje "cijelog svijeta" 
           i na šta utiče promjena date varijable. Ali, otom potom...
         """.md
@@ -116,24 +116,24 @@ object Index extends JavaTemplate {
         Kako svi ljudi razmišljaju na sebi svojstven način,
           postoji teoretski beskonačno mnogo rješenja (programa) za jedan te isti problem!
 
-        Pored gore navedenih apstrakcija, programi često komuniciraju i sa "vanjskim svijetom".  
+        Programi često komuniciraju i sa "vanjskim svijetom".  
         Npr. ako trebamo učitati neki tekstualni fajl i prebrojati sve riječi, 
           taj fajl **nije dio programa** već je **ulaz** (en. input) u naš program. 
         Isto vrijedi i za klik miša, unos sa tastature, mikrofona i sl.
 
-        Analogno, kada želimo npr. ispisati nešto na ekran to se zove **izlaz** (en. output) iz našeg programa.  
+        Analogno, kada želimo ispisati nešto na ekran, pustiti muziku na zvučnik, to se zove **izlaz** (en. output) iz našeg programa.  
 
         Naravno, da ne bismo "izmišljali toplu vodu" možemo se okoristiti znanjem stečenim kroz ljudsku historiju.  
         Ljudi su nadošli na koncept algoritma, koji predstavlja nedvosmislenu specifikaciju za rješavanje nekog problema.  
-        Tj. **Algoritam** je niz precizno definisanih koraka za dobijanje nekog rezultata.  
+        Tj. **algoritam** je niz precizno definisanih koraka za dobijanje nekog rezultata.  
         Laički rečeno, to je recept za implementaciju neke funkcije.
         
        """.md,
       row(
         half1(
           """
-            U toku pisanja koda nekog programa često će nam se pojavljivati logičke greške.  
-            Tj. program se izvršava ali ne radi kako bismo željeli. Te greške se nazivaju bagovi (engl. bug - buba, insekt).  
+            U toku pisanja koda nekog programa često će nam se pojavljivati **greške**.  
+            Tj. program se izvršava ali ne radi kako bismo željeli. Te greške se nazivaju bagovi (en. bug - buba, insekt).  
             Za program koji ima takve greške kaže se da je  *bagovit*.  
             Proces u kojem tražimo greške i ispravljamo ih naziva se debagovanje.
           """.md

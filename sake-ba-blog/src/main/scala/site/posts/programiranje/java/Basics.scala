@@ -22,8 +22,10 @@ object Basics extends JavaTemplate {
   def jshellSection = Section(
     "JShell",
     s"""
-      Morate imati instaliranu Javu verzije 9 ili više. 
+      Da bi se igrali sa jshellom morate imati instaliranu Javu verzije 9 ili više.  
       Ispratite [sekciju za instalaciju](${Instalacija.ref}).  
+      Ako ne želite, možete se strpiti do sekcije [Poyy sviete](${HelloWorld.ref}),
+        gdje ćemo pokrenuti *pravi* program.
       
       Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
       Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  
@@ -47,7 +49,7 @@ object Basics extends JavaTemplate {
         $1 ==> 5
       """),
       """
-          REPL je razumio i odgovorio nam da je to vrijednost `5`, jer je vrlo inteligentan.  
+          REPL je razumio i odgovorio nam da je to vrijednost `5`.  
           U programiranju se kaže da je broj **izraz**.
           *Izraz* u programiranju ima isto značenje kao i u matematici.  
           Dakle, misli se na nešto što ima **vrijednost**. 
@@ -113,7 +115,7 @@ object Basics extends JavaTemplate {
     "Varijable",
     div(
       """   
-          Primijetite šta REPL ispisuje kao odgovor, poslije svake unesene linije, `$1 ==> 5`.  
+          Primijetite šta REPL ispisuje kao odgovor, poslije svake unesene linije: `$1 ==> 5`.  
           Ako ukucamo `$1` u REPL vidjećemo sljedeće:
         """.md,
       jshell.withOutputLines("2-3")("""
@@ -154,8 +156,7 @@ object Basics extends JavaTemplate {
       """
           Vrlo jednostavno, nakon naziva varijable slijedi znak jednako i vrijednost, ovdje je to `0`.  
           Primijetite da ovaj znak jednakosti **nije matematička jednakost** već operacija dodjele!  
-          Tj. kao da kažemo "postavi varijablu x na nulu!".  
-          U nekim jezicima postoji manje zbunjujuća sintaksa za ovo, znak `:=` (dvotačka-jednako), kao npr. Pascal.
+          Tj. kao da kažemo "postavi varijablu `brojJabuka` na nulu!".
 
           Varijablu možemo izmijeniti, tj. postaviti na novu vrijednost:
         """.md,

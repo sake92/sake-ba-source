@@ -37,22 +37,22 @@ object Types extends JavaTemplate {
           """
             int broj = 6;
             broj ==> 6
-            broj = 5.5;
+            broj = 4.5;
             |  Error:
             |  incompatible types: possible lossy conversion from double to int
-            |  broj = 5.5;
+            |  broj = 4.5;
             |         ^-^
           """
         ),
         """
-          Dakle, Java nam **ne da** da dodijelimo broj `5.5` varijabli koja je tipa `int` (cijeli broj).  
+          Dakle, Java nam **ne da** da dodijelimo broj `4.5` varijabli koja je tipa `int` (cijeli broj).  
           To ima smisla itekako, jer bismo izgubili ovo "zarez pet"... :)  
-          Ako želimo da budemo pametniji od Jave, i da na silu "utrpamo" `5.5` u `int` to ide ovako:
+          Ako želimo da budemo pametniji od Jave, i da na silu "utrpamo" `4.5` u `int` to ide ovako:
         """.md,
         jshell.withOutputLines("2,4-10")(
           """
-            broj = (int) 5.5;
-            broj ==> 5
+            broj = (int) 4.5;
+            broj ==> 4
           """
         ),
         """
@@ -74,7 +74,7 @@ object Types extends JavaTemplate {
       div(
         """
           Prije nego nastavimo dalje, moramo objasniti i stringove, jer se vrlo često koriste.  
-          String (iz engl. niz, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
+          String (iz en. niz, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
           Karakter (en. *character* je simbol) označava jedan simbol, 
             bio to broj, slovo ili neki simbol, emoji...
           
@@ -105,12 +105,12 @@ object Types extends JavaTemplate {
           """
         ),
         """
-          Ovo sabiranje se naziva *konkatenacija* (engl. *concatenate* je nadovezati).  
+          Ovo sabiranje se naziva *konkatenacija* (en. *concatenate* je nadovezati).  
           Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "hepek.abc"`.  
           String se deklariše **s velikim početnim slovom**!
 
           ---
-          Implementacija `String`a u Javi interno koristi `char`actere.  
+          `String` u pozadini koristi `char`actere.  
           Kao što smo već rekli, `char` je samo jedan karakter.  
           Piše se s **jednostrukim navodnicima**:
        """.md,

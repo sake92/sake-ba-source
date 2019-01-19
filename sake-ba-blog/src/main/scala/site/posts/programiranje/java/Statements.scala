@@ -35,8 +35,7 @@ object Statements extends JavaTemplate {
         Hello!
       """),
       """
-          Vrlo duga naredba `System.out.println` je procedura za printanje u konzolu 
-            (ono gdje tipkamo naredbe, JShell ekran).  
+          Vrlo duga naredba `System.out.println` je procedura za printanje u konzolu.  
           Do sada je JShell to automatski radio za nas, ispisivao vrijednost zadnjeg izraza,
             u svom nekom predefinisanom formatu...
           Ovako mi možemo ispisati šta god želimo. Primijetite da ispisani `String` nema navodnika!  

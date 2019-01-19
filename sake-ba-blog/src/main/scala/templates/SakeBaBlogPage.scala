@@ -84,9 +84,7 @@ trait SakeBaBlogStaticPage
 
   override def stylesInline =
     super.stylesInline ++ List("""
-        body {
-          padding-top: 73px;
-        }
+        body { padding-top: 73px; }
       """)
 
   // Bootswatch cyborg theme
