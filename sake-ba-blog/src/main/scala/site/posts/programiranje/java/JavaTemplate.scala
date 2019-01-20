@@ -16,7 +16,8 @@ trait JavaTemplate extends CodeTemplate {
     Statements,
     HelloWorld,
     FlowControl,
-    Functions
+    Functions,
+    Arrays
   )
 
 }
