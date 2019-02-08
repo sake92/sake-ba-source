@@ -145,7 +145,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
         ("job",
          frag(
            span("software engineer @ "),
-           hyperlink("http://olivebh.com/", target := "_blank")("OliveBH")
+           hyperlink("https://bpuholdings.com", target := "_blank")("BPU")
          )),
         ("email", hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba")),
         ("twitter",
