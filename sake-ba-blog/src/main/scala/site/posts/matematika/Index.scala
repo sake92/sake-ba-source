@@ -1,7 +1,6 @@
 package site.posts.matematika
 
 import java.time.LocalDate
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 object Index extends MatematikaTemplate {
@@ -17,7 +16,7 @@ object Index extends MatematikaTemplate {
   def matematikaUvodSection = Section(
     "Uvod",
     row(
-      half1(
+      half(
         """
             Matematika je jedan od najomraženijih predmeta kod većine učenika.
             S pravom, dakako!  
@@ -39,7 +38,7 @@ object Index extends MatematikaTemplate {
             Nauči me! To ti je pos'o!
         """.md
       ),
-      half2(
+      half(
         image("https://i.imgur.com/UOhQzH5.gif", "Vako nekako")
       )
     )

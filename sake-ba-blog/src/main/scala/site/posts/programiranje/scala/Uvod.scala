@@ -2,7 +2,6 @@ package site.posts.programiranje.scala
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 object Uvod extends ScalaTemplate {
@@ -79,7 +78,7 @@ object Uvod extends ScalaTemplate {
           Npr. ako `z` poziva neku funkciju koja sadrži `println`, 
             ispisaće se na ekran tek kada pozovemo `z` (tj. evaluiraće se funkcija).  
           Ovaj koncept je iz FP, i vrlo je koristan za keširanje vrijednosti.
-      """),
+      """)
     )
   )
 

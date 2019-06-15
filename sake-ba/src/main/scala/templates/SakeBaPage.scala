@@ -1,18 +1,21 @@
 package templates
 
 import scalatags.Text.all._
-import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
-import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
-import ba.sake.hepek.html.structure._
+import ba.sake.hepek.bootstrap3.statik.BootstrapStaticBundle
+import ba.sake.hepek.html.component.BasicComponents
 import ba.sake.hepek.Resources._
 import site.Index
+import utils.Imports._
 
-trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
+trait SakeBaPage extends StaticPage with BasicComponents with Grid {
+
+  override def staticSiteSettings =
+    super.staticSiteSettings
+      .withIndexPage(Index)
 
   override def siteSettings =
-    SiteSettings()
+    super.siteSettings
       .withName("sake.ba")
-      .withIndexPage(Index)
       .withFaviconNormal(images.ico("favicon").ref)
       .withFaviconInverted(images.ico("favicon-white").ref)
 
@@ -39,9 +42,11 @@ trait SakeBaPage extends BootstrapStaticPage with BootstrapGridComponents {
   override def bootstrapDependencies =
     super.bootstrapDependencies.withCssDependencies(
       Dependencies().withDeps(
-        Dependency("cyborg/bootstrap.min.css",
-                   bootstrapSettings.version,
-                   "bootswatch")
+        Dependency(
+          "cyborg/bootstrap.min.css",
+          bootstrapSettings.version,
+          "bootswatch"
+        )
       )
     )
 

@@ -2,7 +2,6 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
-import ba.sake.hepek.implicits.PageSettings
 import templates.SakeBaBlogStaticPage
 import utils.Site
 import utils.Imports._

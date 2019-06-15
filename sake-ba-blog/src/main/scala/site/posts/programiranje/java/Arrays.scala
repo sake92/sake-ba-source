@@ -2,7 +2,6 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 object Arrays extends JavaTemplate {
@@ -87,7 +86,7 @@ object Arrays extends JavaTemplate {
             System.out.println(grad);
           }
         """
-      ),
+      )
     ),
     List(visedimenzionalniNizoviSection)
   )

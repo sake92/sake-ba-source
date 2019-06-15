@@ -1,9 +1,7 @@
 package site.posts.matematika
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 import images.Images
 
@@ -19,10 +17,12 @@ object TeorijaSkupova extends MatematikaTemplate {
   override def blogSettings =
     super.blogSettings
       .withCreateDate(LocalDate.of(2017, 6, 11))
-      .withSections(uvodSection,
-                    operacijeSection,
-                    relacijeSection,
-                    kardinalnostSection)
+      .withSections(
+        uvodSection,
+        operacijeSection,
+        relacijeSection,
+        kardinalnostSection
+      )
 
   def uvodSection = Section(
     "Uvod",
@@ -67,7 +67,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             Dok npr. iskaz "Trougao je jednakostranični akko su mu svi uglovi od ´60^o´" je validan.
             
             Zašto? Zato što vrijedi i obrnuto, ako su svi uglovi trougla od ´60^o´ onda je on jednakostranični. Logično.
-           """),
+           """)
       ),
       md("""
         Postoji nekoliko skupova koji se često pojavljuju u matematici i imaju posebne simbole:
@@ -117,7 +117,7 @@ object TeorijaSkupova extends MatematikaTemplate {
   def operacijeSection = Section(
     "Operacije nad skupovima",
     row(
-      half1(
+      half(
         md("""
             Pošto element skupa može biti bilo šta, obično se ograničavamo samo na određeni tip stvari tj. na neki skup.  
             Npr. kada govorimo o cijelim brojevima ne zanimaju nas imaginarni brojevi, jabuke i auta...  
@@ -130,7 +130,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             To je igralište iz kojeg ne smijemo izlaziti. 
            """)
       ),
-      half2(
+      half(
         svg(relTo(Images.math.skup), "Vennov dijagram")
       )
     ),
@@ -145,7 +145,7 @@ object TeorijaSkupova extends MatematikaTemplate {
   def unijaSection = Section(
     "Unija",
     row(
-      half1(
+      half(
         md("""
           Unija dva skupa ´A´ i ´B´ označava se sa ´A \cup B´.  
           Primijetite da ovo nije obično slovo U već specijalni simbol, mada izgleda kao ´\cup´nija.  
@@ -160,7 +160,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           > O logičkim operatorima ćemo reći nešto više u idućem poglavlju.
         """)
       ),
-      half2(
+      half(
         svg(relTo(Images.math.unija), "Unija skupova")
       )
     )
@@ -170,7 +170,7 @@ object TeorijaSkupova extends MatematikaTemplate {
     "Presjek",
     div(
       row(
-        half1(
+        half(
           md("""
               Često se postavlja pitanje šta dva skupa imaju zajedničko.  
               Presjek dva skupa ´A´ i ´B´ označava se sa ´A \cap B´.  
@@ -185,7 +185,7 @@ object TeorijaSkupova extends MatematikaTemplate {
               **disjunktni**.
              """)
         ),
-        half2(
+        half(
           svg(relTo(Images.math.presjek), "Presjek skupova")
         )
       ),
@@ -211,7 +211,7 @@ object TeorijaSkupova extends MatematikaTemplate {
     "Razlika",
     div(
       row(
-        half1(
+        half(
           md("""
               Možemo postaviti i pitanje u čemu se skup ´A´ razlikuje od skupa ´B´.  
               Ova operacija se naziva *razlika*.
@@ -224,7 +224,7 @@ object TeorijaSkupova extends MatematikaTemplate {
               Razliku možemo formalno zapisati kao ´A \setminus B = \\{x | x \\in A \land x \\notin B\\}´. 
              """)
         ),
-        half2(
+        half(
           svg(relTo(Images.math.razlika), "Razlika skupova")
         )
       ),

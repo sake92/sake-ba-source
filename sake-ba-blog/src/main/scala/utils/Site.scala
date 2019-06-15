@@ -1,6 +1,6 @@
 package utils
 
-import ba.sake.hepek.html.structure.StaticPage
+import ba.sake.hepek.html.statik.StaticPage
 import ba.sake.hepek.Resources
 import site.posts
 

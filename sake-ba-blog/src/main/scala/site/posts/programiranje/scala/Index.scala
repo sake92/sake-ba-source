@@ -2,7 +2,6 @@ package site.posts.programiranje.scala
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 object Index extends ScalaTemplate {

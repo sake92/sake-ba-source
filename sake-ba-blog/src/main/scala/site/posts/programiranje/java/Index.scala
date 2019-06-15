@@ -2,7 +2,6 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 import images.Images
 
@@ -17,11 +16,13 @@ object Index extends JavaTemplate {
   override def blogSettings =
     super.blogSettings
       .withCreateDate(LocalDate.of(2017, 7, 1))
-      .withSections(uvodSection,
-                    komunikacijaSection,
-                    apstrakcijeSection,
-                    paradigmeSection,
-                    programiSection)
+      .withSections(
+        uvodSection,
+        komunikacijaSection,
+        apstrakcijeSection,
+        paradigmeSection,
+        programiSection
+      )
 
   def uvodSection = Section(
     "Uvod",
@@ -130,7 +131,7 @@ object Index extends JavaTemplate {
         
        """.md,
       row(
-        half1(
+        half(
           """
             U toku pisanja koda nekog programa često će nam se pojavljivati **greške**.  
             Tj. program se izvršava ali ne radi kako bismo željeli. Te greške se nazivaju bagovi (en. bug - buba, insekt).  
@@ -138,7 +139,7 @@ object Index extends JavaTemplate {
             Proces u kojem tražimo greške i ispravljamo ih naziva se debagovanje.
           """.md
         ),
-        half2(image(relTo(Images.programming.error), "To je to."))
+        half(image(Images.programming.error.ref, "To je to."))
       )
     )
   )

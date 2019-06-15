@@ -6,14 +6,16 @@ import templates.SakeBaBlogPage
 
 trait CodeTemplate extends SakeBaBlogPage with PrismDependencies {
 
-  private val hlLangs = List("core",
-                             "c",
-                             "clike",
-                             "batch",
-                             "scala",
-                             "java",
-                             "markup",
-                             "markup-templating")
+  private val hlLangs = List(
+    "core",
+    "c",
+    "clike",
+    "batch",
+    "scala",
+    "java",
+    "markup",
+    "markup-templating"
+  )
 
   override def prismSettings: PrismSettings =
     super.prismSettings

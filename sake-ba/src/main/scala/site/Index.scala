@@ -1,12 +1,12 @@
 package site
 
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
-import ba.sake.hepek.html.component.BasicComponents
 import ba.sake.hepek.Resources.images
 import ba.sake.hepek.bootstrap3.component.BootstrapImageComponents._
+import utils.Imports._
+import classes._
 
-object Index extends templates.SakeBaPage with BasicComponents {
+object Index extends templates.SakeBaPage {
 
   override def pageSettings =
     super.pageSettings
@@ -18,7 +18,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
 
   override def pageContent = div(cls := "row")(
     div(cls := "col-md-6 col-md-offset-3")(
-      h1(cls := "text-center")("Welcome!"),
+      h1(txtAlignCenter)("Welcome!"),
       ul(cls := "nav nav-tabs nav-justified")(
         sections.zipWithIndex.map {
           case (s, i) =>
@@ -28,7 +28,7 @@ object Index extends templates.SakeBaPage with BasicComponents {
             )
         }
       ),
-      div(cls := "tab-content text-center")(
+      div(cls := "tab-content", txtAlignCenter)(
         sections.zipWithIndex.map {
           case (s, i) =>
             val activeClass = if (i == 0) "in active " else ""
@@ -45,15 +45,18 @@ object Index extends templates.SakeBaPage with BasicComponents {
 
   private def tab = div()
 
+  private def rowCentered(content: Frag*) =
+    row(third(), third(content), third())
+
   val resourcesSection = Section(
     "Resources",
     tab(
-      row(
+      rowCentered(
         span(cls := "glyphicon glyphicon-education"),
         hyperlink("https://blog.sake.ba")(" Tutorials in Bosnian")
       ),
       hr,
-      row(
+      rowCentered(
         span(cls := "glyphicon glyphicon-book"),
         hyperlink("https://github.com/sake92/notes")(
           " Notes, links and useful stuff"
@@ -66,23 +69,23 @@ object Index extends templates.SakeBaPage with BasicComponents {
     "Projects",
     tab(
       row(
-        half1("Static site generator"),
-        half2(hyperlink("https://github.com/sake92/hepek")("Hepek"))
+        half("Static site generator"),
+        half(hyperlink("https://github.com/sake92/hepek")("Hepek"))
       ),
       hr,
       row(
-        half1("Sbt plugin for rendering files"),
-        half2(hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek"))
+        half("Sbt plugin for rendering files"),
+        half(hyperlink("https://github.com/sake92/sbt-hepek")("sbt-hepek"))
       ),
       hr,
       row(
-        half1(
+        half(
           "Assembler, VM, and a PL implementations from nand2tetris course"
         ),
-        half2(hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris"))
+        half(hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris"))
       ),
       hr,
-      row(
+      rowCentered(
         raw("""
               <iframe src="https://githubbadge.appspot.com/sake92"
                 style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">
@@ -123,9 +126,9 @@ object Index extends templates.SakeBaPage with BasicComponents {
       ).map {
           case (date, place, url, title) =>
             row(
-              third1(date),
-              third2(place),
-              third3(hyperlink(url)(title))
+              third(date),
+              third(place),
+              third(hyperlink(url)(title))
             )
         }
         .flatMap(List(hr, _)) // insert hr between each
@@ -138,37 +141,50 @@ object Index extends templates.SakeBaPage with BasicComponents {
     tab(
       List[(Frag, Frag)](
         ("name", "Sakib Hadžiavdić"),
-        ("CV",
-         hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
-           "view"
-         )),
-        ("job",
-         frag(
-           span("software engineer @ "),
-           hyperlink("https://bpuholdings.com", target := "_blank")("BPU")
-         )),
+        (
+          "CV",
+          hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
+            "view"
+          )
+        ),
+        (
+          "job",
+          frag(
+            span("software engineer @ "),
+            hyperlink("https://bpuholdings.com", target := "_blank")("BPU")
+          )
+        ),
         ("email", hyperlink("mailto:sakib@sake.ba")("sakib@sake.ba")),
-        ("twitter",
-         hyperlink("https://twitter.com/sake_92")(
-           img(src := images.png("twitter-follow-button").ref, height := "58px")
-         )),
-        ("stackoverflow",
-         raw("""
+        (
+          "twitter",
+          hyperlink("https://twitter.com/sake_92")(
+            img(
+              src := images.png("twitter-follow-button").ref,
+              height := "58px"
+            )
+          )
+        ),
+        (
+          "stackoverflow",
+          raw("""
                 <a href="https://stackoverflow.com/users/4496364/insan-e">
                   <img src="https://stackoverflow.com/users/flair/4496364.png?theme=dark" width="208" height="58"
                     alt="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
                     title="profile for insan-e at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
                 </a>
-             """)),
-        ("certificates",
-         hyperlink(
-           "https://www.youracclaim.com/badges/f1319384-958c-4f40-b26e-4720d3bae7db/public_url"
-         )(
-           img(src := images.jpg("OCA-Java-SE-1").ref, height := "58px")
-         ))
+             """)
+        ),
+        (
+          "certificates",
+          hyperlink(
+            "https://www.youracclaim.com/badges/f1319384-958c-4f40-b26e-4720d3bae7db/public_url"
+          )(
+            img(src := images.jpg("OCA-Java-SE-1").ref, height := "58px")
+          )
+        )
       ).map {
           case (col1, col2) =>
-            row(half1(col1), half2(col2))
+            row(half(col1), half(col2))
         }
         .flatMap(List(hr, _)) // insert hr between each
         .tail

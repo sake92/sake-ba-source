@@ -1,22 +1,20 @@
 package site.posts.programiranje
 
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 case class Term(name: String, explanation: Frag)
 
 object ProgrammingGlossary extends templates.SakeBaBlogStaticPage {
 
-  override def pageSettings = PageSettings("Glosarij")
+  override def pageSettings = super.pageSettings.withTitle("Glosarij")
 
-  override def pageContent = row(
+  override def pageContent =
     div(cls := "well well-lg col-md-6 col-md-push-3 ")(
       terms.sortBy(_.name).map { t =>
         frag(h4(t.name), t.explanation, hr)
       }
     )
-  )
 
   val terms: List[Term] = List(
     Term(

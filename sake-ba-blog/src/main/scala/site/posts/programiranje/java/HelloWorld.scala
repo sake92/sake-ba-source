@@ -1,9 +1,7 @@
 package site.posts.programiranje.java
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 import images.Images
 
@@ -39,7 +37,7 @@ object HelloWorld extends JavaTemplate {
           a izlaz  su fajlovi koji sadrže izvršni kod, koji se može pokrenuti nekako, izvršiti (`.class` fajlovi).
       """.md,
       row(
-        half1(
+        half(
           """
             Idući korak je pokretanje programa.  
             Java programi se sastoje od `bytecode` naredbi (kod nezavisan od procesora i operativnog sistema),
@@ -49,9 +47,11 @@ object HelloWorld extends JavaTemplate {
             JVM je ustvari `java` program.
             """.md
         ),
-        half2(
-          image(relTo(Images.java.compiler),
-                "Kompajliranje i pokretanje Java programa")
+        half(
+          image(
+            relTo(Images.java.compiler),
+            "Kompajliranje i pokretanje Java programa"
+          )
         )
       ),
       """

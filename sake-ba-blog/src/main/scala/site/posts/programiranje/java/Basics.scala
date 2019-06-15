@@ -2,7 +2,6 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils.Imports._
 
 object Basics extends JavaTemplate {
@@ -15,9 +14,11 @@ object Basics extends JavaTemplate {
   override def blogSettings =
     super.blogSettings
       .withCreateDate(LocalDate.of(2018, 3, 25))
-      .withSections(jshellSection,
-                    expressionsAndOperatorsSection,
-                    variablesSection)
+      .withSections(
+        jshellSection,
+        expressionsAndOperatorsSection,
+        variablesSection
+      )
 
   def jshellSection = Section(
     "JShell",
@@ -107,7 +108,7 @@ object Basics extends JavaTemplate {
         $10 ==> 6
         (2 + 2) * 2
         $11 ==> 8
-      """),
+      """)
     )
   )
 

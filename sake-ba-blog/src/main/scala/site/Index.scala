@@ -1,7 +1,6 @@
 package site
 
 import scalatags.Text.all._
-import ba.sake.hepek.implicits._
 import utils._
 
 object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
@@ -25,11 +24,11 @@ object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
     ),
     div(cls := "well well-lg col-md-6 col-md-push-3 pages-toc")(
       row(
-        half1(
+        half(
           "Mapa sajta:",
           div(siteMap)
         ),
-        half2(
+        half(
           s"""
               PDF verzije tutorijala:
               - [Uvod u programiranje](${relTo(Site.programiranjePdf)}) (Java)

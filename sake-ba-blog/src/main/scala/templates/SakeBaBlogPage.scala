@@ -1,11 +1,7 @@
 package templates
 
 import java.time.LocalDate
-
 import scalatags.Text.all._
-import ba.sake.hepek.html.structure._
-import ba.sake.hepek.bootstrap3.statik.BootstrapStaticPage
-import ba.sake.hepek.bootstrap3.component.BootstrapGridComponents
 import ba.sake.hepek.theme.bootstrap3.{HepekBootstrap3BlogPage, TocType}
 import ba.sake.hepek.anchorjs.AnchorjsDependencies
 import images.Images
@@ -14,14 +10,14 @@ import Imports._
 
 trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
-  override def tocSettings =
-    super.tocSettings
-      .copy(title = "Sadržaj", tocType = Some(TocType.Scrollspy(55)))
-
   override def blogSettings =
     super.blogSettings
       .withAuthor("Sakib Hadžiavdić")
       .withCreateDate(LocalDate.now)
+
+  override def tocSettings =
+    super.tocSettings
+      .copy(title = "Sadržaj", tocType = Some(TocType.Scrollspy(55)))
 
   override def pageHeader = None
 
@@ -67,15 +63,18 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 }
 
 trait SakeBaBlogStaticPage
-    extends BootstrapStaticPage
-    with BootstrapGridComponents
+    extends StaticPage
+    with Grid
     with AnchorjsDependencies {
+
+  override def staticSiteSettings =
+    super.staticSiteSettings
+      .withIndexPage(site.Index)
+      .withMainPages(Site.mainPages)
 
   override def siteSettings =
     super.siteSettings
       .withName(Site.name)
-      .withIndexPage(site.Index)
-      .withMainPages(Site.mainPages)
       .withFaviconNormal(Images.favicon.ref)
       .withFaviconInverted(Images.faviconWhite.ref)
 
@@ -91,9 +90,11 @@ trait SakeBaBlogStaticPage
   override def bootstrapDependencies =
     super.bootstrapDependencies.withCssDependencies(
       Dependencies().withDeps(
-        Dependency("cyborg/bootstrap.min.css",
-                   bootstrapSettings.version,
-                   "bootswatch")
+        Dependency(
+          "cyborg/bootstrap.min.css",
+          bootstrapSettings.version,
+          "bootswatch"
+        )
       )
     )
 
