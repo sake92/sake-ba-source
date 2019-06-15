@@ -97,7 +97,7 @@ object TeorijaSkupova extends MatematikaTemplate {
             - Učenik: "A učiteljice, što ga pripada?".
            """)
       ),
-      md("""
+      """
         Kako smo već rekli, skup može sadržati bilo šta.  
         Da vidimo par zanimljivih primjera:
            
@@ -109,8 +109,8 @@ object TeorijaSkupova extends MatematikaTemplate {
        
         
         > Simbol ´\\forall´ znači "za svako". Npr. ´\\forall x, tvrdnja´ se čita kao "za svako x vrijedi tvrdnja".  
-        > U paru ide i simbol ´EE´ koji se čita kao "postoji (bar jedno)" ili "ima".
-      """)
+        > U paru ide i simbol ´\\exists´ koji se čita kao "postoji (bar jedno)" ili "ima".
+      """.md
     )
   )
 
