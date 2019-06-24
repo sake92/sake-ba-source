@@ -78,6 +78,8 @@ trait SakeBaBlogStaticPage
       .withFaviconNormal(Images.favicon.ref)
       .withFaviconInverted(Images.faviconWhite.ref)
 
+  override def pageSettings = super.pageSettings.withLanguage("bs")
+
   override def styleURLs =
     super.styleURLs ++ List(
       resources.styles.css("main").ref,
