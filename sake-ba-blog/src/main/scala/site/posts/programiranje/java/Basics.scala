@@ -23,10 +23,9 @@ object Basics extends JavaTemplate {
   def jshellSection = Section(
     "JShell",
     s"""
-      Da bi se igrali sa jshellom morate imati instaliranu Javu verzije 9 ili više.  
+      Da bi se igrali sa JShellom morate imati instaliranu Javu verzije 9 ili više.  
       Ispratite [sekciju za instalaciju](${Instalacija.ref}).  
-      Ako ne želite, možete se strpiti do sekcije [Poyy sviete](${HelloWorld.ref}),
-        gdje ćemo pokrenuti *pravi* program.
+      Možete probati i online verziju [ovdje](https://tryjshell.org/).
       
       Koristićemo JShell program za upoznavanje i igranje s Java jezikom.  
       Otvorite konzolu (bez ikakvog straha! :D), ukucajte `jshell` i udarite Enter.  

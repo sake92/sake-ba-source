@@ -22,24 +22,3 @@ object[type="image/svg+xml"] {
 pre[class*="language-"] {
   border-width: 0.3rem !important;
 }
-
-/* Print/PDF settings */
-@media print {
-  /* use smaller font */
-  body {
-    font-size: 16px;
-  }
-  /* Bootstrap, hide link in parens */
-  /* https://drupal.stackexchange.com/questions/59900/how-to-get-rid-of-added-urls-when-printing-a-bootstrap-themed-page */
-  a[href]:after {
-    content: none;
-  }
-  /* KaTeX math */
-  /* hide HTML, show MathML when printing */
-  .katex-html {
-    display: none !important;
-  }
-  .katex-mathml {
-    position: relative !important;
-  }
-}

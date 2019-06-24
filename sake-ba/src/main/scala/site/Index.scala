@@ -45,18 +45,15 @@ object Index extends templates.SakeBaPage {
 
   private def tab = div()
 
-  private def rowCentered(content: Frag*) =
-    row(third(), third(content), third())
-
   val resourcesSection = Section(
     "Resources",
     tab(
-      rowCentered(
+      row(
         span(cls := "glyphicon glyphicon-education"),
         hyperlink("https://blog.sake.ba")(" Tutorials in Bosnian")
       ),
       hr,
-      rowCentered(
+      row(
         span(cls := "glyphicon glyphicon-book"),
         hyperlink("https://github.com/sake92/notes")(
           " Notes, links and useful stuff"
@@ -85,7 +82,7 @@ object Index extends templates.SakeBaPage {
         half(hyperlink("https://github.com/sake92/nand2tetris")("nand2tetris"))
       ),
       hr,
-      rowCentered(
+      row(
         raw("""
               <iframe src="https://githubbadge.appspot.com/sake92"
                 style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0">

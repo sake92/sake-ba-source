@@ -1,6 +1,7 @@
 package site.posts.matematika
 
 import java.time.LocalDate
+import scalatags.Text.all._
 import utils.Imports._
 
 object Index extends MatematikaTemplate {
@@ -15,9 +16,10 @@ object Index extends MatematikaTemplate {
 
   def matematikaUvodSection = Section(
     "Uvod",
-    row(
-      half(
-        """
+    frag(
+      row(
+        half(
+          """
             Matematika je jedan od najomraženijih predmeta kod većine učenika.
             S pravom, dakako!  
             Zapitajmo se šta je uzrok tome?
@@ -25,6 +27,15 @@ object Index extends MatematikaTemplate {
             Odgovor je jednostavan, naravno... da jeste. :D  
             Ako ne razumijemo osnovne koncepte kao što su skupovi i funkcije, kako nastaviti dalje?
             
+            
+        """.md
+        ),
+        half(
+          image("https://i.imgur.com/UOhQzH5.gif", "Vako nekako")
+        )
+      ),
+      row(
+        """
             Šta profesori rade po tom pitanju?  
             Obično pišu knjige od po 1000+ stranica i nazivaju ih jednostavnim...  
             Po mom skromnom mišljenju, većina koncepata nije dovoljno dobro ili nikako objašnjena.
@@ -36,10 +47,7 @@ object Index extends MatematikaTemplate {
             Hoćeš li ti biti manje profesor ako zastaneš 5 minuta i objasniš terminologiju?  
             Lema, korolar, teorema, šta su te stvari??? :D  
             Nauči me! To ti je pos'o!
-        """.md
-      ),
-      half(
-        image("https://i.imgur.com/UOhQzH5.gif", "Vako nekako")
+            """.md
       )
     )
   )

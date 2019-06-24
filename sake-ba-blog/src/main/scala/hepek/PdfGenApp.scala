@@ -16,7 +16,10 @@ object PdfGenApp {
     val targetFolder = args(0)
 
     System
-      .setProperty("webdriver.chrome.driver", "C:/selenium/chromedriver.exe")
+      .setProperty(
+        "webdriver.chrome.driver",
+        "C:/hepek/chromedriver_win32/chromedriver.exe"
+      )
 
     val fonts = List(
       Font(new File("fonts/Roboto/Roboto-Regular.ttf"), "Roboto")

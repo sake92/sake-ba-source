@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.4.0+0-88bab1d7+20190616-0118-SNAPSHOT"
+    "ba.sake" %% "hepek" % "0.4.0+16-3d9eecba-SNAPSHOT"
   )
 )
 

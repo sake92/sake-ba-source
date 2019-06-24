@@ -78,7 +78,11 @@ trait SakeBaBlogStaticPage
       .withFaviconNormal(Images.favicon.ref)
       .withFaviconInverted(Images.faviconWhite.ref)
 
-  override def styleURLs  = super.styleURLs :+ resources.styles.css("main").ref
+  override def styleURLs =
+    super.styleURLs ++ List(
+      resources.styles.css("main").ref,
+      resources.styles.css("print").ref
+    )
   override def scriptURLs = super.scriptURLs :+ resources.scripts.js("main").ref
 
   override def stylesInline =
