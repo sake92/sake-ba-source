@@ -37,18 +37,18 @@ object Functions extends JavaTemplate {
             return a + b;
         }
       """),
-      md("""
-          Definicija funkcije ima sljedeće dijelove:
-          - tip vrijednosti koju **vraća funkcija**. 
-          Kod nas je to `int`, jer je rezultat sabiranja dva `int`a također `int`.  
-          - naziv funkcije, kod nas je to "suma"
-          - lista parametara u zagradama, ovdje su to brojevi `a` i `b`: `int a, int b`.  
-          Ako nema parametara onda idu samo zagrade, npr. `mojaFunkcija()`
-          - tijelo funkcije u vitičastim zagradama
-          - ključna riječ `return` i **rezultat** funkcije
+      """
+        Definicija funkcije ima sljedeće dijelove:
+        - tip vrijednosti koju **vraća funkcija**. 
+        Kod nas je to `int`, jer je rezultat sabiranja dva `int`a također `int`.  
+        - naziv funkcije, kod nas je to "suma"
+        - lista parametara u zagradama, ovdje su to brojevi `a` i `b`: `int a, int b`.  
+        Ako nema parametara onda idu samo zagrade, npr. `mojaFunkcija()`
+        - tijelo funkcije u vitičastim zagradama
+        - ključna riječ `return` i **rezultat** funkcije
 
-          Da vidimo u JShellu kako da deklarišemo i pozovemo prethodnu funkciju:
-        """),
+        Da vidimo u JShellu kako da deklarišemo i pozovemo prethodnu funkciju:
+      """.md,
       jshell.withOutputLines("4,6")("""
         int suma(int a, int b) {
           ...>     return a + b;
@@ -57,13 +57,13 @@ object Functions extends JavaTemplate {
         suma(1, 4)
         $6 ==> 5
       """),
-      md("""
+      """
         Funkcija se poziva navođenjem njenog imena, i parametara unutar zagrada.  
         Npr. `suma(1, 4)`.  
         Pošto poziv funkcije vraća vrijednost `int`, možemo je spasiti u varijablu,  
           npr. `int rezultat = suma(1, 4)`.  
         Dakle, i poziv funkcije je izraz! Čim ga možemo dodijeliti varijabli. :)
-      """)
+      """.md
     )
   )
 

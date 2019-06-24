@@ -30,12 +30,14 @@ object Instalacija extends JavaTemplate {
     "Instalacija Jave",
     div(
       s"""
-        Ako vam je baš mrsko instalirati Javu, za početak možete koristiti i [online verziju](https://www.jdoodle.com/online-java-compiler).  
-        Zgodno je za probavanje i igranje sa Javom.
-        
+        Ako vam je baš mrsko instalirati Javu, postoje i online verzije
+        - [Java](https://www.jdoodle.com/online-java-compiler)
+        - [JShell](https://tryjshell.org/)
+
+        Zgodne su za probavanje i igranje sa Javom.
+
         ---
-        Preporučujem da instalirate [Javu 11]($installJava11) jer ona sadrži JShell koji je zgodan za eksperimentisanje.  
-        Java 11 je dostupna samo za 64-bitne računare.  
+        Preporučujem da instalirate [Javu 11]($installJava11).  
         Samo downloadujte i raspakujte zip npr. u `C:\\Java`.  
         Idući korak je [dodavanje PATH varijable](${dodavanjePATHSection.ref}).
         
@@ -43,7 +45,7 @@ object Instalacija extends JavaTemplate {
         Instalacija [Jave 8]($installJava8) je malo komplikovanija, ali je dostupna i za 32-bitne i 64-bitne računare.        
         Naravno, možete instalirati više verzija Jave, ali samo jednu možete dodati u `PATH`!
       """.md,
-      image(relTo(Images.java.downloadJDK1), "JDK download step 1"),
+      image(Images.java.downloadJDK1.ref, "JDK download step 1"),
       """
         Kada se otvori stranica sa prethodne slike kliknite na dugme **download JDK**.
 
@@ -54,7 +56,7 @@ object Instalacija extends JavaTemplate {
         To je instalacija za 64-bitni Windows.  
         Ako znate da imate 32-bitni Windows onda skinite tu verziju... 
        """.md,
-      image(relTo(Images.java.downloadJDK2), "JDK download step 2"),
+      image(Images.java.downloadJDK2.ref, "JDK download step 2"),
       """
           Preporučujem da Javu instalirate u folder pod nazivom `C:\Java`.  
           Ovo ne morate raditi ali je korisno kada vam treba više verzija Jave.  
@@ -68,12 +70,12 @@ object Instalacija extends JavaTemplate {
       p(
         "Dakle, kada se završi download, otvorite instalaciju i kliknite Next.",
         br,
-        image(relTo(Images.java.installJDKFolder), "JDK folder"),
+        image(Images.java.installJDKFolder.ref, "JDK folder"),
         """
             Zatim kliknite dugme "Change..." i prepravite putanju foldera na `C:\Java\jdk1.8.0_131`.  
             JRE će već biti instaliran zajedno sa JDK! Tako da nam ne treba još jedna instalacija...
         """.md,
-        image(relTo(Images.java.installJRENope), "JRE, nope!")
+        image(Images.java.installJRENope.ref, "JRE, nope!")
       )
     )
   )
@@ -87,9 +89,9 @@ object Instalacija extends JavaTemplate {
              Dio koji slijedi vezan je više za sam rad operativnog sistema (Windows u našem slučaju) nego za Javu.  
              Otvorite `Computer Properties` na Windowsu (desni klik na My Computer -> Properties). Otvoriće vam se sljedeći prozor:
           """.md,
-          image(relTo(Images.os.winCompProps), "Computer Properties"),
+          image(Images.os.winCompProps.ref, "Computer Properties"),
           "Kliknite na Advanced System Settings. Dobićete sljedeći prozor: ",
-          image(relTo(Images.os.winSysProps), "System Properties")
+          image(Images.os.winSysProps.ref, "System Properties")
         ),
         p(
           """
@@ -110,7 +112,7 @@ object Instalacija extends JavaTemplate {
             To je to! Uspješno ste instalirali Javu! :)  
             Stanje bi trebalo biti otprilike ovako:
           """.md,
-          image(relTo(Images.os.winSysVars), "System Properties")
+          image(Images.os.winSysVars.ref, "System Properties")
         )
       )
     )
@@ -127,7 +129,7 @@ object Instalacija extends JavaTemplate {
           nešto nije uredu, provjerite sve korake sekcije $linkToAddPath ponovo!
       """.md,
       "Ako dobijete nešto slično sljedećoj slici, sve je OK:",
-      image(relTo(Images.os.winJavaVer), "Java verzija")
+      image(Images.os.winJavaVer.ref, "Java verzija")
     )
   )
 

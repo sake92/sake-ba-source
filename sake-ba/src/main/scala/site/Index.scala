@@ -56,7 +56,7 @@ object Index extends templates.SakeBaPage {
       row(
         span(cls := "glyphicon glyphicon-book"),
         hyperlink("https://github.com/sake92/notes")(
-          " Notes, links and useful stuff"
+          " Notes, links and stuff"
         )
       )
     )
@@ -141,13 +141,13 @@ object Index extends templates.SakeBaPage {
         (
           "CV",
           hyperlink("https://sake.ba/files/Hadziavdic%20Sakib%20CV_en.pdf")(
-            "view"
+            "here"
           )
         ),
         (
           "job",
           frag(
-            span("software engineer @ "),
+            span("dev @ "),
             hyperlink("https://bpuholdings.com", target := "_blank")("BPU")
           )
         ),

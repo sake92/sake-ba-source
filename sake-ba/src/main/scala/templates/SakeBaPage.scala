@@ -36,8 +36,8 @@ trait SakeBaPage extends StaticPage with BasicComponents with Grid {
       )
     )
 
-  override def styleURLs  = super.styleURLs :+ relTo(styles.css("main"))
-  override def scriptURLs = super.scriptURLs :+ relTo(scripts.js("main"))
+  override def styleURLs  = super.styleURLs :+ styles.css("main").ref
+  override def scriptURLs = super.scriptURLs :+ scripts.js("main").ref
 
   override def bootstrapDependencies =
     super.bootstrapDependencies.withCssDependencies(

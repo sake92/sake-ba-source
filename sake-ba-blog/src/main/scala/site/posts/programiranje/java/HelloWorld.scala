@@ -49,7 +49,7 @@ object HelloWorld extends JavaTemplate {
         ),
         half(
           image(
-            relTo(Images.java.compiler),
+            Images.java.compiler.ref,
             "Kompajliranje i pokretanje Java programa"
           )
         )

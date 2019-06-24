@@ -30,11 +30,11 @@ object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
         ),
         half(
           s"""
-              PDF verzije tutorijala:
-              - [Uvod u programiranje](${relTo(Site.programiranjePdf)}) (Java)
-              - [Scala](${relTo(Site.scalaPdf)})
-              - [Matematika](${relTo(Site.matematikaPdf)})
-            """.md
+            PDF verzije tutorijala:
+            - [Uvod u programiranje](${Site.programiranjePdf.ref}) (Java)
+            - [Scala](${Site.scalaPdf.ref})
+            - [Matematika](${Site.matematikaPdf.ref})
+          """.md
         )
       )
     )

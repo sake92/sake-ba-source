@@ -19,7 +19,7 @@ object Index extends ScalaTemplate {
   def scalaSection = Section(
     "Scala",
     div(
-      md("""
+      """
         Scala je programski jezik (vrlo) visokog nivoa.  
         Ime je dobila iz opisnog izraza "SCAlable LAnguage". Ubrzo ćemo vidjeti i zašto! :D
 
@@ -39,7 +39,7 @@ object Index extends ScalaTemplate {
 
         Postoje brojni library i frameworci za **konkurentno i distribuirano programiranje**.  
         Neki od tih su `Future` (u standardnoj library), Akka `Actor`s, Apache Spark, Kafka i dr.
-      """)
+      """.md
     )
   )
 
