@@ -13,8 +13,9 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.4.0+16-3d9eecba-SNAPSHOT"
-  )
+    "ba.sake" %% "hepek" % "0.4.0+37-90fd797e-SNAPSHOT" changing ()
+  ),
+  openIndexPage := openIndexPageTask.value
 )
 
 // sake.ba
@@ -25,15 +26,25 @@ lazy val sakeBa = (project in file("sake-ba"))
 // blog.sake.ba
 lazy val sakeBaBlog = (project in file("sake-ba-blog"))
   .settings(commonSettings)
-  .settings(generatePdfs := genPdfs.value)
+  .settings(generatePdfs := generatePdfsTask.value)
   .enablePlugins(HepekPlugin, SbtWeb)
 
-val generatePdfs = taskKey[Unit]("Generate PDFs.")
+// custom handy tasks
+val generatePdfs  = taskKey[Unit]("Generate PDFs")
+val openIndexPage = taskKey[Unit]("Opens index.html")
 
-val genPdfs = Def.taskDyn {
+val generatePdfsTask = Def.taskDyn {
   (hepek in Compile).value // pages must be generated
   val targetFolder = hepekTarget.value
   Def.task {
     (runMain in Compile).toTask(" hepek.PdfGenApp " + targetFolder).value
+  }
+}
+
+val openIndexPageTask = Def.taskDyn {
+  Def.task {
+    java.awt.Desktop
+      .getDesktop()
+      .browse(new File(hepekTarget.value + "/site/index.html").toURI)
   }
 }

@@ -23,7 +23,7 @@ pre[class*="language-"] {
   border-width: 0.3rem !important;
 }
 
-/* offset when clicking anchor :) https://stackoverflow.com/a/22655654/4496364 */
+/* anchor offset when clicking it :) https://stackoverflow.com/a/22655654/4496364 */
 :target:before {
   content: "";
   display: block;

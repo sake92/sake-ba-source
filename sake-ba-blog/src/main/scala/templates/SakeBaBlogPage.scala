@@ -87,7 +87,7 @@ trait SakeBaBlogStaticPage
     )
   override def scriptURLs = super.scriptURLs :+ resources.scripts.js("main").ref
 
-  override def stylesInline =
+  override def stylesInline = // overrides inline style, added with navbar... :/
     super.stylesInline ++ List("""
         body { padding-top: 73px; }
       """)

@@ -9,7 +9,7 @@ object Types extends JavaTemplate {
   override def pageSettings =
     super.pageSettings
       .withTitle("Tipovi")
-      .withDescription("Tipovi, klase, interfejsi u Javi.")
+      .withDescription("Tipovi u Javi.")
 
   override def blogSettings =
     super.blogSettings

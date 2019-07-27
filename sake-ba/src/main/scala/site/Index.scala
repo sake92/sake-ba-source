@@ -2,7 +2,6 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.Resources.images
-import ba.sake.hepek.bootstrap3.component.BootstrapImageComponents._
 import utils.Imports._
 import classes._
 

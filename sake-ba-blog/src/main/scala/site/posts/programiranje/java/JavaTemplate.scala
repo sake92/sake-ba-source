@@ -15,7 +15,10 @@ trait JavaTemplate extends CodeTemplate {
     HelloWorld,
     FlowControl,
     Functions,
-    Arrays
+    Arrays,
+    Types2,
+    Classes,
+    Scope
   )
 
 }
