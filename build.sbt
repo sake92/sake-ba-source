@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.4.0+37-90fd797e-SNAPSHOT" changing ()
+    "ba.sake" %% "hepek" % "0.4.0+41-9c846b8a-SNAPSHOT" changing ()
   ),
   openIndexPage := openIndexPageTask.value
 )

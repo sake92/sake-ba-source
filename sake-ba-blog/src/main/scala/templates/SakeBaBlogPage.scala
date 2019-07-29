@@ -67,6 +67,8 @@ trait SakeBaBlogStaticPage
     with Grid
     with AnchorjsDependencies {
 
+  override def navbar = Some(Navbar)
+
   override def staticSiteSettings =
     super.staticSiteSettings
       .withIndexPage(site.Index)
@@ -108,8 +110,5 @@ trait SakeBaBlogStaticPage
     super.screenRatios
       .withSm(None)
       .withXs(None)
-
-  override def renderPretty = true
-  override def renderXhtml  = true
 
 }
