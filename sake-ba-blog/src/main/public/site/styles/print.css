@@ -10,9 +10,18 @@
     a[href]:after {
         content: none;
     }
+    a {
+        text-decoration: underline;
+    }
+
     /* Remove border around images */
     .thumbnail {
         border: 0 none;
+    }
+
+    /* PrismJS hide copy button and language */
+    .toolbar {
+        display: none;
     }
     
     /* KaTeX math */

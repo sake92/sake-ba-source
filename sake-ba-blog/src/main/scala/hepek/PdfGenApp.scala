@@ -8,7 +8,7 @@ import ba.sake.hepek.pdf._
 object PdfGenApp {
 
   def main(args: Array[String]): Unit = {
-    if (args.length < 1) {
+    if (args.isEmpty) {
       println(
         "You must pass the targetFolder value (base folder for generated pages)..."
       )
@@ -27,8 +27,8 @@ object PdfGenApp {
     )
 
     val pdfs: List[(String, List[Renderable])] = List(
-      //site.posts.programiranje.java.Index,
-      //site.posts.programiranje.scala.Index,
+      site.posts.programiranje.java.Index,
+      site.posts.programiranje.scala.Index,
       site.posts.matematika.Index
     ).map(p => p.pageCategory.get -> p.categoryPosts)
 
