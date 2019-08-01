@@ -122,7 +122,7 @@ object TeorijaSkupova extends MatematikaTemplate {
         """.md
       ),
       half(
-        svg(Images.math.skup.ref, "Vennov dijagram")
+        image(Images.math.skup.ref, "Vennov dijagram")
       )
     ),
     List(
@@ -152,7 +152,7 @@ object TeorijaSkupova extends MatematikaTemplate {
         """.md
       ),
       half(
-        svg(Images.math.unija.ref, "Unija skupova")
+        image(Images.math.unija.ref, "Unija skupova")
       )
     )
   )
@@ -177,7 +177,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           """.md
         ),
         half(
-          svg(Images.math.presjek.ref, "Presjek skupova")
+          image(Images.math.presjek.ref, "Presjek skupova")
         )
       ),
       """
@@ -214,7 +214,7 @@ object TeorijaSkupova extends MatematikaTemplate {
           """.md
         ),
         half(
-          svg(Images.math.razlika.ref, "Razlika skupova")
+          image(Images.math.razlika.ref, "Razlika skupova")
         )
       ),
       """

@@ -4,11 +4,17 @@
     body {
         font-size: 16px;
     }
+    
     /* Bootstrap, hide link in parens */
     /* https://drupal.stackexchange.com/questions/59900/how-to-get-rid-of-added-urls-when-printing-a-bootstrap-themed-page */
     a[href]:after {
         content: none;
     }
+    /* Remove border around images */
+    .thumbnail {
+        border: 0 none;
+    }
+    
     /* KaTeX math */
     /* hide HTML, show MathML when printing */
     .katex-html {
@@ -16,5 +22,12 @@
     }
     .katex-mathml {
         position: relative !important;
+    }
+    
+}
+
+@page {
+    @bottom-center {
+        content: counter(page);	
     }
 }

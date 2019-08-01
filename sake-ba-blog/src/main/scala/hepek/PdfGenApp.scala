@@ -22,12 +22,13 @@ object PdfGenApp {
       )
 
     val fonts = List(
-      Font(new File("fonts/Roboto/Roboto-Regular.ttf"), "Roboto")
+      Font(new File("fonts/Roboto/Roboto-Regular.ttf"), "Roboto"),
+      Font(new File("fonts/KaTeX_Main/KaTeX_Main-Regular.ttf"), "KaTeX_Main")
     )
 
     val pdfs: List[(String, List[Renderable])] = List(
-      site.posts.programiranje.java.Index,
-      site.posts.programiranje.scala.Index,
+      //site.posts.programiranje.java.Index,
+      //site.posts.programiranje.scala.Index,
       site.posts.matematika.Index
     ).map(p => p.pageCategory.get -> p.categoryPosts)
 
