@@ -46,9 +46,9 @@ object TeorijaSkupova extends MatematikaTemplate {
 
         Obično se u matematici koristi neko pravilo koje elementi moraju zadovoljavati (umjesto navođenja elemenata pojedinačno...),
           npr. "skup svih prirodnih brojeva koji su manji od 5".            
-        To možemo zapisati ovako: ´\\{x | x \\in \mathbb{N}, x < 5\\}´.  
+        To možemo zapisati ovako: ´\\{x | x \\in \mathbb{N}, x \lt 5\\}´.  
         Ovdje ´x´ označava neki element skupa, ´|´ se čita kao "takav da je", a zarez se čita kao logičko "i" (en. and).  
-        Negdje se koristi i dvotačka umjesto | znaka, npr. ´\\{x : x \\in \mathbb{N}, x < 5\\}´.
+        Negdje se koristi i dvotačka umjesto | znaka, npr. ´\\{x : x \\in \mathbb{N}, x \lt 5\\}´.
 
         Dva skupa su jednaka akko imaju iste elemente.  
         To pišemo kao ´A=B´, logično... :D

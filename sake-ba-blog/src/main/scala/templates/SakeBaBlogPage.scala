@@ -21,24 +21,6 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
   override def pageHeader = None
 
-  // google analytics
-  override def headContent =
-    frag(
-      super.headContent,
-      raw(
-        """
-          <!-- Global Site Tag (gtag.js) - Google Analytics -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-93179008-1');
-          </script>
-        """
-      )
-    )
-
   // DISQUS COMMENTS STUFF
   val PAGE_URL        = Site.url + "/" + site.Index.relTo(this)
   val PAGE_IDENTIFIER = PAGE_URL.##.abs // hopefully unique enough... :D
@@ -79,6 +61,7 @@ trait SakeBaBlogStaticPage
       .withName(Site.name)
       .withFaviconNormal(Images.favicon.ref)
       .withFaviconInverted(Images.faviconWhite.ref)
+      .withGoogleAnalyticsTrackingId("UA-93179008-1")
 
   override def pageSettings = super.pageSettings.withLanguage("bs")
 

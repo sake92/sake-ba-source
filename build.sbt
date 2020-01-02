@@ -1,6 +1,6 @@
 import com.typesafe.sbt.web.Import.WebKeys
 
-scalaVersion in ThisBuild := "2.12.8"
+scalaVersion in ThisBuild := "2.13.1"
 
 scalafmtOnCompile in ThisBuild := true
 
@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.4.1+0-c3a028d0+20190801-0029-SNAPSHOT" changing ()
+    "ba.sake" %% "hepek" % "0.6.0+3-6a1f6284+20191230-2309-SNAPSHOT" changing ()
   ),
   openIndexPage := openIndexPageTask.value
 )

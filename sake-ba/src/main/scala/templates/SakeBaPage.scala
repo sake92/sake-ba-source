@@ -18,23 +18,7 @@ trait SakeBaPage extends StaticPage with BasicComponents with Grid {
       .withName("sake.ba")
       .withFaviconNormal(images.ico("favicon").ref)
       .withFaviconInverted(images.ico("favicon-white").ref)
-
-  override def headContent =
-    frag(
-      super.headContent,
-      raw(
-        """
-          <!-- Global Site Tag (gtag.js) - Google Analytics -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93179008-1"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-93179008-1');
-          </script>
-        """
-      )
-    )
+      .withGoogleAnalyticsTrackingId("UA-93179008-1")
 
   override def styleURLs  = super.styleURLs :+ styles.css("main").ref
   override def scriptURLs = super.scriptURLs :+ scripts.js("main").ref
