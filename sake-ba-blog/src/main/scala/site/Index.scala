@@ -2,6 +2,7 @@ package site
 
 import scalatags.Text.all._
 import utils._
+import utils.Imports._, grid._, Image._
 
 object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
 

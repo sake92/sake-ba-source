@@ -2,6 +2,7 @@ package site
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
+import utils.Imports._
 
 object NotFound extends templates.SakeBaPage {
 

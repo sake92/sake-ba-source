@@ -44,10 +44,7 @@ trait SakeBaBlogPage extends SakeBaBlogStaticPage with HepekBootstrap3BlogPage {
 
 }
 
-trait SakeBaBlogStaticPage
-    extends StaticPage
-    with Grid
-    with AnchorjsDependencies {
+trait SakeBaBlogStaticPage extends StaticPage with AnchorjsDependencies {
 
   override def navbar = Some(Navbar)
 
@@ -64,6 +61,11 @@ trait SakeBaBlogStaticPage
       .withGoogleAnalyticsTrackingId("UA-93179008-1")
 
   override def pageSettings = super.pageSettings.withLanguage("bs")
+
+  override def headContent = frag(
+    super.headContent,
+    link(rel := "manifest", href := relTo(site.ManifestJSON))
+  )
 
   override def styleURLs =
     super.styleURLs ++ List(
@@ -88,10 +90,5 @@ trait SakeBaBlogStaticPage
         )
       )
     )
-
-  override def screenRatios =
-    super.screenRatios
-      .withSm(None)
-      .withXs(None)
 
 }

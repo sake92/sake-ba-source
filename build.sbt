@@ -12,8 +12,10 @@ lazy val commonSettings = Seq(
   // move SbtWeb stuff to "site/lib", default is "lib"
   WebKeys.webModulesLib := "site/lib",
   resolvers += Resolver.sonatypeRepo("snapshots"),
+  resolvers += Resolver.bintrayRepo("mpollmeier", "maven"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.6.0+3-6a1f6284+20191230-2309-SNAPSHOT" changing ()
+    "ba.sake" %% "hepek" % "0.6.0+23-48ff1c0a-SNAPSHOT" changing (),
+    "com.michaelpollmeier" %% "scala-collection-contrib" % "0.2.1",
   ),
   openIndexPage := openIndexPageTask.value
 )

@@ -1,13 +1,12 @@
 package templates
 
 import scalatags.Text.all._
-import ba.sake.hepek.bootstrap3.statik.BootstrapStaticBundle
-import ba.sake.hepek.html.component.BasicComponents
+import ba.sake.hepek.fontawesome5.FADependencies
 import ba.sake.hepek.Resources._
 import site.Index
 import utils.Imports._
 
-trait SakeBaPage extends StaticPage with BasicComponents with Grid {
+trait SakeBaPage extends StaticPage with FADependencies {
 
   override def staticSiteSettings =
     super.staticSiteSettings
@@ -33,10 +32,5 @@ trait SakeBaPage extends StaticPage with BasicComponents with Grid {
         )
       )
     )
-
-  override def screenRatios =
-    super.screenRatios
-      .withSm(None)
-      .withXs(None)
 
 }

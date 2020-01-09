@@ -2,7 +2,7 @@ package site.posts.matematika
 
 import java.time.LocalDate
 import scalatags.Text.all._
-import utils.Imports._
+import utils.Imports._, grid._, Image._
 import images.Images
 
 object TeorijaSkupova extends MatematikaTemplate {
