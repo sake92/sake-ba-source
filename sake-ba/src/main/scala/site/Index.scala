@@ -2,7 +2,6 @@ package site
 
 import scalatags.Text.all._
 import scala.collection.decorators._
-import ba.sake.hepek.Resources.images
 import utils.Imports._, Classes._, grid._
 import ba.sake.hepek.fontawesome5.FA
 
@@ -19,7 +18,8 @@ object Index extends templates.SakeBaPage {
   override def pageContent = row(
     div(txtAlignCenter)(
       s"""
-        # Hi! My name is Sakib.  
+        ## Hi! My name is Sakib.
+        ---
         ### I write software.
         #### Scala and Java are my favorite languages. ${FA.heart()}
       """.md
@@ -40,7 +40,7 @@ object Index extends templates.SakeBaPage {
     "Resources",
     div(
       """
-        I write:
+        I also write:
         - [tutorijale na Bosanskome jeziku](https://blog.sake.ba) :)
         - [semi-useful notes](https://github.com/sake92/notes) in English mainly
       """.md
@@ -50,18 +50,18 @@ object Index extends templates.SakeBaPage {
   val projectsSection = Section(
     "Projects",
     div(
-      "My awesomest projects : ",
+      "My awesomest projects: ",
       ul(
         List(
           (
             "Hepek",
             "https://github.com/sake92/hepek",
-            "Very powerful static site generator"
+            "very powerful static site generator"
           ),
           (
             "nand2tetris",
             "https://github.com/sake92/nand2tetris",
-            "Assembler, VM, and a PL from nand2tetris course"
+            "assembler, VM, and a PL from nand2tetris course"
           )
         ).map {
           case (title, url, desc) =>
@@ -104,11 +104,12 @@ object Index extends templates.SakeBaPage {
   val aboutSection = Section(
     "About",
     div(
-      """
+      s"""
       You can:
-      - follow me on [Twitter](https://twitter.com/sake_92)
-      - stalk me on [Linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
-      - [email](mailto:sakib@sake.ba) me?
+      - follow me on [${FA.twitter()}](https://twitter.com/sake_92)
+      - stalk me on 
+        [${FA.linkedin()}](https://www.linkedin.com/in/sakib-hadziavdic)
+      - send me an [${FA.envelope()}](mailto:sakib@sake.ba) ?
       """.md
     )
   )
