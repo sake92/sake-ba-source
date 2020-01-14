@@ -51,8 +51,8 @@ object Functions extends JavaTemplate {
       """.md,
       jshell.withOutputLines("4,6")("""
         int suma(int a, int b) {
-          ...>     return a + b;
-          ...> }
+            return a + b;
+        }
         |  created method suma(int,int)
         suma(1, 4)
         $6 ==> 5

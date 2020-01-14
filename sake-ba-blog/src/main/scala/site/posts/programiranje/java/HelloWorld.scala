@@ -18,7 +18,7 @@ object HelloWorld extends JavaTemplate {
       .withSections(introSection, compileAndRunSection, commentsSection)
 
   def introSection = Section(
-    "Poyy sviete!",
+    "Poyy svijete!",
     div(
       """
         Vjerovatno vam je do sada dodijao JShell i kucanje u konzoli... :D  

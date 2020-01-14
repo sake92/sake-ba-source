@@ -14,7 +14,7 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.sonatypeRepo("snapshots"),
   resolvers += Resolver.bintrayRepo("mpollmeier", "maven"),
   libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.6.0+23-48ff1c0a-SNAPSHOT" changing (),
+    "ba.sake" %% "hepek" % "0.6.0+24-89fcfc57+20200114-1901-SNAPSHOT" changing (),
     "com.michaelpollmeier" %% "scala-collection-contrib" % "0.2.1",
   ),
   openIndexPage := openIndexPageTask.value

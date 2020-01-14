@@ -30,3 +30,14 @@ pre[class*="language-"] {
   height: 50px;
   margin: -50px 0 0;
 }
+
+/* MermaidJs stuff */
+.mermaid .label {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 27px;
+}
+.edgeLabel:not(:empty) {
+  padding: 3px;
+}

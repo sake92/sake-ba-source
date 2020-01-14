@@ -27,7 +27,7 @@ object Statements extends JavaTemplate {
             uradi ovo, izbriši ono, upiši u fajl itd.  
           Deklaracije varijabli su naredbe, npr. `int i = 5;`, može se čitati kao  
             "napravi varijablu s imenom 'i' i dodijeli joj vrijednost 5! ODMAH!".  
-          Iako još nismo objasnili funkcije, i one su također naredbe, npr:
+          Iako još nismo objasnili funkcije, neke od njih su također naredbe, npr:
         """.md,
       jshell.withOutputLines("2")("""
         System.out.println("Hello!")

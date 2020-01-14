@@ -212,8 +212,8 @@ object Basics extends JavaTemplate {
           Mogu se koristiti simboli `_` i `$` ali ih treba izbjegavati, 
             pogotovo kao prvi karakter u nazivu varijable!
 
-          Preporučeno je (konvencija, dogovor, dobra praksa) da varijable počinju malim slovom,
-            da su camelCase (svaka iduća riječ počinje velikim slovom), npr. `myVariable`.  
+          Preporučeno je (konvencija, dobra praksa) da varijable počinju malim slovom,
+            da su *camelCase* (svaka iduća riječ počinje velikim slovom), npr. `myVariable`.  
           Konstante (varijable koje se neće mijenjati) se pišu velikim slovima 
             i riječi su razdvojene donjom crticom, npr. `MY_CONST`.
         """.md

@@ -73,7 +73,7 @@ object Types extends JavaTemplate {
       div(
         """
           Prije nego nastavimo dalje, moramo objasniti i stringove, jer se vrlo često koriste.  
-          String (iz en. niz, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
+          String (iz en. nit, kanafa) koristi se za predstavljanje teksta, tj. niza karaktera.  
           Karakter (en. *character* je simbol) označava jedan simbol, 
             bio to broj, slovo ili neki simbol, emoji...
           
@@ -104,9 +104,9 @@ object Types extends JavaTemplate {
           """
         ),
         """
-          Ovo sabiranje se naziva *konkatenacija* (en. *concatenate* je nadovezati).  
+          Ovo sabiranje se naziva *konkatenacija* (en. *concatenate* je nadovezati/spojiti/naštiklati).  
           Radi dvosmjerno, možemo sabrati i broj sa stringom, npr. `5 + "hepek.abc"`.  
-          String se deklariše **s velikim početnim slovom**!
+          `String` se piše **s velikim početnim slovom**!
 
           ---
           `String` u pozadini koristi `char`actere.  
@@ -139,6 +139,7 @@ object Types extends JavaTemplate {
           > Vrlo važne napomene:
           > - string "1" nije isto kao broj 1
           > - karakter '1' nije isto kao broj 1
+          > - string "1" nije isto kao karakter '1'
           > - postoje posebne funkcije za pretvaranje iz jednog tipa u drugi, ali otom potom...
        """.md
       )
