@@ -3,7 +3,7 @@ package site.posts.programiranje.java
 import java.time.LocalDate
 import scalatags.Text.all._
 import utils.Imports._
-import ba.sake.hepek.mermaid.MermaidHelpers
+import ba.sake.hepek.plantuml.PlantumlHelpers._
 
 object Branching extends JavaTemplate {
 
@@ -71,11 +71,22 @@ object Branching extends JavaTemplate {
         Slijedi i vizuelni dijagram izvršenja ove naredbe:
       """.md,
       div(Classes.txtAlignCenter)(
-        mermaid("""
-          graph TD
-          P[naredbe...] --> Uslov{uslov?}
-          Uslov         --> |jeste| GranaTrue[uradi nešto]
-          Uslov         --> |nije| GranaFalse[uradi nešto drugo]
+        plantSvg("""
+          @startuml 
+          skinparam backgroundColor #EEEBDC
+          skinparam shadowing false
+
+          start
+
+          if (**uslov?**) then (jeste)
+            :uradi nešto;
+          else (nije)
+            :uradi nešto drugo;
+          endif
+
+          stop
+
+          @enduml
         """)
       ),
       """

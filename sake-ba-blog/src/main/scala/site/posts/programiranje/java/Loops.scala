@@ -2,8 +2,10 @@ package site.posts.programiranje.java
 
 import java.time.LocalDate
 import scalatags.Text.all._
+import ba.sake.hepek.plantuml.PlantumlHelpers._
 import utils.Imports._
 
+// svg editor: https://www.planttext.com/
 object Loops extends JavaTemplate {
 
   override def pageSettings =
@@ -59,14 +61,23 @@ object Loops extends JavaTemplate {
         Slijedi i vizuelni dijagram izvršenja ove naredbe:
       """.md,
       div(Classes.txtAlignCenter)(
-        mermaid("""
-          graph TB
-          P[naredbe...] --> Uslov{uslov?}
-          subgraph while
-            Grana1        ==> |loop| Uslov
-            Uslov         --> |jeste| Grana1[naredbe while petlje]
-          end
-          Uslov         --> |nije| Grana2[ostale naredbe]
+        plantSvg("""
+          @startuml
+          skinparam backgroundColor #EEEBDC
+          skinparam shadowing false
+
+          start
+
+          partition While {
+            while (**uslov?**) is (jeste)
+              :naredbe while petlje;
+              -[#blue,bold]-> loop;
+            endwhile (nije)
+          }
+
+          :ostale naredbe;
+
+          @enduml
         """)
       )
     )
@@ -101,17 +112,25 @@ object Loops extends JavaTemplate {
           Slijedi i vizuelni dijagram izvršenja ove naredbe:
       """.md,
       div(Classes.txtAlignCenter, cls := "embed-responsive-item")(
-        mermaid("""
-          graph TB
-          P[naredbe...]   --> Inicijalizacije
-          
-          subgraph for
-            Inicijalizacije[inicijalizacije] --> Uslov{uslov?}
-            GranaTrue  --> Koraci
-            Uslov      --> |jeste| GranaTrue[naredbe for petlje]
-            Koraci[koraci]     ==> |loop| Uslov
-          end
-          Uslov         --> |nije| GranaFalse[ostale naredbe]
+        plantSvg("""
+          @startuml 
+          skinparam backgroundColor #EEEBDC
+          skinparam shadowing false
+
+          start
+
+          partition For {
+            :inicijalizacije;
+            while (**uslov?**) is (jeste)
+              :naredbe for petlje;
+              :koraci;
+              -[#blue,bold]-> loop;
+            endwhile (nije)
+          }
+
+          :ostale naredbe;
+
+          @enduml
         """)
       )
     )

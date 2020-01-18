@@ -79,8 +79,7 @@ object Classes extends JavaTemplate {
       ```java
       Ucenik ucenik = new Ucenik();
       ```
-      Ovaj operator je ustvari funkcija koja kreira novi objekat i naziva se **konstruktor**.   
-      Pošto je to vrlo posebna stvar pozivanje ima posebnu sintaksu.  
+      Ovaj operator poziva "funkciju" koja kreira novi objekat i naziva se **konstruktor**.   
       Kompajler nam **automatski kreira konstruktor** za nas, kasnije ćemo vidjeti kako sami možemo definisati konstruktor(e).
       """.md
     )

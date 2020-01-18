@@ -80,12 +80,18 @@ object Scope extends JavaTemplate {
             // while(true) { int x = 1; }      // x vec definisano na pocetku metode
             
             for(int i = 1; i < 5; i++) {
-                // for(int i = 1; i < 5; i++) {  } // i vec definisano u gornjoj petlji
+                // for(int i = 1; i < 5; i++) {  } // i vec definisano u vanjskoj petlji
             }  
         }
         
         int duzina;
         static void da() {
+          
+            // zasjenjivanje polja (shadowing)
+            // pošto metoda ima svoj scope, 
+            // dozvoljeno joj je uvesti novu varijablu istog imena kao polje klase
+            int duzina = 5;
+            
             // različiti blokovi
             {
                 String str = "abc";
@@ -98,10 +104,6 @@ object Scope extends JavaTemplate {
             for(int x = 1; x < 5; x++) { }
             for(int x = 1; x < 5; x++) { } // fercera
             
-            // zasjenjivanje polja (shadowing)
-            // pošto metoda ima svoj scope, 
-            // dozvoljeno joj je uvesti novu varijablu istog imena kao polje klase
-            int duzina = 5;
         }
         """
       )
