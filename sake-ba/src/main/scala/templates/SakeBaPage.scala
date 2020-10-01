@@ -27,9 +27,9 @@ trait SakeBaPage extends StaticPage {
   override def bodyContent =
     div(cls := "container")(
       div(cls := "row")(
-        div(cls := "col-sm-2"),
-        div(cls := "col-sm-8")(pageContent),
-        div(cls := "col-sm-2")
+        div(cls := "col-md-2"),
+        div(cls := "col-md-8")(pageContent),
+        div(cls := "col-md-2")
       )
     )
 }
