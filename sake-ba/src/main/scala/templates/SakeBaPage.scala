@@ -1,13 +1,12 @@
 package templates
 
 import scalatags.Text.all._
-import ba.sake.hepek.fontawesome5.FADependencies
+import ba.sake.hepek.html.statik.StaticPage
 import ba.sake.hepek.Resources._
 import site.Index
 import utils.Imports._
-import ba.sake.hepek.html.ComponentDependencies
 
-trait SakeBaPage extends StaticPage with FADependencies {
+trait SakeBaPage extends StaticPage {
 
   override def staticSiteSettings =
     super.staticSiteSettings
@@ -20,29 +19,17 @@ trait SakeBaPage extends StaticPage with FADependencies {
       .withFaviconInverted(images.ico("favicon-white").ref)
       .withGoogleAnalyticsTrackingId("UA-93179008-1")
 
-  override def styleURLs = super.styleURLs :+ styles.css("main").ref
+  override def styleURLs =
+    super.styleURLs.appended(
+      "https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css"
+    )
 
-  val exclude             = Set("jquery", "bootstrap")
-  override def scriptURLs = Nil
-
-  override def bootstrapDependencies =
-    super.bootstrapDependencies
-      .withCssDependencies(
-        Dependencies().withDeps(
-          Dependency(
-            "cyborg/bootstrap.min.css",
-            bootstrapSettings.version,
-            "bootswatch"
-          )
-        )
+  override def bodyContent =
+    div(cls := "container")(
+      div(cls := "row")(
+        div(cls := "col-sm-2"),
+        div(cls := "col-sm-8")(pageContent),
+        div(cls := "col-sm-2")
       )
-      .withJsDependencies(Dependencies())
-
-  // exclude unnecessary JS
-  override def jQueryDependencies =
-    super.jQueryDependencies.withJsDependencies(Dependencies())
-
-  override def faDependencies =
-    super.faDependencies.withJsDependencies(Dependencies())
-
+    )
 }

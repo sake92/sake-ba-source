@@ -2,8 +2,8 @@ package site
 
 import scalatags.Text.all._
 import scala.collection.decorators._
-import utils.Imports._, Classes._, grid._
-import ba.sake.hepek.fontawesome5.FA
+import utils.Imports._ //, Classes._, grid._
+import ba.sake.hepek.html.statik.Section
 
 object Index extends templates.SakeBaPage {
 
@@ -12,21 +12,21 @@ object Index extends templates.SakeBaPage {
       .withTitle("Home")
       .withDescription(
         "sake.ba is personal website belonging to Sakib Hadžiavdić. " +
-          "Tutorials from maths, programming etc."
+          "Tutorials for programming, maths etc."
       )
 
-  override def pageContent = row(
-    div(txtAlignCenter)(
-      s"""
-        ## Hi! My name is Sakib.
-        ---
-        ### I write software.
-        #### Scala and Java are my favorite languages. ${FA.heart()}
-      """.md
+  override def pageContent = div(
+    div(
+      h1(
+        "Hi! My name is Sakib.",
+        small("I write software in Scala and Java.")
+      )
     ),
+    hr,
     div(
       sections.map { s =>
-        div(cls := "well well-sm")(
+        div(
+          h3(s.name),
           s.content
         )
       }
@@ -37,44 +37,45 @@ object Index extends templates.SakeBaPage {
     List(resourcesSection, projectsSection, talksSection, aboutSection)
 
   val resourcesSection = Section(
-    "Resources",
+    "Stuff I do",
     div(
       """
-        I also write:
-        - [tutorijale na Bosanskome jeziku](https://blog.sake.ba) :)
-        - [semi-useful notes](https://github.com/sake92/notes) in English mainly
+        - pišem [tutorijale](https://blog.sake.ba) na Bosanskome jeziku :)
+        - writing [semi-useful notes](https://github.com/sake92/notes)
+        - hanging out with [JUGBA](https://jugba.org/) members
       """.md
     )
   )
 
   val projectsSection = Section(
     "Projects",
-    div(
-      "My awesomest projects: ",
-      ul(
-        List(
-          (
-            "Hepek",
-            "https://github.com/sake92/hepek",
-            "very powerful static site generator"
-          ),
-          (
-            "nand2tetris",
-            "https://github.com/sake92/nand2tetris",
-            "assembler, VM, and a PL from nand2tetris course"
-          )
-        ).map {
-          case (title, url, desc) =>
-            li(hyperlink(url)(title), s" ($desc)")
-        }
-      )
+    ul(
+      List(
+        (
+          "Hepek",
+          "https://github.com/sake92/hepek",
+          "very powerful static site generator"
+        ),
+        (
+          "Stone",
+          "https://github.com/sake92/stone#route",
+          "simple and type safe URL (de)construction"
+        ),
+        (
+          "nand2tetris",
+          "https://github.com/sake92/nand2tetris",
+          "assembler, VM, and a PL from nand2tetris course"
+        )
+      ).map {
+        case (title, url, desc) =>
+          li(hyperlink(url)(title), s" - $desc")
+      }
     )
   )
 
   val talksSection = Section(
     "Talks",
     div(
-      "Some talks i gave: ",
       List(
         (
           "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo",
@@ -95,6 +96,10 @@ object Index extends templates.SakeBaPage {
         (
           "https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo/#/",
           "Writing an interpreter"
+        ),
+        (
+          "https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA/#/",
+          "Project Amber"
         )
       ).map { case (url, title) => hyperlink(url)(title) }
         .intersperse(", ": Frag)
@@ -105,11 +110,9 @@ object Index extends templates.SakeBaPage {
     "About",
     div(
       s"""
-      You can:
-      - follow me on [${FA.twitter()}](https://twitter.com/sake_92)
-      - stalk me on 
-        [${FA.linkedin()}](https://www.linkedin.com/in/sakib-hadziavdic)
-      - send me an [${FA.envelope()}](mailto:sakib@sake.ba) ?
+      - follow me on [twitter](https://twitter.com/sake_92)
+      - stalk me on [linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
+      - send me an [email](mailto:sakib@sake.ba)
       """.md
     )
   )

@@ -1,45 +1,40 @@
 import com.typesafe.sbt.web.Import.WebKeys
 
-scalaVersion in ThisBuild := "2.13.1"
+scalaVersion in ThisBuild := "2.13.3"
 
 scalafmtOnCompile in ThisBuild := true
 
 lazy val commonSettings = Seq(
+  libraryDependencies ++= Seq(
+    "ba.sake"                %% "hepek"                    % "0.8.3",
+    "org.scala-lang.modules" %% "scala-collection-contrib" % "0.2.1"
+  ),
   (hepek in Compile) := {
     WebKeys.assets.value
     (hepek in Compile).value
   },
-  // move SbtWeb stuff to "site/lib", default is "lib"
   WebKeys.webModulesLib := "site/lib",
-  resolvers += Resolver.sonatypeRepo("snapshots"),
-  resolvers += Resolver.bintrayRepo("mpollmeier", "maven"),
-  libraryDependencies ++= Seq(
-    "ba.sake" %% "hepek" % "0.6.0+26-e05b1613-SNAPSHOT" changing (),
-    "com.michaelpollmeier" %% "scala-collection-contrib" % "0.2.1",
-  ),
   openIndexPage := openIndexPageTask.value
 )
 
-// sake.ba
 lazy val sakeBa = (project in file("sake-ba"))
   .settings(commonSettings)
   .enablePlugins(HepekPlugin, SbtWeb)
 
-// blog.sake.ba
 lazy val sakeBaBlog = (project in file("sake-ba-blog"))
   .settings(commonSettings)
   .settings(pdfGenerate := pdfGenerateTask.value)
   .enablePlugins(HepekPlugin, SbtWeb)
 
 // custom handy tasks
-val pdfGenerate  = taskKey[Unit]("Generate PDFs")
+val pdfGenerate   = taskKey[Unit]("Generate PDFs")
 val openIndexPage = taskKey[Unit]("Open index.html")
 
 val pdfGenerateTask = Def.taskDyn {
-  (hepek in Compile).value // pages must be generated
-  val targetFolder = hepekTarget.value
+  (hepek in Compile).value
+  val hepekTargetFolder = hepekTarget.value // must evaluate here...
   Def.task {
-    (runMain in Compile).toTask(" hepek.PdfGenApp " + targetFolder).value
+    (runMain in Compile).toTask(" hepek.PdfGenApp " + hepekTargetFolder).value
   }
 }
 

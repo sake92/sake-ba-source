@@ -18,7 +18,7 @@ object PdfGenApp {
     System
       .setProperty(
         "webdriver.chrome.driver",
-        "C:/hepek/chromedriver_win32/chromedriver.exe"
+        "C:/hepek/chromedriver_win32/chromedriver_79.exe"
       )
 
     val fonts = List(

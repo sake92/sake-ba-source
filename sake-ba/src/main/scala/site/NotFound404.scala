@@ -17,7 +17,7 @@ object NotFound extends templates.SakeBaPage {
     "https://sake.ba/" + super.relTo(other)
 
   override def pageContent = frag(
-    div(cls := "text-center")(
+    div(
       """
           This content is not available in your country.  
           Sorry about that. :/

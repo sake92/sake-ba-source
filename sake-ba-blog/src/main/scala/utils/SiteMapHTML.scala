@@ -2,7 +2,6 @@ package utils
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
-import ba.sake.hepek.html.component.BasicComponents
 import ba.sake.hepek.html.statik.BlogPostPage
 import utils.Imports._
 
