@@ -4,7 +4,7 @@ import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
 import templates.SakeBaBlogStaticPage
 import utils.Site
-import utils.Imports._
+import utils.Imports._, Classes._
 
 object NotFound extends SakeBaBlogStaticPage {
 
@@ -18,8 +18,8 @@ object NotFound extends SakeBaBlogStaticPage {
   override def relTo(other: RelativePath) =
     Site.url + "/" + super.relTo(other)
 
-  override def pageContent = frag(
-    div(cls := "text-center")(
+  override def pageContent =
+    div(txtAlignCenter)(
       """
           This content is not available in your country.  
           Sorry about that. :/
@@ -31,6 +31,5 @@ object NotFound extends SakeBaBlogStaticPage {
         """<a href="https://<!--#echo var="HTTP_HOST" -->">GOTO: homepage</a>"""
       )
     )
-  )
 
 }

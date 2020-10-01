@@ -17,8 +17,10 @@ object SitemapXML extends Renderable {
       case mp: BlogPostPage => mp.categoryPosts
       case mp               => List()
     }
-    val urls    = pages map postUrlTag
-    val allURLs = urlTag(Site.url + "/", LocalDate.now.toString, "monthly", 0.8) +: urls
+    val pageUrls = pages.map(postUrlTag)
+    val allURLs = pageUrls.prepended(
+      urlTag(Site.url + "/", LocalDate.now.toString, "monthly", 0.8)
+    )
 
     """<?xml version="1.0" encoding="utf-8"?>""" +
       tag("urlset")(

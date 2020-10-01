@@ -5,7 +5,7 @@ import ba.sake.hepek.core.RelativePath
 import ba.sake.hepek.html.statik.BlogPostPage
 import utils.Imports._
 
-trait SiteMapHTML {
+object SiteMapHTML {
 
   // Site map, HTML for users ("sitemap" is XML, dont be confused :p)
   def siteMap(implicit caller: RelativePath) = {

@@ -16,21 +16,14 @@ object Index extends templates.SakeBaPage {
       )
 
   override def pageContent = div(
-    div(
-      h1(
-        "Hi! My name is Sakib.",
-        small("I write software in Scala and Java.")
-      )
+    h1(
+      "Hi! My name is Sakib.",
+      small("I write software in Scala and Java.")
     ),
     hr,
-    div(
-      sections.map { s =>
-        div(
-          h3(s.name),
-          s.content
-        )
-      }
-    )
+    sections.map { s =>
+      div(h3(s.name), s.content)
+    }
   )
 
   def sections =

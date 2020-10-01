@@ -4,7 +4,7 @@ import scalatags.Text.all._
 import utils._
 import utils.Imports._, grid._, Image._
 
-object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
+object Index extends templates.SakeBaBlogStaticPage {
 
   override def pageSettings =
     super.pageSettings
@@ -27,7 +27,7 @@ object Index extends templates.SakeBaBlogStaticPage with SiteMapHTML {
       row(
         half(
           "Mapa sajta:",
-          div(siteMap)
+          div(SiteMapHTML.siteMap)
         ),
         half(
           s"""

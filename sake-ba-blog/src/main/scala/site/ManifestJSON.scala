@@ -13,7 +13,7 @@ object ManifestJSON extends Renderable {
 
   override def render = {
     val icons = IconSizes.map { s =>
-      val sizeStr = s"${s}x$s"
+      val sizeStr = s"${s}x${s}"
       WebAppManifestIcon(
         s"images/icons/icon-$sizeStr.png",
         sizeStr,
