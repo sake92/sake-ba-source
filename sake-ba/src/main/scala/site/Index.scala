@@ -11,16 +11,16 @@ object Index extends templates.SakeBaPage {
     super.pageSettings
       .withTitle("Home")
       .withDescription(
-        "sake.ba is personal website belonging to Sakib Hadžiavdić. " +
+        "sake.ba is a personal website belonging to Sakib Hadžiavdić. " +
           "Tutorials for programming, maths etc."
       )
 
   override def pageContent = div(
-    h1(
-      "Hi! My name is Sakib.",
-      small("I write software in Scala and Java.")
-    ),
-    hr,
+    """
+       # Hi! My name is Sakib.
+       ## I write software in Scala and Java.
+       ---
+    """.md,
     sections.map { s =>
       div(h3(s.name), s.content)
     }
@@ -34,7 +34,7 @@ object Index extends templates.SakeBaPage {
     div(
       """
         - pišem [tutorijale](https://blog.sake.ba) na Bosanskome jeziku :)
-        - writing [semi-useful notes](https://github.com/sake92/notes)
+        - writing [useful notes](https://github.com/sake92/notes)
         - hanging out with [JUGBA](https://jugba.org/) members
       """.md
     )
@@ -48,6 +48,11 @@ object Index extends templates.SakeBaPage {
           "Hepek",
           "https://github.com/sake92/hepek",
           "very powerful static site generator"
+        ),
+        (
+          "RxTags",
+          "https://github.com/sake92/RxTags",
+          "simple, reactive ScalaJS UI library"
         ),
         (
           "Stone",

@@ -1,10 +1,8 @@
 package templates
 
-import scalatags.Text.all._
 import ba.sake.hepek.html.statik.StaticPage
 import ba.sake.hepek.Resources._
 import site.Index
-import utils.Imports._
 
 trait SakeBaPage extends StaticPage {
 
@@ -15,21 +13,11 @@ trait SakeBaPage extends StaticPage {
   override def siteSettings =
     super.siteSettings
       .withName("sake.ba")
-      .withFaviconNormal(images.ico("favicon").ref)
-      .withFaviconInverted(images.ico("favicon-white").ref)
-      .withGoogleAnalyticsTrackingId("UA-93179008-1")
+      .withFaviconNormal(images.png("favicon").ref)
 
   override def styleURLs =
-    super.styleURLs.appended(
-      "https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css"
-    )
-
-  override def bodyContent =
-    div(cls := "container")(
-      div(cls := "row")(
-        div(cls := "col-md-2"),
-        div(cls := "col-md-8")(pageContent),
-        div(cls := "col-md-2")
+    super.styleURLs
+      .appended(
+        "https://cdn.jsdelivr.net/npm/water.css@2.0.0/out/water.min.css"
       )
-    )
 }
