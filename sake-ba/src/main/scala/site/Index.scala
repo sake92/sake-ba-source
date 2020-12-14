@@ -2,8 +2,8 @@ package site
 
 import scalatags.Text.all._
 import scala.collection.decorators._
-import utils.Imports._ //, Classes._, grid._
 import ba.sake.hepek.html.statik.Section
+import utils.Imports._
 
 object Index extends templates.SakeBaPage {
 
