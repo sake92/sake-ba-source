@@ -11,19 +11,18 @@ object Index extends templates.SakeBaPage {
     super.pageSettings
       .withTitle("Home")
       .withDescription(
-        "sake.ba is a personal website belonging to Sakib Hadžiavdić. " +
-          "Tutorials for programming, maths etc."
+        "sake.ba is a personal website belonging to Sakib Hadžiavdić."
       )
 
-  override def pageContent = div(
+  override def pageContent = div(cls := "main")(
     """
-       # Hi! My name is Sakib.
-       ## I write software in Scala and Java.
-       ---
+       # Hi, I am Sakib!
     """.md,
-    sections.map { s =>
-      div(h3(s.name), s.content)
-    }
+    div(cls := "sections")(
+      sections.map { s =>
+        div(cls := "section")(h3(s.name), s.content)
+      }
+    )
   )
 
   def sections =
@@ -33,9 +32,9 @@ object Index extends templates.SakeBaPage {
     "Stuff I do",
     div(
       """
-        - pišem [tutorijale](https://blog.sake.ba) na Bosanskome jeziku :)
-        - writing [useful notes](https://github.com/sake92/notes)
-        - hanging out with [JUGBA](https://jugba.org/) members
+        - writing [tutorials](https://blog.sake.ba)
+        - taking [notes](https://github.com/sake92/notes)
+        - helping organize [JUGBA](https://jugba.org)
       """.md
     )
   )
@@ -52,17 +51,17 @@ object Index extends templates.SakeBaPage {
         (
           "RxTags",
           "https://github.com/sake92/RxTags",
-          "simple, reactive ScalaJS UI library"
+          "reactive Scala.js UI library"
         ),
         (
           "Stone",
           "https://github.com/sake92/stone#route",
-          "simple and type safe URL (de)construction"
+          "type safe URL (de)construction"
         ),
         (
           "nand2tetris",
           "https://github.com/sake92/nand2tetris",
-          "assembler, VM, and a PL from nand2tetris course"
+          "assembler, VM, and a PL"
         )
       ).map {
         case (title, url, desc) =>
@@ -73,7 +72,7 @@ object Index extends templates.SakeBaPage {
 
   val talksSection = Section(
     "Talks",
-    div(
+    ul(
       List(
         (
           "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo",
@@ -99,18 +98,21 @@ object Index extends templates.SakeBaPage {
           "https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA/#/",
           "Project Amber"
         )
-      ).map { case (url, title) => hyperlink(url)(title) }
-        .intersperse(", ": Frag)
+      ).map {
+        case (url, title) =>
+          li(hyperlink(url)(title))
+      }
     )
   )
 
   val aboutSection = Section(
     "About",
     div(
-      s"""
-      - follow me on [twitter](https://twitter.com/sake_92)
-      - stalk me on [linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
-      - send me an [email](mailto:sakib@sake.ba)
+      """
+      [twitter](https://twitter.com/sake_92),
+      [linkedin](https://www.linkedin.com/in/sakib-hadziavdic),
+      [github](https://github.com/sake92),
+      [email](mailto:sakib@sake.ba)
       """.md
     )
   )

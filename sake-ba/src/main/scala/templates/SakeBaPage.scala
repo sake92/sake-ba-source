@@ -16,8 +16,6 @@ trait SakeBaPage extends StaticPage {
       .withFaviconNormal(images.png("favicon").ref)
 
   override def styleURLs =
-    super.styleURLs
-      .appended(
-        "https://cdn.jsdelivr.net/npm/water.css@2.0.0/out/water.min.css"
-      )
+    super.styleURLs.appended("styles/main.css")
+
 }
