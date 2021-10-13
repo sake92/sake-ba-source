@@ -16,7 +16,8 @@ object Index extends templates.SakeBaPage {
 
   override def pageContent = div(cls := "main")(
     """
-       # Hi, I am Sakib!
+       # Hi! I am Sakib. 🙋‍♂️
+       ---
     """.md,
     div(cls := "sections")(
       sections.map { s =>
@@ -46,12 +47,12 @@ object Index extends templates.SakeBaPage {
         (
           "Hepek",
           "https://github.com/sake92/hepek",
-          "very powerful static site generator"
+          "static site generator"
         ),
         (
           "RxTags",
           "https://github.com/sake92/RxTags",
-          "reactive Scala.js UI library"
+          "Scala.js UI library"
         ),
         (
           "Stone",
@@ -72,36 +73,15 @@ object Index extends templates.SakeBaPage {
 
   val talksSection = Section(
     "Talks",
-    ul(
-      List(
-        (
-          "https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo",
-          "Scala intro"
-        ),
-        (
-          "https://sake.ba/presentations/2018-08-28%20Hepek%20-%20OpenWeb%20Sarajevo",
-          "Hepek"
-        ),
-        (
-          "https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo",
-          "FP intro"
-        ),
-        (
-          "https://sake.ba/presentations/2018-10-27%20OpenSource%20-%20Hacktoberfest%20Sarajevo",
-          "Open Source"
-        ),
-        (
-          "https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo/#/",
-          "Writing an interpreter"
-        ),
-        (
-          "https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA/#/",
-          "Project Amber"
-        )
-      ).map {
-        case (url, title) =>
-          li(hyperlink(url)(title))
-      }
+    div(
+      """
+      [Scala intro](https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo),
+      [Hepek](https://sake.ba/presentations/2018-08-28%20Hepek%20-%20OpenWeb%20Sarajevo),
+      [FP intro](https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo),
+      [Open Source](https://sake.ba/presentations/2018-10-27%20OpenSource%20-%20Hacktoberfest%20Sarajevo),
+      [Writing an interpreter](https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo),
+      [Project Amber](https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA)
+      """.md
     )
   )
 
@@ -109,10 +89,11 @@ object Index extends templates.SakeBaPage {
     "About",
     div(
       """
+      [github](https://github.com/sake92),
+      [stackoverflow](https://stackoverflow.com/users/4496364/insan-e),
       [twitter](https://twitter.com/sake_92),
       [linkedin](https://www.linkedin.com/in/sakib-hadziavdic),
-      [github](https://github.com/sake92),
-      [email](mailto:sakib@sake.ba)
+      [email](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
       """.md
     )
   )
