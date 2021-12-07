@@ -1,7 +1,6 @@
 package site
 
 import scalatags.Text.all._
-import scala.collection.decorators._
 import ba.sake.hepek.html.statik.Section
 import utils.Imports._
 
@@ -64,9 +63,8 @@ object Index extends templates.SakeBaPage {
           "https://github.com/sake92/nand2tetris",
           "assembler, VM, and a PL"
         )
-      ).map {
-        case (title, url, desc) =>
-          li(hyperlink(url)(title), s" - $desc")
+      ).map { case (title, url, desc) =>
+        li(hyperlink(url)(title), s" - $desc")
       }
     )
   )
