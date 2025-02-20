@@ -1,4 +1,4 @@
-package site
+package files
 
 import scalatags.Text.all._
 import ba.sake.hepek.core.RelativePath
@@ -26,7 +26,7 @@ object NotFound extends templates.SakeBaPage {
           Just kidding, there's nothing here! ^_^
         """.md,
       raw(
-        """<a href="https://<!--#echo var="HTTP_HOST" -->">GOTO: homepage</a>"""
+        """<a href="https://sake.ba">GOTO: homepage</a>"""
       )
     )
   )

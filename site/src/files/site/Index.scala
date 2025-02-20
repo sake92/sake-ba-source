@@ -1,6 +1,7 @@
-package site
+package files
 
 import scalatags.Text.all._
+import scalatags.Text.tags2.{main, section}
 import ba.sake.hepek.html.statik.Section
 import utils.Imports._
 
@@ -13,49 +14,62 @@ object Index extends templates.SakeBaPage {
         "sake.ba is a personal website belonging to Sakib Hadžiavdić."
       )
 
-  override def pageContent = div(cls := "main")(
+  override def pageContent = main(
     """
-       # Hi! I am Sakib. 🙋‍♂️
-       ---
+       # Hello World! 🌍
+       
+       Hi! I am Sakib. 🙋‍♂️  
+       Welcome to my personal website.
+       
+       
     """.md,
     div(cls := "sections")(
       sections.map { s =>
-        div(cls := "section")(h3(s.name), s.content)
+        section(h3(s.name), s.content)
       }
-    )
+    ),
+    """
+      |I also have my sole proprietorship company called [SaCode](https://sacode.dev/).
+      |""".stripMargin
   )
 
   def sections =
     List(resourcesSection, projectsSection, talksSection, aboutSection)
 
   val resourcesSection = Section(
-    "Stuff I do",
+    "Content",
     div(
       """
-        - writing [tutorials](https://blog.sake.ba)
-        - taking [notes](https://github.com/sake92/notes)
-        - helping organize [JUGBA](https://jugba.org)
+        - book [Learn Programming with FlowRun](https://a.co/d/bVxMBe4) for beginner programmers
+        - [blog in English](https://blog.sake.ba/en/posts/programming/monads.html)
+        - [blog na bosanskom](https://blog.sake.ba)
+        - [notes](https://github.com/sake92/notes)
       """.md
     )
   )
 
   val projectsSection = Section(
-    "Projects",
+    "Open Source Software",
     ul(
       List(
+        (
+          "FlowRun",
+          "https://flowrun.io/",
+          "runnable flowcharts for web"
+        ),
+        (
+          "Sharaf",
+          "https://sake92.github.io/sharaf/",
+          "Minimalistic Scala 3 web framework"
+        ),
         (
           "Hepek",
           "https://github.com/sake92/hepek",
           "static site generator"
         ),
         (
-          "RxTags",
-          "https://github.com/sake92/RxTags",
-          "Scala.js UI library"
-        ),
-        (
-          "Stone",
-          "https://github.com/sake92/stone#route",
+          "OpenApi generators for Scala",
+          "https://github.com/sake92/openapi4s",
           "type safe URL (de)construction"
         ),
         (
@@ -64,7 +78,7 @@ object Index extends templates.SakeBaPage {
           "assembler, VM, and a PL"
         )
       ).map { case (title, url, desc) =>
-        li(hyperlink(url)(title), s" - $desc")
+        li(a(href := url)(title), s" - $desc")
       }
     )
   )

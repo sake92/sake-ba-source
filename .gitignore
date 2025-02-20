@@ -1,28 +1,21 @@
-*.class
-*.log
 
-# sbt specific
-.cache
-.history
-.lib/
-dist/*
-lib_managed/
-src_managed/
-project/boot/
-project/plugins/project/
-project/project/
-target/
-bin/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-
+### VS Code ###
 .vscode/
 
-pdfs/
-
+### Scala ###
+.metals/
 .bloop/
 .bsp/
-.idea/
-.metals/
-project/.bloop/
+.scala-build/
+logs/
 
-null/
+.env*
