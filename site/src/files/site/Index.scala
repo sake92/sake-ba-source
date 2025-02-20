@@ -27,12 +27,11 @@ object Index extends templates.SakeBaPage {
       sections.map { s =>
         section(h3(s.name), s.content)
       }
-    ),
-    """I also have my sole proprietorship company called [SaCode](https://sacode.dev/).""".md
+    )
   )
 
   def sections =
-    List(resourcesSection, projectsSection, talksSection, aboutSection)
+    List(resourcesSection, projectsSection, talksSection, aboutSection, legalSection)
 
   val resourcesSection = Section(
     "Content",
@@ -102,6 +101,15 @@ object Index extends templates.SakeBaPage {
       [github](https://github.com/sake92),
       [stackoverflow](https://stackoverflow.com/users/4496364/insan-e),
       [linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
+      """.md
+    )
+  )
+
+  val legalSection = Section(
+    "Legal",
+    div(
+      """
+      I have my sole proprietorship company called [SaCode](https://sacode.dev/).
       """.md
     )
   )
