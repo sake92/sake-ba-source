@@ -28,9 +28,7 @@ object Index extends templates.SakeBaPage {
         section(h3(s.name), s.content)
       }
     ),
-    """
-      |I also have my sole proprietorship company called [SaCode](https://sacode.dev/).
-      |""".stripMargin
+    """I also have my sole proprietorship company called [SaCode](https://sacode.dev/).""".md
   )
 
   def sections =
@@ -68,14 +66,14 @@ object Index extends templates.SakeBaPage {
           "static site generator"
         ),
         (
-          "OpenApi generators for Scala",
+          "OpenApi4s",
           "https://github.com/sake92/openapi4s",
-          "type safe URL (de)construction"
+          "OpenApi generators for Scala"
         ),
         (
-          "nand2tetris",
+          "nand2tetris solutions",
           "https://github.com/sake92/nand2tetris",
-          "assembler, VM, and a PL"
+          "CPU, assembler, VM, and a Programming Language implementation"
         )
       ).map { case (title, url, desc) =>
         li(a(href := url)(title), s" - $desc")
@@ -87,12 +85,12 @@ object Index extends templates.SakeBaPage {
     "Talks",
     div(
       """
-      [Scala intro](https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo),
-      [Hepek](https://sake.ba/presentations/2018-08-28%20Hepek%20-%20OpenWeb%20Sarajevo),
-      [FP intro](https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo),
+      [Project Amber](https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA),
+      [Writing an Interpreter](https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo),
       [Open Source](https://sake.ba/presentations/2018-10-27%20OpenSource%20-%20Hacktoberfest%20Sarajevo),
-      [Writing an interpreter](https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo),
-      [Project Amber](https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA)
+      [FP Intro](https://sake.ba/presentations/2018-09-08%20FP%20intro%20-%20freeCodeCamp%20Sarajevo),
+      [Hepek](https://sake.ba/presentations/2018-08-28%20Hepek%20-%20OpenWeb%20Sarajevo),
+      [Scala Intro](https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo)
       """.md
     )
   )
@@ -103,9 +101,7 @@ object Index extends templates.SakeBaPage {
       """
       [github](https://github.com/sake92),
       [stackoverflow](https://stackoverflow.com/users/4496364/insan-e),
-      [twitter](https://twitter.com/sake_92),
-      [linkedin](https://www.linkedin.com/in/sakib-hadziavdic),
-      [email](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      [linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
       """.md
     )
   )

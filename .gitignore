@@ -19,3 +19,9 @@ out/
 logs/
 
 .env*
+
+# Mill
+out/
+
+# Hepek
+hepek_output/
