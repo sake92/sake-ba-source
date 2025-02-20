@@ -1,7 +1,6 @@
 package files
 
-import scalatags.Text.all._
-import ba.sake.hepek.core.RelativePath
+import scalatags.Text.tags2.main
 import utils.Imports._
 
 object NotFound extends templates.SakeBaPage {
@@ -10,25 +9,16 @@ object NotFound extends templates.SakeBaPage {
 
   override def fileName = "404.shtml"
 
-  /* Since we use RELATIVE LINKS when referring to JS files, pages etc.
-   * it doesn't work well when you land on a page like sake.ba/blah/sdfd/fdf/dsf/s
-   */
-  override def relTo(other: RelativePath) =
-    "https://sake.ba/" + super.relTo(other)
+  override def pageContent = main(
+    """
+    This content is not available in your country.  
+    Sorry about that. :/
 
-  override def pageContent = frag(
-    div(
-      """
-          This content is not available in your country.  
-          Sorry about that. :/
-
-          ---
-          Just kidding, there's nothing here! ^_^
-        """.md,
-      raw(
-        """<a href="https://sake.ba">GOTO: homepage</a>"""
-      )
-    )
+    ---
+    Just kidding, there's nothing here! ^_^
+    
+    [Go back to homepage](/)
+    """.md
   )
 
 }
