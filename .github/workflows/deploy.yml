@@ -18,7 +18,7 @@ jobs:
           java-version: 17
       - name: Build
         run: |
-            curl https://github.com/sake92/flatmark/actions/runs/15782163025/artifacts/3371051194 -o flatmark.zip
+            curl -L https://github.com/sake92/flatmark/actions/runs/15782163025/artifacts/3371051194 -o flatmark.zip
             unzip flatmark.zip
             chmod +x flatmark
             ./flatmark build
