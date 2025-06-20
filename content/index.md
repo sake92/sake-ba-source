@@ -1,28 +1,27 @@
 ---
 title: Home
-description: sake.ba is a personal website belonging to Sakib Hadžiavdić
+description: sake.ba je lična web stranica od Sakiba Hadžiavdića
 ---
 
 # Hello World! 🌍
 
-Hi! I am Sakib. 🙋‍♂️  
-Welcome to my personal website.
+Pozz! Ja sam Sakib. 🙋‍♂️  
+Dobrodošli na moju web stranicu.
+
+## Pišem
+- knjigu [Naučite programiranje uz FlowRun](https://leanpub.com/nauciteprogramiranjeuzflowrun) za početnike u programiranju
+- [blog](https://blog.sake.ba) uglavnom o programiranju
+- [bilješke](https://github.com/sake92/notes)
 
 
-## Writing
-- book [Learn Programming with FlowRun](https://a.co/d/bVxMBe4) for beginner programmers
-- [blog](https://blog.sake.ba/en) mostly about programming
-- [notes](https://github.com/sake92/notes)
-
-
-## Open Source Software
+## Pravim
 {%
 set projects = [
-    { "label": "FlowRun", "link": "https://flowrun.io/", "desc": "runnable flowcharts for web" },
-    { "label": "Sharaf", "link": "https://sake92.github.io/sharaf/", "desc": "Minimalistic Scala 3 web framework" },
+    { "label": "FlowRun", "link": "https://flowrun.io/", "desc": "flowchart programi za web" },
+    { "label": "Sharaf", "link": "https://sake92.github.io/sharaf/", "desc": "Minimalistički Scala 3 web framework" },
     { "label": "Hepek", "link": "https://github.com/sake92/hepek", "desc": "static site generator" },
-    { "label": "OpenApi4s", "link": "https://github.com/sake92/openapi4s", "desc": "OpenApi generators for Scala" },
-    { "label": "nand2tetris solutions", "link": "https://github.com/sake92/nand2tetris", "desc": "CPU, assembler, VM, and a Programming Language implementation" }
+    { "label": "OpenApi4s", "link": "https://github.com/sake92/openapi4s", "desc": "OpenApi generatori za Scalu" },
+    { "label": "nand2tetris solutions", "link": "https://github.com/sake92/nand2tetris", "desc": "implementacija CPU, assemblera, VM-a, i programskog jezika" }
 ]
 %}
 
@@ -32,7 +31,7 @@ set projects = [
 {% endfor %}
 
 
-## Talks
+## Prezentujem
 
 [Project Amber](https://sake.ba/presentations/2020-09-09%20Amber%20-%20JUGBA),
 [Writing an Interpreter](https://sake.ba/presentations/2020-01-07%20Writing%20an%20interpreter%20-%20OpenWeb%20Sarajevo),
@@ -42,13 +41,13 @@ set projects = [
 [Scala Intro](https://sake.ba/presentations/2018-01-23%20Scala%20intro%20-%20OpenWeb%20Sarajevo)
 
 
-## About
+## O meni
 
 [github](https://github.com/sake92),
 [stackoverflow](https://stackoverflow.com/users/4496364/insan-e),
 [linkedin](https://www.linkedin.com/in/sakib-hadziavdic)
 
 
-## Legal
+## Legalne stvari
 
-I have my sole proprietorship company [SaCode](https://sacode.dev/).
+Imam obrt [SaCode](https://sacode.dev/).
