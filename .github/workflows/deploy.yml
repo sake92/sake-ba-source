@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
             curl -L -O https://github.com/sake92/flatmark/releases/download/v0.0.14/flatmark_0.0.14_amd64.deb -o flatmark.deb
-            apt install -y flatmark.deb
+            sudo apt install -y flatmark.deb
             ./flatmark build
       - name: Deploy to GH Pages
         uses: JamesIves/github-pages-deploy-action@v4
