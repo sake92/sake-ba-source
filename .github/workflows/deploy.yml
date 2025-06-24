@@ -18,7 +18,8 @@ jobs:
           java-version: 17
       - name: Build
         run: |
-            curl -L https://github.com/sake92/flatmark/releases/download/v0.0.14/flatmark_0.0.14_amd64.deb -o flatmark.deb
+            FLATMARK_VERSION=0.0.15
+            curl -L https://github.com/sake92/flatmark/releases/download/v$FLATMARK_VERSION/flatmark_$FLATMARK_VERSION_amd64.deb -o flatmark.deb
             sudo apt install -y ./flatmark.deb
             flatmark build
       - name: Deploy to GH Pages
