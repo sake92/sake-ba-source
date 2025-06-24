@@ -1,2 +1,6 @@
 name: sake.ba
 lang: bs
+
+highlightCode: false
+highlightMath: false
+
