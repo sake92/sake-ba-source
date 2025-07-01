@@ -1,52 +1,45 @@
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>    Not found | sake.ba</title>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css">
-    <link rel="stylesheet" href="/styles/default.css">
-</head>
-<body>
-
-
-<header class="pico container">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-        </ul>
-        <ul>
-                    
-                            <li>
-                    <details class="dropdown">
-                    <summary>
-                      Language
-                    </summary>
-                    <ul dir="rtl">
-                                              <li><a href="/">Bosanski</a></li>
-                                                <li><a href="/en">English</a></li>
-                                            </ul>
-                  </details>
-                </li>
-                    </ul>
-    </nav>
-</header>
-    
-<main class="pico container">
-    <p>This content is not available in your country..</p>
-<p>Sorry about that. 😿</p>
-<hr />
-<p>Just kidding, there's nothing here! 😸</p>
-<p><a href="/">Go back to homepage</a></p>
-</main>
-
-
-<footer class="pico container">
-    sake.ba    </footer>
-
-</body>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="sake.ba is a personal website belonging to Sakib Hadžiavdić">
+  <title> Not found | sake.ba </title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css">
+  <link rel="stylesheet" href="/styles/default.css">
+ </head>
+ <body>
+  <header class="pico container">
+   <nav>
+    <ul>
+     <li><a href="/">Home</a></li>
+    </ul>
+    <ul>
+     <li>
+      <details class="dropdown">
+       <summary> Bosanski </summary>
+       <ul dir="rtl">
+        <li><a href="/en">English</a></li>
+       </ul>
+      </details>
+     </li>
+    </ul>
+   </nav>
+  </header>
+  <main class="pico container">
+   <div class="grid">
+    <div></div>
+    <div></div>
+    <div></div>
+   </div>
+   <p>This content is not available in your country..</p>
+   <p>Sorry about that. 😿</p>
+   <hr>
+   <p>Just kidding, there's nothing here! 😸</p>
+   <p><a href="/">Go back to homepage</a></p>
+  </main>
+  <footer class="pico container">sake.ba</footer>
+ </body>
 </html>
