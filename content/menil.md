@@ -2,6 +2,10 @@
 # Menil
 
 ```diagram:mermaid
+---
+config:
+  theme: 'dark'
+---
 
 flowchart LR
  A[Shopify] --> B[Integrator]
